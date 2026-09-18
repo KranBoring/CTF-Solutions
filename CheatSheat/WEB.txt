@@ -1,0 +1,62 @@
+=== 1. BẢN CHẤT GIAO THỨC HTTP ===
+- HTTP Stateless: Server bị "mất trí nhớ" tạm thời, nó đéo biết mày là ai sau mỗi lần load trang. Quyền lực duy nhất chứng minh danh tính là thẻ bài Cookie.
+- GET: Đòi Server nôn ra cả Vỏ (Headers) lẫn Ruột (Body/HTML).
+- POST: Đẩy dữ liệu (Tài khoản, Mật khẩu) từ máy mày lên Server một cách kín đáo (giấu trong Body).
+- HEAD: Chỉ đòi Vỏ (Headers), đéo lấy Ruột. Vũ khí tối thượng để lách luật mấy cái bẫy giấu cờ trong Header của tác giả.
+
+=== 2. COOKIE & CUSTOM HEADERS (THAO TÚNG DỮ LIỆU) ===
+- Custom Headers (X-...): Các thẻ Header bắt đầu bằng chữ "X-" là đồ tự chế của lập trình viên (Vd: X-Dev-Access). Nó không theo chuẩn quốc tế, thường là Backdoor để lách khâu đăng nhập.
+- URL Encoding (Mã hóa URL): Trình duyệt luôn tự động bóp méo ký tự đặc biệt trong Cookie trước khi gửi đi. (Vd: Dấu '=' của Base64 sẽ bị biến thành '%3D'). Gặp là phải Decode URL về thô (Raw) rồi mới xử lý tiếp.
+- Đục lỗ: Soi bằng F12 (Application -> Cookies) hoặc nã thẳng bằng cURL (-H "Cookie: name=...").
+
+=== 3. TRINH SÁT MÁY CHỦ (RECONNAISSANCE) ===
+- Apache Server: Ngửi thấy mùi máy chủ chạy Apache, phản xạ đầu tiên là gõ thử file ẩn `.htaccess` (Chứa cấu hình phân quyền truy cập, chặn IP).
+- macOS: Lập trình viên xài Mac hay lỡ tay đẩy cả file ẩn `.DS_Store` lên Server. Lọc được file này là đọc được sạch tên các thư mục/file bí mật giấu trên đó.
+
+=== 4. BURP SUITE WORKFLOW (NGHỆ THUẬT ÉP CUNG) ===
+- Proxy -> Intercept (Giăng bẫy): Bật "Open Browser", mở "Intercept is on" để đóng băng thời gian, bóp cổ gói tin trước khi nó kịp bay lên Server.
+- Repeater (Thẩm vấn): Phím tắt Ctrl + R. Ném gói tin vào phòng tối, sửa đổi tùy thích (đổi Cookie, đổi GET thành HEAD) rồi bấm Send xem Server phản ứng. Đéo cần F5 lại web.
+- Intruder (Xả súng): Bôi đen vị trí cần nhét đạn (Add §), chọn loại đạn (Numbers) rồi Auto bắn.
+
+=== 5. CHIẾN THUẬT TỰ ĐỘNG HÓA ===
+- Brute-force (Mò kim đáy bể): Dò từ từ từng số/chữ. Dùng Burp Intruder hoặc Python vòng lặp. Server vẫn sống nhăn răng trả lời.
+- Race Condition / DDoS (Đánh sập cửa): Ép Server xử lý hàng trăm request cùng một phần nghìn giây để lú logic (Vượt Rate Limit/Nhân bản tiền). BẮT BUỘC bỏ Burp, xài Bash (curl kẹp &) hoặc Python đa luồng (Multi-threading).
+1. Lỗ Hổng Logic & Phân Quyền (Broken Access Control)
+Đừng cắm đầu húc tường: Nếu Hint bảo "Nó đéo check pass của ai ngoài thằng Joe", thì tư duy đảo ngược là phải đăng nhập bằng một thằng ất ơ (như "kran") để lách qua chốt chặn mật khẩu.
+
+Client-Side Trust (Tin tưởng mù quáng): Lỗi ngu ngốc nhất của Web là vứt quyền quyết định (ví dụ: admin=False) xuống Cookie cho người dùng tự giữ. Mày chỉ việc sửa thành True là cướp ngôi Server.
+
+2. Vũ Khí Terminal Lọc Rác
+Cú pháp đa biến: Khi gửi nhiều Cookie cùng lúc bằng cURL, bắt buộc bọc trong ngoặc kép và ngăn cách bằng dấu chấm phẩy: curl -H "Cookie: user=a; admin=True;".
+
+Dao mổ grep -oE: Dùng cờ -o (chỉ cắt phần khớp, vứt râu ria) kết hợp -E (kích hoạt Regex) để móc cờ.
+
+Regex thần thánh: Cú pháp picoCTF{.*?} dặn máy quét: Tìm chữ bắt đầu bằng picoCTF{, quét bất kỳ ký tự nào (.*) nhưng phải phanh gấp ở dấu đóng ngoặc nhọn đầu tiên (?).
+
+3. Lỗ Hổng SSTI (Server-Side Template Injection)
+Bản chất: Bắt nguồn từ việc Coder lười biếng, đem đoạn văn bản mày nhập nối thẳng vào cái khuôn (Template) HTML, khiến máy chủ tưởng nhầm đó là lệnh của hệ thống.
+
+Phương pháp luận: Không bao giờ nã đạn mù. Phải Trinh sát (nhập thử {{7*7}} xem có ra 49 không) -> Định danh (Test xem Server chạy Python, PHP hay Java) -> Khai thác.
+
+4. Leo Thang Đặc Quyền Bằng Python (RCE)
+Cơ chế: Dùng các biến ẩn của Python (__class__, __base__, __subclasses__()) để leo ngược gia phả từ một chuỗi rỗng lên tận ngọn mút, nhằm chiếm quyền truy cập thư viện hệ thống (os.popen).
+
+Điểm mù Copy-Paste: Tuyệt đối không tin tưởng mù quáng vào các Payload trên mạng. Các chỉ số như [80] hay [112] trỏ vào class thực thi lệnh sẽ thay đổi tùy thuộc vào phiên bản Server, copy bừa bãi văng lỗi là bình thường.
+
+=== 6. BẢN CHẤT GIAO THỨC HTTP (LỖI TREO SERVER) ===
+- Khoảng trống sinh tử (\r\n\r\n): Gói tin HTTP bắt buộc phải có 1 dòng trống phân cách giữa Headers (Vỏ) và Body (Ruột). Xóa nhầm dòng này, Server sẽ tưởng chưa gửi xong -> Treo mỏ chờ (Đơ).
+- Đồng bộ Content-Length: Xóa sạch Body thì Content-Length BẮT BUỘC phải đổi thành 0. Nếu không, Server chờ dữ liệu ma -> Đơ.
+- Parameter Tampering (Thao túng tham số): Thay vì xóa rỗng biến gây rủi ro lỗi HTTP, hãy đổi tên biến thành rác (VD: otp=123 thành skibidi=123). Server đọc không hiểu sẽ tự động bỏ qua chốt chặn xác thực.
+
+=== 7. RÒ RỈ BỘ NHỚ (HEAP DUMP) & XỬ LÝ NHỊ PHÂN ===
+- Heap Dump: Lỗ hổng chí mạng khi Dev quên tắt tính năng Debug. Nó trích xuất toàn bộ RAM (chứa Mật khẩu, API Key, Session chưa mã hóa) thành một file.
+- Tuyệt đối không dùng `cat` hay `grep` trực tiếp lên file nhị phân (Binary) vì sẽ làm treo Terminal.
+- Combo phẫu thuật: `curl [url] | strings | grep -oE "picoCTF{.*?}"`
+  + strings: Màng lọc tối thượng, vứt bỏ mã máy nhị phân, chỉ giữ lại các cụm từ tiếng người (ASCII).
+
+=== 8. WEBSHELL & LEO THANG ĐẶC QUYỀN (PRIVILEGE ESCALATION) ===
+- Payload WebShell PHP: `<?php system($_GET['cmd']); ?>`
+  + Tạo ra một backdoor nhận lệnh trực tiếp từ thanh URL thông qua biến `?cmd=...`
+- URL Encoding: Khi gõ lệnh trên trình duyệt, dấu cách (Space) bắt buộc phải đổi thành `%20` (VD: `cat /root/flag` -> `cat%20/root/flag`).
+- Tư duy leo quyền (PrivEsc): Chiếm được Shell thường chỉ ở quyền thấp (www-data).
+  + Câu thần chú đầu tiên: Gõ `sudo -l` để xem tài khoản cùi bắp này được phép chạy lén lệnh gì dưới danh nghĩa Chúa tể (Root) mà không cần nhập mật khẩu. Sau đó dùng chính lệnh đó để đọc cờ.

@@ -1,0 +1,74 @@
+=== 1. QUẢN TRỊ LINUX CƠ BẢN ===
+lệnh_1 ; lệnh_2       : Chạy lệnh 2 bất chấp lệnh 1 có lỗi hay không.
+lệnh_1 && lệnh_2      : Chỉ chạy lệnh 2 nếu lệnh 1 thành công (code 0).
+lệnh_1 || lệnh_2      : Chỉ chạy lệnh 2 nếu lệnh 1 thất bại.
+lệnh_1 | lệnh_2       : (Pipe) Nối đầu ra lệnh 1 làm đầu vào lệnh 2.
+> /dev/null           : Vứt output vào hố đen, không in ra Terminal (chống nghẽn I/O).
+> file.txt            : Ghi đè output vào file.
+>> file.txt           : Ghi nối thêm output vào cuối file.
+tar -xvf <file>       : Giải nén file .tar.gz (x: giải nén, v: hiện quá trình, f: chỉ định file).
+rm -rf <thư_mục>      : Xóa đệ quy và ép buộc (không hỏi lại). Cực kỳ nguy hiểm.
+objdump               : Mổ xẻ, xem cấu trúc/mã máy của file nhị phân.(-d: Disassembles, -t :symbol table)
+ln -s <file> <tên>    : Tạo shortcut (lối tắt) trỏ tới file.
+man <lệnh>            : Mở sách hướng dẫn sử dụng chi tiết của lệnh.
+
+=== 2. WILDCARDS / GLOBBING (LÁCH LUẬT BẤM PHÍM) ===
+*                     : Đại diện cho 0 hoặc nhiều ký tự bất kỳ (vd: /*).
+?                     : Đại diện chính xác 1 ký tự (vd: /???).
+[]                    : Khớp 1 ký tự nằm trong cụm (vd: /[bc]at).
+[!...] hoặc [^...]    : Phủ định, loại trừ các ký tự trong cụm (vd: [!_]64).
+
+=== 3. PWNTOOLS (TƯƠNG TÁC SERVER TỰ ĐỘNG) ===
+send(payload)         : Gửi dữ liệu không kèm Enter (thường dùng gửi raw bytes).
+sendline(payload)     : Gửi dữ liệu kèm cú nhấn Enter (\n).
+sendafter(chờ, đạn)   : Đợi đúng chuỗi xuất hiện rồi mới quăng đạn (không Enter).
+sendlineafter(chờ, đạn): Đợi chuỗi xuất hiện rồi nã đạn kèm Enter (Chân ái Pwnable).
+recv(n)               : Hốt n byte dữ liệu đầu tiên.
+recvline()            : Đọc dữ liệu đến khi đụng ký tự xuống dòng (\n).
+recvuntil(chuỗi)      : Ủi rác, nuốt sạch mọi thứ cho đến khi đụng đúng chuỗi chỉ định.
+recvall()             : Vét cạn máng mọi dữ liệu cho đến khi server ngắt kết nối (EOF).
+
+=== 4. XỬ LÝ NHỊ PHÂN & MÃ HÓA ===
+base64 -d <file>      : Giải mã base64 từ file.
+<<< "chuỗi_b64"       : Truyền trực tiếp chuỗi vào lệnh (vd: base64 -d <<< "chuỗi").
+base32 -d             : Giải mã base32 (chỉ dùng 32 ký tự, an toàn vượt bộ lọc).
+xxd -r -p             : Đảo ngược chuỗi Hex về text ASCII.
+hexdump -C <file>     : Đổ ruột file nhị phân ra mã Hex và ký tự ASCII.
+od -t x1 <file>       : Đổ dữ liệu file ra dạng mã Hex.
+od -c <file>          : Đổ dữ liệu file ra dạng ký tự ASCII con người đọc được.
+rev                   : Đảo ngược thứ tự các ký tự trong chuỗi.
+tr "cũ" "mới"         : Tráo đổi ký tự (Vd giải ROT13: tr "A-Za-z" "N-ZA-Mn-za-m").
+
+=== 5. LEO THANG ĐẶC QUYỀN (PRIVILEGE ESCALATION) ===
+sudo <lệnh>           : Chạy lệnh bằng quyền quản trị (Root).
+sudo -l               : Xem danh sách các lệnh được phép chạy quyền sudo.
+sudo nano <file>      : Mở nano quyền root. (Kích hoạt shell: Nhấn Ctrl+R -> Ctrl+X).
+reset; sh 1>&0 2>&0   : Lệnh spawn shell từ nano (Dùng dup2 nhân bản ống 0 (TTY) thành ống 1 và 2 để dội output ra màn hình).
+
+=== 6. MẠNG & WEB EXPLOITATION ===
+smbclient -L //<IP> -N        : Trinh sát, liệt kê danh sách thư mục share SMB (không cần pass).
+smbclient //<IP>/<Share> -N   : Đột nhập vào thư mục SMB.
+get / put / exit              : Tải file về / Đẩy file lên / Thoát kết nối SMB.
+input; ls                     : Command Injection cơ bản (Kẹp dấu ; để chạy thêm lệnh).
+for i in {1..350}; do curl -s <URL> > /dev/null & done : DDoS Bash. Dùng dấu & ép 350 lệnh chạy song song đấm sập Rate Limit.
+http-check expect status 200  : Cấu hình HAProxy (Server chỉ sống nếu trả về mã 200).
+check inter 2s fall 2         : HAProxy check mỗi 2s, xịt 2 lần là bẻ lái sang nhánh Backup (Failover).
+
+=== 7. GIT (VERSION CONTROL) ===
+git clone <URL>       : Nhân bản mã nguồn từ server về máy.
+git add <file>        : Đưa file vào khu vực chờ (staging).
+git commit -m "Note"  : Đóng gói và ghi chú thay đổi (commit).
+git push              : Đẩy code từ máy cục bộ lên server.
+git log               : Truy xuất lịch sử commit (dùng để bới cờ bị giấu trong quá khứ).
+git log -p <file>     : Hiển thị chi tiết code bị xóa (-) màu đỏ hoặc thêm (+) màu xanh.
+git config user.name  : Ép Git đổi tên người dùng.
+git config user.email : Ép Git đổi email người dùng.
+git branch -a         : Xem toàn bộ danh sách các nhánh.
+git checkout <tên>    : Chuyển nhánh hoặc nhảy vượt thời gian khôi phục commit cũ.
+git show <branch>:file: Xem trộm nội dung file ở một nhánh khác.
+
+=== 8. RUST PROGRAMMING ===
+rustc <file.rs>       : Biên dịch file Rust đơn lẻ thành file thực thi độc lập.
+cargo run             : Tự động tải thư viện, build toàn bộ project và chạy (gọi tại gốc chứa Cargo.toml).
+mut                   : Khai báo biến có thể chỉnh sửa (Mutable) (Biến trong Rust mặc định là read-only).
+unsafe { ... }        : Khối lệnh vượt rào Memory Safety để thao túng con trỏ trực tiếp.

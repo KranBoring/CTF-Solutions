@@ -1,0 +1,103 @@
+=== SỔ TAY CORE CRYPTO TỐI THƯỢNG (TỔNG HỢP & NÂNG CẤP) ===
+
+1. VẠCH TRẦN TOÁN HỌC MẬT MÃ & LỖ HỔNG (Tư duy Hệ thống)
+- Bản chất RSA: Tạo cặp khóa giao hoán. Bảo mật nhờ bài toán phân tích số bán nguyên tố. 
+  Sinh khóa: N = p*q; Phi(N) = (p-1)*(q-1); gcd(e, Phi(N)) = 1; (e*d) mod Phi(N) = 1.
+- Lỗ hổng EVEN RSA: Nếu Modulus N chẵn (tận cùng 0, 2, 4, 6, 8) -> p=2, q=N//2. Rút gọn Phi(N) = q-1. Tính lại d = inverse(e, Phi(N)) và giải mã dễ dàng.
+- Lỗ hổng RSA Số mũ nhỏ (e nhỏ): Nếu M^e không vượt quá (hoặc vượt quá chút ít) N, mã hóa mất an toàn. M^e ≈ C + k*N. Khai thác: Tìm căn bậc e của C + k*N bằng thuật toán tìm kiếm nhị phân trên số nguyên.
+- Lỗ hổng Oracle RSA (Thiếu CPA Security): Lợi dụng tính chất đồng cấu phép nhân. Yêu cầu mã hóa số 2 -> 2^e mod N. Nhân với bản mã C -> C' = (2M)^e mod N. Nhờ Oracle giải mã C' -> 2M. Lấy 2M chia 2 ra M gốc.
+- Diffie-Hellman (DHKE): Dùng lũy thừa Modulo trao đổi khóa: Shared Key = (g^a)^b mod p = (g^b)^a mod p = g^{ab} mod p. 
+  Lỗ hổng: Nếu ép khóa chung modulo 256, không gian khóa bị nén còn 1 Byte (0-255), dễ bị brute-force vét cạn bằng vòng lặp.
+- SHA-256: Hàm băm một chiều, phá hủy thông tin qua các vòng lặp chứa phép toán mất mát (AND, OR, Shift Bit). Nôn ra 32 Bytes (64 ký tự Hex) cố định. Miễn nhiễm với giải ngược toán học và Brute-force.
+- AES (Mã hóa khối): Cần Padding (PKCS#7) ép vừa khít khối 16 Bytes. Dùng 14 vòng lặp (AES-256) trộn dữ liệu bằng S-Box phi tuyến tính, trượt hàng, trộn cột. Đảo ngược được khi có khóa.
+
+2. SỔ TAY LỆNH LINUX (Tự động hóa Terminal & Piping)
+- exiftool <file>: Trích xuất siêu dữ liệu (Metadata) ẩn trong ảnh/tệp.
+- strings: Lọc mã máy, chỉ giữ chuỗi văn bản ASCII.
+- hexdump -C: Mổ file ra xem song song mã Hex và ký tự ASCII.
+- xxd -r -p: Chuyển chuỗi Hex văn bản về định dạng tệp tin gốc (Raw bytes).
+- openssl pkeyutl -decrypt -inkey <key.pem> -in <file.enc>: Cú pháp chuẩn OpenSSL 3.0+ giải mã RSA.
+- openssl rsa -in <private.pem> -pubout -out <public.pem>: Trích xuất Khóa công khai.
+- openssl enc -aes-256-cbc -d -in <file.enc> -k <key>: Giải mã AES-256-CBC bằng mật khẩu.
+- base64 -d -i: Giải mã Base64. Cờ -i ép nhắm mắt bỏ qua ký tự rác (như b'...').
+- tr '<set1>' '<set2>': Ánh xạ tráo đổi ký tự (giải Caesar/ROT trên Terminal).
+- | (Pipe): Nối đầu ra lệnh trước làm đầu vào lệnh sau.
+
+3. SỔ TAY HÀM PYTHON (Mật mã, Dữ liệu & Pwntools)
+- pow(base, exp, mod): Lũy thừa Modulo nhanh, chống tràn RAM.
+- pow(e, -1, phi_N): Tính Nghịch đảo Modulo. Cỗ máy tìm số bí mật d duy nhất.
+- ^ (Toán tử XOR): Thao tác logic cấp bit. Có tính tự nghịch đảo (Giải mã y hệt mã hóa).
+- hashlib.sha256(data).digest(): Băm SHA-256. data bắt buộc phải là byte thô.
+- pad(data, 16): Độn dữ liệu chuẩn PKCS#7 cho mã hóa khối.
+- bytes.fromhex(string): Biến chuỗi Hex văn bản (có độ dài chẵn) về byte nhị phân thô.
+- list(): Phá khối byte dính liền thành mảng các số nguyên rời rạc để chạy vòng lặp.
+- chr(int) & "".join(list): Dịch số nguyên về ASCII và vẩy keo ghép thành chuỗi hoàn chỉnh.
+- open(..., errors='ignore'): Lờ đi ký tự lỗi (tránh sập UnicodeDecodeError) khi đọc file.
+- Pwntools: from pwn import * -> io = remote(IP, port) -> io.recvuntil(b"...") -> io.sendline(b"payload").
+
+4. BÀI HỌC VỆ SINH DỮ LIỆU (Data Hygiene)
+- Không bao giờ tin tưởng tuyệt đối vào dữ liệu đầu ra từ file/Terminal (đặc biệt là tiền tố b'...' bị dính khi Python ép kiểu).
+- Luôn tiền xử lý/quét rác bằng cờ `-i` hoặc Regex trước khi đẩy vào các hàm giải mã nhạy cảm.
+
+=== SỔ TAY CORE CRYPTO (BỔ SUNG) ===
+
+1. TẤN CÔNG FRANKLIN-REITER RELATED MESSAGE (RSA)
+- Dấu hiệu: Có 2 bản mã C1, C2 được mã hóa từ cùng 1 khóa (N, e). Hai bản rõ M1, M2 có mối liên hệ tuyến tính M1 = a*M2 + b (ví dụ: do dịch bit hoặc đệm thêm padding chuẩn).
+- Toán học: Đưa về tìm Ước chung lớn nhất (GCD) của 2 đa thức:
+  f(x) = (a*x + b)^e - C1 
+  g(x) = x^e - C2 
+- Khai thác: GCD(f, g) trả về đa thức bậc 1 (c*x + d). Nghiệm của nó (x = -d * c^(-1) mod N) chính là M2[cite: 3]. SageMath là công cụ bắt buộc để xử lý đa thức trên vành Z_n[cite: 3].
+
+2. BẺ KHÓA REPEATED-KEY XOR
+- Bước 1: Tìm Key Length bằng Khoảng cách Hamming (Hamming Distance). Chạy thử độ dài khóa từ 2 đến 40. Chia khối bản mã theo độ dài đó. Độ dài nào cho giá trị Hamming chuẩn hóa nhỏ nhất là Key Length đúng[cite: 3].
+- Bước 2: Chuyển vị (Transpose). Gom tất cả các byte ở vị trí thứ i của mỗi khối lại thành một chuỗi (chuỗi này được XOR bằng cùng 1 byte khóa)[cite: 3].
+- Bước 3: Áp dụng tấn công Single-byte XOR cho từng chuỗi (dùng phân tích tần suất ký tự - Frequency Analysis)[cite: 3].
+- Bước 4: Lắp ráp các byte khóa lại và giải mã toàn bộ.
+
+3. SAGE MATH TRONG CRYPTO
+- PolynomialRing(Zmod(n), 'm'): Khởi tạo vành đa thức với biến 'm' trên trường Z modulo n[cite: 3]. Rất quan trọng cho các bài toán tấn công RSA liên quan đến đa thức (Coppersmith, Franklin-Reiter).
+
+# ==========================================
+# 1. QUẢN LÝ MÔI TRƯỜNG CONDA (BASE/SAGE)
+# ==========================================
+
+# Nhảy từ (base) vào phòng (sage)
+conda activate sage
+
+# Thoát khỏi (sage) về lại (base)
+conda deactivate
+
+# Xem danh sách môi trường để biết mình đang ở đâu (Dấu * là vị trí hiện tại)
+conda env list
+
+# ==========================================
+# 2. KIỂM TRA TRƯỚC KHI CÀI ĐẶT (QUAN TRỌNG)
+# ==========================================
+
+# BẮT BUỘC gõ lệnh này trước khi cài để xem pip có đang nằm trong môi trường ảo không.
+# Nếu nó hiện ra /usr/bin/pip thì TUYỆT ĐỐI KHÔNG cài, phải activate lại môi trường!
+which pip
+
+# ==========================================
+# 3. CÀI ĐẶT THƯ VIỆN LẺ 
+# ==========================================
+
+# Cài Pwntools
+pip install pwntools
+
+# Cài Crypto chuẩn (Bắt buộc dùng pycryptodome)
+pip install pycryptodome
+
+# Cài gmpy2 (Thư viện xử lý số khổng lồ cho Crypto)
+# Phải cài thư viện C của Linux trước, rồi mới cài gmpy2 qua pip
+sudo apt update
+sudo apt install libgmp-dev libmpfr-dev libmpc-dev -y
+pip install gmpy2
+
+# ==========================================
+# 4. CÀI ĐẶT HÀNG LOẠT (CÁCH PRO HAY DÙNG)
+# ==========================================
+
+# Mày tự tạo 1 file requirements.txt chứa tên các thư viện, rồi chạy 1 lệnh này thôi:
+pip install -r requirements.txt
+
