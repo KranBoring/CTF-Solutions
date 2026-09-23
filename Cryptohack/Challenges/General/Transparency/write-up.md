@@ -1,6 +1,6 @@
 # Transparency
 
-### Mảng: Crypto | Challenges Catagory: General 
+### Mảng: Crypto | Challenges Category: General 
 
 #### 1. Overview
 
