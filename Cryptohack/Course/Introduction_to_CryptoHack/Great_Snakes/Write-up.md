@@ -1,3 +1,0 @@
-Run the python file
-
-#Flag:crypto{z3n_0f_pyth0n}
