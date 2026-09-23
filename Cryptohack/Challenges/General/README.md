@@ -2,7 +2,7 @@
 
 | Challenges                     | Write-up                                                     |
 | ------------------------------ | ------------------------------------------------------------ |
-| ASCII                          | [Đọc write-up](\\wsl.localhost\Ubuntu\home\kran-rpg\Hacker_Space\CTF\Cryptohack\Course\Introduction_to_CryptoHack\ASCII) |
+| ASCII                          | [Đọc write-up](CTF\Cryptohack\Course\Introduction_to_CryptoHack\ASCII) |
 | Hex                            | [Đọc write-up]()                                             |
 | Base64                         | [Đọc write-up]()                                             |
 | Bytes and Big Integers         | [Đọc write-up]()                                             |
