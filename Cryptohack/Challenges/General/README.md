@@ -2,7 +2,7 @@
 
 | Challenges                     | Write-up                                                     |
 | ------------------------------ | ------------------------------------------------------------ |
-| ASCII                          | [Đọc write-up](CTF\Cryptohack\Course\Introduction_to_CryptoHack\ASCII) |
+| ASCII                          | [Đọc write-up](Cryptohack/Course/Introduction_to_CryptoHack/ASCII/write-up.md) |
 | Hex                            | [Đọc write-up]()                                             |
 | Base64                         | [Đọc write-up]()                                             |
 | Bytes and Big Integers         | [Đọc write-up]()                                             |
