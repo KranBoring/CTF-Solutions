@@ -20,7 +20,7 @@ Bài này là một dạng Crypto lai với Web/Forencis, nên chúng ta sẽ l�
 
 * Có các dạng chứng chỉ TLS nào?
 
-  Theo quy định quốc tế hiện hành, chứng chỉ TLS duy nhất và độc nhất là chứng chủ dạng X.509 bao gồm nhiều loại format khác nhau và mang thông tin lưu trữ khác nhau. Các dạng phổ biến như SPKI  bắt đầu bằng header `-----BEGIN PUBLIC KEY-----` (Và đây là dạng chứng chỉ chúng ta sẽ sử dụng để truy ngược subdomain của bài), PKCS#8 Private Key - header `-----BEGIN PRIVATE KEY-----`, X.509 full thông tin hay  - header `-----BEGIN CERTIFICATE-----` và còn nhiều dạng format khác nhau nữa.
+  Theo quy định quốc tế hiện hành, chứng chỉ TLS duy nhất và độc nhất là chứng chủ dạng X.509 bao gồm nhiều loại format khác nhau và mang thông tin lưu trữ khác nhau. Các dạng phổ biến như SPKI  bắt đầu bằng header `-----BEGIN PUBLIC KEY-----` (Và đây là dạng chứng chỉ chúng ta sẽ sử dụng để truy ngược subdomain của bài), PKCS#8 Private Key - header `-----BEGIN PRIVATE KEY-----`, X.509 full thông tin hay X.509 Certificate - header `-----BEGIN CERTIFICATE-----` và còn nhiều dạng format khác nhau nữa.
 
 * Chứng chỉ X.509 format SPKI là gì? Và ta khai thác được gì từ nó?
 
@@ -39,7 +39,7 @@ Bài này là một dạng Crypto lai với Web/Forencis, nên chúng ta sẽ l�
   * Hướng 1: Dùng các tool để dò tên miền phụ của Crypto.
     Sự thật là ở hướng 1 này chẳng có gì để nói cả, chúng ta chỉ cần lên web, gõ `how to find subdomain` thì sẽ xuất hiện hàng loạt trang web hỗ trợ tìm miền phụ (Điển hình là `subdomain finder`) hoặc là pro hơn thì dùng cú pháp `site:` của google bằng cách gõ `site:*.cryptohack.org` rồi lướt xuống 1,2 trang sẽ thấy. Ngoài ra chúng ta cũng có thể dùng chính trang crt.sh để tra tên miền gần giống với `cryptohack.org` bằng cách nhập vào ô rồi search.
 
-  * Hướng 2: Dùng public key để tra cứu thông tin chứng chỉ X.509 format SPKI đăng kí cho public key đó để truy ngược về tên miền sử dụng public key này.
+  * Hướng 2: Dùng public key để tra cứu thông tin [chứng chỉ X.509 format SPKI](transparency_afff0345c6f99bf80eab5895458d8eab.pem) đăng kí cho public key đó để truy ngược về tên miền sử dụng public key này.
     Cách này đòi hỏi chúng ta cần phải trích xuất 1 thứ gọi là dấu vân tay (fingerprint) của public key. Trên trang tra cứu CT logs của crt.sh có rất nhiều cách để tra cứu thông tin chứng chỉ:
 
     ![image-20260923210252198](images/image-20260923210252198.png)
@@ -85,3 +85,14 @@ Bài này là một dạng Crypto lai với Web/Forencis, nên chúng ta sẽ l�
     ![image-20260923213855923](images/image-20260923213855923.png)
 
     #### Flag: crypto{thx_redpwn_for_inspiration}
+
+#### 5. Mở rộng
+
+* Đối với các mục tra cứu còn lại như : `SHA-1(Certificate)` và `SHA-256(Certificate)` ~~(Mấy mục khác tui không có biết)~~ thì chúng ta sẽ dùng cho loại chứng chỉ X.509 full thông tin (X.509 Certificate) (header - `-----BEGIN CERTIFICATE-----`. Khác với format SPKI là chỉ lấy public key đổi qua DER rồi băm thì đối với 2 mục này ta cần băm cả cái file chứng chỉ đó luôn, không phải mỗi public key.
+  Cách trích xuất fingerprint của X.509 Certificate bằng openssl:
+
+  ```bash 
+  openssl x509 -in cert.pem -outform der | sha256sum
+  #... 
+
+* Lúc này chúng ta làm giống như trên như đổi thành mục `SHA-256(Certificate)` là được (Bạn có thể dụng hash SHA-1 nếu muốn)
