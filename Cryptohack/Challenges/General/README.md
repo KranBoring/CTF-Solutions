@@ -1,24 +1,24 @@
 # Category General
 
-| Challenges                     | Write-up                                                     |
-| ------------------------------ | ------------------------------------------------------------ |
-| ASCII                          | [Đọc write-up](../../Course/Introduction_to_CryptoHack/ASCII/write-up.md) |
-| Hex                            | [Đọc write-up]()                                             |
-| Base64                         | [Đọc write-up]()                                             |
-| Bytes and Big Integers         | [Đọc write-up]()                                             |
-| Encoding Challenge             | [Đọc write-up]()                                             |
-| XOR Starter                    | [Đọc write-up]()                                             |
-| XOR Properties                 | [Đọc write-up]()                                             |
-| Favourite byte                 | [Đọc write-up]()                                             |
-| You either know, XOR you don't | [Đọc write-up]()                                             |
-| Lemur XOR                      | [Đọc write-up]()                                             |
-| Greatest Common Divisor        | [Đọc write-up]()                                             |
-| Extended GCD                   | [Đọc write-up]()                                             |
-| Modular Arithmetic 1           | [Đọc write-up]()                                             |
-| Modular Arithmetic 2           | [Đọc write-up]()                                             |
-| Modular Inverting              | [Đọc write-up]()                                             |
-| Privacy-Enhanced Mail?         | [Đọc write-up]()                                             |
-| CERTainly not                  | [Đọc write-up]()                                             |
-| SSH Keys                       | [Đọc write-up]()                                             |
-| Transparency                   | [Đọc write-up]()                                             |
+| Challenges                     | Write-up                                            |
+| ------------------------------ | --------------------------------------------------- |
+| ASCII                          | Course Introduction                                 |
+| Hex                            | Course Introduction                                 |
+| Base64                         | Course Introduction                                 |
+| Bytes and Big Integers         | Course Introduction                                 |
+| Encoding Challenge             | [Đọc write-up](./Encoding_Challenge/write-up.md)    |
+| XOR Starter                    | Course Introduction                                 |
+| XOR Properties                 | Course Introduction                                 |
+| Favourite byte                 | Course Introduction                                 |
+| You either know, XOR you don't | Course Introduction                                 |
+| Lemur XOR                      | [Đọc write-up](./Lemur_XOR/write-up.md)             |
+| Greatest Common DivisorCour    | Course Modular Arithmetic                           |
+| Extended GCD                   | Course Modular Arithmetic                           |
+| Modular Arithmetic 1           | Course Modular Arithmetic                           |
+| Modular Arithmetic 2           | Course Modular Arithmetic                           |
+| Modular Inverting              | Course Modular Arithmetic                           |
+| Privacy-Enhanced Mail?         | [Đọc write-up](./Privacy-Enhanced_Mail/write-up.md) |
+| CERTainly not                  | [Đọc write-up](./CERTainly_not/write-up.md)         |
+| SSH Keys                       | [Đọc write-up](./SSH_Keys/write-up.md)              |
+| Transparency                   | [Đọc write-up](./Transparency/write-up.md)          |
 
