@@ -1,3 +1,5 @@
+# XOR_Properties
+
 Bài này cung cấp cho ta 4 đoạn hex string và cách chúng tạo ra:
 KEY1 = a6c8b6733c9b22de7bc0253266a3867df55acde8635e19c73313
 KEY2 ^ KEY1 = 37dcb292030faa90d07eec17e3b1c6d8daf94c35d4c9191a5e1e
@@ -19,5 +21,6 @@ Vì FLAG đã xor với 3 key khác nhau, nên ta cần cả 3 key để xor đ�
 Giải thích:
 FLAG ^ KEY1 ^ KEY3 ^ KEY2 ^ (KEY1 ^ KEY2 ^ KEY3) = FLAG ^ (KEY1 ^ KEY1) ^ (KEY2 ^ KEY2) ^ (KEY3 ^ KEY3) = FLAG ^ 0 ^ 0 ^ 0 = FLAG
 Script: solve.py
-#Flag:crypto{x0r_i5_ass0c1at1v3}
+
+#### Flag:crypto{x0r_i5_ass0c1at1v3}
 

@@ -1,3 +1,5 @@
+# You either know, XOR you don't 
+
 Baì này cung cấp 1 đoạn hex string và ... ko còn gì nữa
 Đề yêu cầu chúng ta giải mã đoạn hex string và không có key
 Hint: Remember the flag format and how it might help you in this challenge!
@@ -14,4 +16,4 @@ Ta tinh ý sẽ phát hiện ra ngay là khi ghép cả 2 phần lại với nha
 Và bây giờ chỉ là ta xor ciphertext với key để thu được flag
 Script:solve.py
 
-#Flag:crypto{1f_y0u_Kn0w_En0uGH_y0u_Kn0w_1t_4ll}
+#### Flag:crypto{1f_y0u_Kn0w_En0uGH_y0u_Kn0w_1t_4ll}

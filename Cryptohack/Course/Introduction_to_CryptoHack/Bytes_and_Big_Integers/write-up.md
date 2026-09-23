@@ -1,3 +1,5 @@
+# Bytes and Big Integer
+
 Bài này hướng dẫn về các dạng encode message
 Và thứ đặt biệt trong này là cách encode message sang hệ 10
 
@@ -38,4 +40,4 @@ N = 97 * 65536 + 98 * 256 + 99 = 6356992 + 25088 + 99 = 6382179
 Cách giải bài lấy cờ:
 Số đề bài cung cấp là kết quả từ việc đổi message sang số hệ demical, vậy để lấy cờ, ta chỉ cần đảo ngược quá trình là được.
 Script: decrypt.py
-#Flag:crypto{3nc0d1n6_4ll_7h3_w4y_d0wn}
+#### Flag:crypto{3nc0d1n6_4ll_7h3_w4y_d0wn}
