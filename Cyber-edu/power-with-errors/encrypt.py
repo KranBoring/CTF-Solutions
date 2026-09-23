@@ -12,16 +12,16 @@ F.write(f"{p=}\n{n=}\n{t=}\n{c=}")
 F.close()
 flag=open("flag.txt",'rb').read()
 assert(len(flag)<=n*n)
-flag+=b"\x00"*(n*n-len(flag))# padding
+flag+=b"\x00"*(n*n-len(flag))
 for T in range(t):
-  A=random_matrix(GF(p),n,n) # new hoàn toàn sau mỗi lần t tăng 
+  A=random_matrix(GF(p),n,n)
   out=[]
   for _ in range(c):
-    key=b"\x00"+os.urandom(n*n-1) # new nốt sau mỗi lần c tăng (chú ý \x00 vì khi xor nó chính là 0000-0000)
+    key=b"\x00"+os.urandom(n*n-1)
     print(list(key))
     flag=xor(key,flag)
-    U=pow(A,secrets.randbelow(p)).list() #new^new trên trường hữu hạn p
-    U=[a+b for (a,b) in zip(U,key)]# new[] + new[] ?????? how
+    U=pow(A,secrets.randbelow(p)).list()
+    U=[a+b for (a,b) in zip(U,key)]
     out.append(U)
   F=open(f"testcase_{T}.in","w")
   F.write(f"{out}")
