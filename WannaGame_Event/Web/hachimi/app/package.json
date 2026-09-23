@@ -1,0 +1,23 @@
+{
+  "name": "app",
+  "version": "1.0.50",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "bun run --watch src/index.ts"
+  },
+  "dependencies": {
+    "@elysiajs/html": "^1.4.2",
+    "@elysiajs/static": "^1.4.10",
+    "elysia": "1.4.16",
+    "jsonwebtoken": "^9.0.3",
+    "sshpk": "^1.18.0",
+    "valibot": "^1.4.2"
+  },
+  "devDependencies": {
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/sshpk": "^1.17.5",
+    "bun-types": "latest",
+    "prettier": "^3.9.6"
+  },
+  "module": "src/index.js"
+}
