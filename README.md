@@ -9,4 +9,4 @@
 
 -[Cyber-edu](./Cyber-edu)
 
--[CLB WannaGame](./'WannaGame_Event')
+-[CLB WannaGame](./WannaGame_Event)
