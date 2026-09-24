@@ -1,4 +1,4 @@
-# Encodeing_Challenges
+# Encoding_Challenges
 
 
 
@@ -10,4 +10,4 @@ Các dạng encode quen thuộc, chúng ta chỉ cần viết decode và tự đ
 
 Script: pwntools_example_f93ca6ccef2def755aa8f6d9aa6e9c5b.py
 
-#### Flag:
+#### Flag: `Quên lấy cờ =))))`
