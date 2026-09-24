@@ -21,7 +21,7 @@
   ![lagrida_latex_editor (10)](images/lagrida_latex_editor10.png)
 
 * Trong trường hữu hạn, chỉ bao gồm các phần tử bé hơn p, nên xét `a = g` và `b = p`, bởi vì p là số nguyên tố nên `gcd(g,p) = 1 với mọi giá trị g trong trường hữu hạn` ,ta có được:![lagrida_latex_editor (11)](images/lagrida_latex_editor11.png)
-* Vậy khi phát biểu Euclid mở rộng trong trường hữu hạn, ta sẽ luôn có một số x**( y * p mod p = 0 nên không được biểu diễn trong fomula)** thỏa biểu thức trên, hay x chính là nghịch đảo nhân của g theo định nghĩa của trường hữu hạn !!!
+* Vậy khi phát biểu Euclid mở rộng trong trường hữu hạn, ta sẽ luôn có một số x **( y * p mod p = 0 nên không được biểu diễn trong fomula)** thỏa biểu thức trên, hay x chính là nghịch đảo nhân của g theo định nghĩa của trường hữu hạn !!!
 * Chúng ta sẽ áp dụng thuật toán Euclid mở rộng để tìm nghịch đảo nhân của 3 trong đề bài:![image-20260924100944976](images/image-20260924100944976.png)
 * Hint : *Think about the little theorem we just worked with. How does this help you find the inverse of an element?
 
@@ -39,6 +39,11 @@
 
   #### number: 9
 
-#### 5. Reference
+#### 5. Mở rộng
+
+* Crypto.Util.number và ngay chính hàm built-in Python có hỗ trợ chúng ta tìm nghịch đảo nhân trong trường module
+* Bạn xem script tại đây để biết syntax nhé: [Đọc](solve1.py)
+
+#### 6. Reference
 
 Euclid mở rộng: [Đọc wu bài Extended GCD](Extended_GCD/write-up.md)
