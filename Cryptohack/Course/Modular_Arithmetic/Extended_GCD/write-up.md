@@ -20,23 +20,23 @@ Bài này chúng ta sẽ sử dung python để tính `x,y` thỏa mãn tổ h�
 
 * Ta gọi cặp số `u,v` thỏa (Trường hơp cơ sở: `u = 1, v = 0`):
 
-  ![lagrida_latex_editor (3)](images/lagrida_latex_editor (3).png)
+  ![lagrida_latex_editor (3)](images/lagrida_latex_editor3.png)
 
 * Ta gọi cặp số `h,k` thỏa (`Trường hợp cơ sở: h = 0, k = 1`):
 
-  ![lagrida_latex_editor (2)](images/lagrida_latex_editor (2).png)
+  ![lagrida_latex_editor (2)](images/lagrida_latex_editor2.png)
 
 * Phân tích `b` ta được như sau:
 
-  ![lagrida_latex_editor (4)](images/lagrida_latex_editor (4).png)
+  ![lagrida_latex_editor (4)](images/lagrida_latex_editor4.png)
 
-  ![lagrida_latex_editor (5)](images/lagrida_latex_editor (5).png)
+  ![lagrida_latex_editor (5)](images/lagrida_latex_editor5.png)
 
 * Và bây giờ chạy thuật toán Euclid, đồng thời lưu lại các biến thỏa mãn tổ hợp tuyến tính. Biến `r` được tính bằng cách sau đây, vậy ta sẽ lặp lại cho đến khi `r = 0` hay là `a = 0` trong vòng lăp :
 
-  ![lagrida_latex_editor (7)](images/lagrida_latex_editor (7).png)
+  ![lagrida_latex_editor (7)](images/lagrida_latex_editor7.png)
 
-  ![lagrida_latex_editor (8)](images/lagrida_latex_editor (8).png)
+  ![lagrida_latex_editor (8)](images/lagrida_latex_editor8.png)
 
   #### 4. Exploit chain / Script:
 

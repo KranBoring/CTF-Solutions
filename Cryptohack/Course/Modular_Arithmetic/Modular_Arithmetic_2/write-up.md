@@ -20,7 +20,7 @@ Bài nãy dẫn chúng ta đến 1 khái niệm rất phổ biến và được 
 
   * Nó còn 1 cách phát biểu nữa là với`p là số nguyên`và `a là số nguyên không chia hết cho p` thì :
 
-![lagrida_latex_editor (9)](images/lagrida_latex_editor (9).png)
+![lagrida_latex_editor (9)](images/lagrida_latex_editor9.png)
 
 #### 3. Phân tích
 
