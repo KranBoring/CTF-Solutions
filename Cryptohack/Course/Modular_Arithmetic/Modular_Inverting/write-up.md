@@ -46,4 +46,4 @@
 
 #### 6. Reference
 
-Euclid mở rộng: [Đọc wu bài Extended GCD](Extended_GCD/write-up.md)
+Euclid mở rộng: [Đọc wu bài Extended GCD](../Extended_GCD/write-up.md)
