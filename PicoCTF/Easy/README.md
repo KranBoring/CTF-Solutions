@@ -2,11 +2,11 @@
 
 | Challenge | Write-up |
 | --- | --- |
-| StegoRSA | [??c write-up](./StegoRSA/write-up.md) |
-| Shared Secrets | [??c write-up](./Shared_Secrets/write-up.md) |
-| hashcrack | [??c write-up](./hashcrack/write-up.md) |
-| EVEN RSA CAN BE BROKEN??? | [??c write-up](./EVEN_RSA_CAN_BE_BROKEN/write-up.md) |
-| interencdec | Ch?a c? write-up |
-| Mod 26 | Ch?a c? write-up |
-| The Numbers | Ch?a c? write-up |
-| 13 | Ch?a c? write-up |
+| StegoRSA | [Đọc write-up](./StegoRSA/write-up.md) |
+| Shared Secrets | [Đọc write-up](./Shared_Secrets/write-up.md) |
+| hashcrack | [Đọc write-up](./hashcrack/write-up.md) |
+| EVEN RSA CAN BE BROKEN??? | [Đọc write-up](./EVEN_RSA_CAN_BE_BROKEN/write-up.md) |
+| interencdec | Chưa có write-up |
+| Mod 26 | Chưa có write-up |
+| The Numbers | Chưa có write-up |
+| 13 | Chưa có write-up |
