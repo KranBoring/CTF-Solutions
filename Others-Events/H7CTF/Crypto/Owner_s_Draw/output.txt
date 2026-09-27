@@ -1,0 +1,1 @@
+{'note': 'captured production webhook (as delivered to /webhook)', 'signing': 'X-Signature: SHA256(secret || body)', 'body': 'event=payment.succeeded&amount=500&currency=usd&customer=cus_9f2a&role=guest', 'X-Signature': '1317ee15c0d914f69ff2dc91488ff11dc17246f08ef0d6cf98865a5c70be40ef'}

@@ -2,7 +2,7 @@
 
 #### 1. Overview
 
-Bài nãy dẫn chúng ta đến 1 khái niệm rất phổ biến và được sử dụng rất là nhiều trong Crypto, dó chính là khái niệm Trường hữu hạn, Vành, trong lý thuyế t số module.
+Bài nãy dẫn chúng ta đến 1 khái niệm rất phổ biến và được sử dụng rất là nhiều trong Crypto, dó chính là khái niệm Trường hữu hạn, Vành, trong lý thuyế t số module, ngoài ra chúng ta cũng tiếp cận đến 1 định lý rất quan trọng trong lý thuyết số chính là định lý Fermat nhỏ.
 
 #### 2. Nền tảng lý thuyết
 

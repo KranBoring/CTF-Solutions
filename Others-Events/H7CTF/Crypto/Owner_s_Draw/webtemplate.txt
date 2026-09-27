@@ -1,0 +1,9 @@
+{
+  "service": "OrionPay webhook receiver",
+  "endpoints": {
+    "GET /sample": "a captured legitimate webhook (body + signature)",
+    "POST /webhook": "process a webhook; body raw, header X-Signature = SHA256(secret||body); role=owner pays out",
+    "POST /v2/webhook": "next-gen signing (HMAC-SHA256)"
+  },
+  "hint": "an owner-role payout releases the flag"
+}

@@ -1,0 +1,11 @@
+--2026-09-24 13:58:48--  https://cryptohack.org/static/challenges/output_479698cde19aaa05d9e9dfca460f5443.txt
+Resolving cryptohack.org (cryptohack.org)... 178.62.74.206
+Connecting to cryptohack.org (cryptohack.org)|178.62.74.206|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 3421 (3.3K) [text/plain]
+Saving to: ‘Legendre_Symbol/output_479698cde19aaa05d9e9dfca460f5443.txt’
+
+     0K ...                                                   100%  199M=0s
+
+2026-09-24 13:58:49 (199 MB/s) - ‘Legendre_Symbol/output_479698cde19aaa05d9e9dfca460f5443.txt’ saved [3421/3421]
+
