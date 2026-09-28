@@ -96,7 +96,7 @@
 
     * Ta sẽ dùng chính secret || body || padding này, ta thêm khối thứ 3 là `&role=owner` và ta sẽ tính lại chữ ký mới dựa vào đoạn hash đã biết
 
-* Bởi vì ta không biết secret dài bao nhiêu nên ta sẽ brute force độ dài key và sài hàm hỗ trợ là `hashnumpy`
+* Bởi vì ta không biết secret dài bao nhiêu nên ta sẽ brute force độ dài key và sài hàm hỗ trợ là `hashnumpy` để tạo ra chữ kí mới và body mới
 
 #### 4. Exploit chain
 
