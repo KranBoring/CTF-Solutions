@@ -74,30 +74,27 @@
 
 * Phương pháp tấn công này không cần biết secret là gì, thứ chúng ta cần biết là độ dài secret để tạo ra padding giả, sau đó cộng với mã độc là `&role=owner` để phía server đè role=owner lên role=guest và cấp quyền owner cho ta.
 
-  * SHA(secret || body) : fb850a8ed191fc63dabebf2abf7d181e0dc5b8db865b0b9eea8a557a9b5e31a6
-
-  * body : event=payment.succeeded&amount=500&currency=usd&customer=cus_9f2a&role=guest (dài 76 kí tự)
-
   * Ta giả sử secret có độ dài là 10
 
-    * secret || body = ??????????event=payment.succeeded&amount=500&currency=usd&customer=cus_9f2a&role=guest
+  * secret || body = ??????????event=payment.succeeded&amount=500&currency=usd&customer=cus_9f2a&role=guest
 
-    * SHA256(secret || body) được tính bằng cách:
+  * SHA256(secret || body) được tính bằng cách:
 
-      * Lấy khối 64 byte đầu tiên là bao gồm secret + 54 kí tự ở body là  ??????????event=payment.succeeded&amount=500&currency=usd&custo bỏ vào hàm nén và hash, sau đó lấy khối thứ 2
+  * Lấy khối 64 byte đầu tiên là bao gồm secret + 54 kí tự ở body là  `??????????event=payment.succeeded&amount=500&currency=usd&custo` bỏ vào hàm nén và hash, sau đó lấy khối thứ 2
 
-      * Khối thứ 2 còn lại 22 kí tự, hash SHA256 thêm padding vào (56 - 22 - 1 = 33)(22 thập phân = 16 thập lục phân)
+  * Khối thứ 2 còn lại 22 kí tự, hash SHA256 thêm padding vào (56 - 22 - 1 = 33)(22 thập phân = 16 thập lục phân)
 
-        ```python
-        b'mer=cus_9f2a&role=guest' + b'\x80'+ b'\x00'*33 + b'\x00\x00\x00\x00\x00\x00\x00\x16'
-        ```
+    ```python
+    b'mer=cus_9f2a&role=guest' + b'\x80'+ b'\x00'*33 + b'\x00\x00\x00\x00\x00\x00\x00\x16'
+    ```
 
-      * Và nén khối thứ 2, hash xong nhả ra, ta có thể hiểu:
+    * Và nén khối thứ 2, hash xong nhả ra, ta có thể hiểu:
 
-        * SHA(secret || body) = fb850a8ed191fc63dabebf2abf7d181e0dc5b8db865b0b9eea8a557a9b5e31a6
-        * SHA(secret || body || padding) = fb850a8ed191fc63dabebf2abf7d181e0dc5b8db865b0b9eea8a557a9b5e31a6
+    * SHA(secret || body) = fb850a8ed191fc63dabebf2abf7d181e0dc5b8db865b0b9eea8a557a9b5e31a6
 
-      * Ta sẽ dùng chính secret || body || padding này, ta thêm khối thứ 3 là `&role=owner` và ta sẽ tính lại chữ ký mới dựa vào đoạn hash đã biết
+    * SHA(secret || body || padding) = fb850a8ed191fc63dabebf2abf7d181e0dc5b8db865b0b9eea8a557a9b5e31a6
+
+    * Ta sẽ dùng chính secret || body || padding này, ta thêm khối thứ 3 là `&role=owner` và ta sẽ tính lại chữ ký mới dựa vào đoạn hash đã biết
 
 * Bởi vì ta không biết secret dài bao nhiêu nên ta sẽ brute force độ dài key và sài hàm hỗ trợ là `hashnumpy`
 
