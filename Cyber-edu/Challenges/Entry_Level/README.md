@@ -2,4 +2,4 @@
 
 | Challenge | Write-up |
 | --- | --- |
-| why-xor | Chưa có write-up |
+| why-xor | [Đọc write-up](./why-xor/write-up.md) |
