@@ -169,8 +169,7 @@
   🏆 Raise your terminal high — you’ve earned it! 🏆
   ──────────────────────────────────────────────
   
-  Joke over, here is the flag: Joke over, here is the flag:
-  ctf{85442935690be24eaa7278925fbb35368b8bb230516a530090c637f83b25f516}
+  Joke over, here is the flag:ctf{85442935690be24eaa7278925fbb35368b8bb230516a530090c637f83b25f516}
   ``````
 
 * #### Flag: ctf{85442935690be24eaa7278925fbb35368b8bb230516a530090c637f83b25f516}
