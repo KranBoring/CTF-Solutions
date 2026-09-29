@@ -27,15 +27,6 @@ ct = cipher.encrypt(pad(FLAG, AES.block_size))
 
 aes_int = int.from_bytes(aes_key, 'big')
 C_key = pow(aes_int, E, N)
-print(FLAG)
-print(E)
-print(primes)
-print(N)
-print(aes_key)
-print(iv)
-print(cipher)
-print(ct)
-print(aes_int)
-print(C_key)
-with open('output1.txt', 'w') as f:
+
+with open('output.txt', 'w') as f:
     f.write(f"{hex(N)[2:]} {hex(C_key)[2:]} {iv.hex()} {ct.hex()}\n")
