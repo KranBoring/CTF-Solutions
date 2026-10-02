@@ -1,3 +1,3 @@
-# Hack The Box
+# HTB
 
 - [Challenges](./Challenges/README.md)

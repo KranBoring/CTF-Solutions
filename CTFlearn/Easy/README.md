@@ -1,7 +1,5 @@
 # CTFlearn - Easy
 
-Cryptography challenges ordered by Easiest, as listed on CTFlearn.
-
 | Challenge | Write-up |
 | --- | --- |
 | [#115 - Character Encoding](https://ctflearn.com/challenge/115) | Chưa có write-up |

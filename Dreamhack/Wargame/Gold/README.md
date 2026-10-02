@@ -1,7 +1,5 @@
 # Dreamhack - Gold
 
-Cryptography challenges ordered by Latest across Dreamhack Wargame.
-
 | Challenge | Write-up |
 | --- | --- |
 | [#3164 - Contrarianism](https://dreamhack.io/wargame/challenges/3164) | Chưa có write-up |

@@ -1,7 +1,5 @@
 # Dreamhack - Silver
 
-Cryptography challenges ordered by Latest across Dreamhack Wargame.
-
 | Challenge | Write-up |
 | --- | --- |
 | [#3112 - Antique Magic Square](https://dreamhack.io/wargame/challenges/3112) | Chưa có write-up |

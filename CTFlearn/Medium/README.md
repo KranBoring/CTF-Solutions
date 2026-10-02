@@ -1,7 +1,5 @@
 # CTFlearn - Medium
 
-Cryptography challenges ordered by Easiest, as listed on CTFlearn.
-
 | Challenge | Write-up |
 | --- | --- |
 | [#1092 - The Safest Encryption](https://ctflearn.com/challenge/1092) | Chưa có write-up |

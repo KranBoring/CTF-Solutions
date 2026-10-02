@@ -1,7 +1,5 @@
 # Dreamhack - Unrated
 
-Cryptography challenges ordered by Latest across Dreamhack Wargame.
-
 | Challenge | Write-up |
 | --- | --- |
 | [#3175 - Teto Territory](https://dreamhack.io/wargame/challenges/3175) | Chưa có write-up |

@@ -1,7 +1,5 @@
 # Dreamhack - Bronze
 
-Cryptography challenges ordered by Latest across Dreamhack Wargame.
-
 | Challenge | Write-up |
 | --- | --- |
 | [#3166 - ​‌​‌‌​‌​​‌‌​‌‌​‌​‌‌‌‌​​​​‌‌​‌​​​​‌​‌‌​‌​​​‌​‌​‌‌​‌‌‌​‌​‌​‌​​‌​‌‌​‌‌​‌‌​​​‌​​​​​‌​​‌‌‌‌​‌​​‌‌‌‌​‌](https://dreamhack.io/wargame/challenges/3166) | Chưa có write-up |

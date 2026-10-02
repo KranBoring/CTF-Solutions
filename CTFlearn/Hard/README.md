@@ -1,7 +1,5 @@
 # CTFlearn - Hard
 
-Cryptography challenges ordered by Easiest, as listed on CTFlearn.
-
 | Challenge | Write-up |
 | --- | --- |
 | [#859 - CoppeRSA Lattice](https://ctflearn.com/challenge/859) | Chưa có write-up |

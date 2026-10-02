@@ -1,7 +1,5 @@
 # Dreamhack - Platinum
 
-Cryptography challenges ordered by Latest across Dreamhack Wargame.
-
 | Challenge | Write-up |
 | --- | --- |
 | [#3165 - Minimalism](https://dreamhack.io/wargame/challenges/3165) | Chưa có write-up |

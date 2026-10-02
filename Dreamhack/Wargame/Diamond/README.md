@@ -1,7 +1,5 @@
 # Dreamhack - Diamond
 
-Cryptography challenges ordered by Latest across Dreamhack Wargame.
-
 | Challenge | Write-up |
 | --- | --- |
 | [#2890 - MinimΔlism](https://dreamhack.io/wargame/challenges/2890) | Chưa có write-up |
