@@ -2,33 +2,33 @@
 
 | Challenge | Write-up |
 | --- | --- |
-| Secure Dot Product | Chưa có write-up |
-| MSS_ADVANCE Revenge | Chưa có write-up |
-| Ricochet | Chưa có write-up |
-| ChaCha Slide | Chưa có write-up |
-| flag_printer | Chưa có write-up |
-| SRA | Chưa có write-up |
-| PowerAnalysis: Warmup | Chưa có write-up |
-| PowerAnalysis: Part 2 | Chưa có write-up |
-| PowerAnalysis: Part 1 | Chưa có write-up |
-| Very Smooth | Chưa có write-up |
-| Sum-0-Primes | Chưa có write-up |
-| Sequences | Chưa có write-up |
-| NSA Backdoor | Chưa có write-up |
-| college-rowing-team | Chưa có write-up |
-| corrupt-key-2 | Chưa có write-up |
-| triple-secure | Chưa có write-up |
-| XtraORdinary | Chưa có write-up |
-| corrupt-key-1 | Chưa có write-up |
-| New Vignere | Chưa có write-up |
-| Double DES | Chưa có write-up |
-| Clouds | Chưa có write-up |
-| Compress and Attack | Chưa có write-up |
-| It's Not My Fault 1 | Chưa có write-up |
-| Play Nice | Chưa có write-up |
-| Scrambled: RSA | Chưa có write-up |
-| b00tl3gRSA3 | Chưa có write-up |
-| AES-ABC | Chưa có write-up |
-| miniRSA | Chưa có write-up |
-| rsa-pop-quiz | Chưa có write-up |
-| b00tl3gRSA2 | Chưa có write-up |
+| [Secure Dot Product](https://learn.cylabacademy.org/library/728?page=1&category=2) | Chưa có write-up |
+| [MSS_ADVANCE Revenge](https://learn.cylabacademy.org/library?page=1&category=2) | Chưa có write-up |
+| [Ricochet](https://learn.cylabacademy.org/library?page=1&category=2) | Chưa có write-up |
+| [ChaCha Slide](https://learn.cylabacademy.org/library?page=1&category=2) | Chưa có write-up |
+| [flag_printer](https://learn.cylabacademy.org/library?page=1&category=2) | Chưa có write-up |
+| [SRA](https://learn.cylabacademy.org/library?page=1&category=2) | Chưa có write-up |
+| [PowerAnalysis: Warmup](https://learn.cylabacademy.org/library?page=1&category=2) | Chưa có write-up |
+| [PowerAnalysis: Part 2](https://learn.cylabacademy.org/library?page=1&category=2) | Chưa có write-up |
+| [PowerAnalysis: Part 1](https://learn.cylabacademy.org/library?page=1&category=2) | Chưa có write-up |
+| [Very Smooth](https://learn.cylabacademy.org/library?page=1&category=2) | Chưa có write-up |
+| [Sum-0-Primes](https://learn.cylabacademy.org/library?page=1&category=2) | Chưa có write-up |
+| [Sequences](https://learn.cylabacademy.org/library?page=1&category=2) | Chưa có write-up |
+| [NSA Backdoor](https://learn.cylabacademy.org/library?page=1&category=2) | Chưa có write-up |
+| [college-rowing-team](https://learn.cylabacademy.org/library?page=1&category=2) | Chưa có write-up |
+| [corrupt-key-2](https://learn.cylabacademy.org/library?page=1&category=2) | Chưa có write-up |
+| [triple-secure](https://learn.cylabacademy.org/library?page=1&category=2) | Chưa có write-up |
+| [XtraORdinary](https://learn.cylabacademy.org/library?page=1&category=2) | Chưa có write-up |
+| [corrupt-key-1](https://learn.cylabacademy.org/library?page=1&category=2) | Chưa có write-up |
+| [New Vignere](https://learn.cylabacademy.org/library/316?page=1&category=2) | Chưa có write-up |
+| [Double DES](https://learn.cylabacademy.org/library?page=1&category=2) | Chưa có write-up |
+| [Clouds](https://learn.cylabacademy.org/library?page=1&category=2) | Chưa có write-up |
+| [Compress and Attack](https://learn.cylabacademy.org/library?page=1&category=2) | Chưa có write-up |
+| [It's Not My Fault 1](https://learn.cylabacademy.org/library?page=1&category=2) | Chưa có write-up |
+| [Play Nice](https://learn.cylabacademy.org/library?page=1&category=2) | Chưa có write-up |
+| [Scrambled: RSA](https://learn.cylabacademy.org/library?page=1&category=2) | Chưa có write-up |
+| [b00tl3gRSA3](https://learn.cylabacademy.org/library?page=1&category=2) | Chưa có write-up |
+| [AES-ABC](https://learn.cylabacademy.org/library?page=1&category=2) | Chưa có write-up |
+| [miniRSA](https://learn.cylabacademy.org/library?page=1&category=2) | Chưa có write-up |
+| [rsa-pop-quiz](https://learn.cylabacademy.org/library?page=1&category=2) | Chưa có write-up |
+| [b00tl3gRSA2](https://learn.cylabacademy.org/library?page=1&category=2) | Chưa có write-up |
