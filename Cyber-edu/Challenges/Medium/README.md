@@ -19,4 +19,4 @@
 | secret-reverse | Chưa có write-up |
 | secret-story | Chưa có write-up |
 | strippedGO | Chưa có write-up |
-| train-to-paddington | Chưa có write-up |
+| train-to-paddington | [Đọc write-up](./train-to-paddington/write-up.md) |

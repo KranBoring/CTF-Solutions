@@ -2,18 +2,18 @@
 
 | Challenge | Write-up |
 | --- | --- |
-| Timestamped Secrets | Chưa có write-up |
-| Small Trouble | Chưa có write-up |
-| shift registers | Chưa có write-up |
-| Related Messages | Chưa có write-up |
+| Timestamped Secrets | [Đọc write-up](./Timestamped_Secrets/write-up.md) |
+| Small Trouble | [Đọc write-up](./Small_Trouble/write-up.md) |
+| shift registers | [Đọc write-up](./shift_registers/write-up.md) |
+| Related Messages | [Đọc write-up](./Related_Messages/write-up.md) |
 | Not TRUE | Chưa có write-up |
 | cryptomaze | Chưa có write-up |
-| ClusterRSA | Chưa có write-up |
+| ClusterRSA | [Đọc write-up](./ClusterRSA/write-up.md) |
 | Black Cobra Pepper | Chưa có write-up |
-| Crack the Power | Chưa có write-up |
+| Crack the Power | [Đọc write-up](./Crack_the_Power/write-up.md) |
 | Guess My Cheese (Part 2) | Chưa có write-up |
-| Guess My Cheese (Part 1) | Chưa có write-up |
-| rsa_oracle | Chưa có write-up |
+| Guess My Cheese (Part 1) | [Đọc write-up](./Guess_My_Cheese_Part_1/write-up.md) |
+| rsa_oracle | [Đọc write-up](./rsa_oracle/write-up.md) |
 | Custom encryption | Chưa có write-up |
 | C3 | Chưa có write-up |
 | rotation | Chưa có write-up |

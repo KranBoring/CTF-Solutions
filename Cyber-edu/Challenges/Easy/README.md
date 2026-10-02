@@ -10,4 +10,4 @@
 | js-magic | Chưa có write-up |
 | siege | [Đọc write-up](./siege/write-up.md) |
 | super_caesar | [Đọc write-up](./super_caesar/write-up.md) |
-| usualtraffic | Chưa có write-up |
+| usualtraffic | [Đọc write-up](./usualtraffic/write-up.md) |
