@@ -81,6 +81,7 @@
 | [Is it CRT-RSA?](https://dreamhack.io/wargame/challenges/977) | Chưa có write-up |
 | [X-Time Pad](https://dreamhack.io/wargame/challenges/933) | Chưa có write-up |
 | [fuzzy flag](https://dreamhack.io/wargame/challenges/913) | Chưa có write-up |
+| [ROT128](https://dreamhack.io/wargame/challenges/852) | Chưa có write-up |
 | [bigdata](https://dreamhack.io/wargame/challenges/792) | Chưa có write-up |
 | [ICM2022](https://dreamhack.io/wargame/challenges/686) | Chưa có write-up |
 | [Robot Only](https://dreamhack.io/wargame/challenges/680) | Chưa có write-up |
