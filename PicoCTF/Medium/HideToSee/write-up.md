@@ -14,6 +14,7 @@
 
 * Các bạn cần biết lệnh linux này trước khi giải: steghide. [Chi tiết](https://steghide.com/)
 * Biết cách giải mã atbash cipher
+  * Hiểu 1 cách đơn giản, mã hóa atbash là mã hóa đối xứng (A = Z, B = Y, C = X,...)
 
 #### 3. Phân tích lỗ hỗng
 

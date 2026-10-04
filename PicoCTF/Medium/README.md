@@ -24,13 +24,13 @@
 | [substitution2](https://learn.cylabacademy.org/library?page=3&category=2) | [Đọc write-up](./substitution2/write-up.md) |
 | [substitution1](https://learn.cylabacademy.org/library?page=3&category=2) | [Đọc write-up](./substitution1/write-up.md) |
 | [substitution0](https://learn.cylabacademy.org/library?page=3&category=2) | [Đọc write-up](./substitution0/write-up.md) |
-| [rail-fence](https://learn.cylabacademy.org/library?page=3&category=2) | Chưa có write-up |
-| [morse-code](https://learn.cylabacademy.org/library?page=3&category=2) | Chưa có write-up |
-| [credstuff](https://learn.cylabacademy.org/library?page=3&category=2) | Chưa có write-up |
-| [basic-mod2](https://learn.cylabacademy.org/library?page=3&category=2) | Chưa có write-up |
-| [basic-mod1](https://learn.cylabacademy.org/library?page=3&category=2) | Chưa có write-up |
-| [spelling-quiz](https://learn.cylabacademy.org/library?page=3&category=2) | Chưa có write-up |
-| [Mini RSA](https://learn.cylabacademy.org/library?page=4&category=2) | Chưa có write-up |
+| [rail-fence](https://learn.cylabacademy.org/library?page=3&category=2) | [Đọc write-up](./rail-fence/write-up.md) |
+| [morse-code](https://learn.cylabacademy.org/library?page=3&category=2) | [Đọc write-up](./morse-code/write-up.md) |
+| [credstuff](https://learn.cylabacademy.org/library?page=3&category=2) | [Đọc write-up](./credstuff/write-up.md) |
+| [basic-mod2](https://learn.cylabacademy.org/library?page=3&category=2) | [Đọc write-up](./basic-mod2/write-up.md) |
+| [basic-mod1](https://learn.cylabacademy.org/library?page=3&category=2) | [Đọc write-up](./basic-mod1/write-up.md) |
+| [spelling-quiz](https://learn.cylabacademy.org/library?page=3&category=2) | [Đọc write-up](./spelling-quiz/write-up.md) |
+| [Mini RSA](https://learn.cylabacademy.org/library?page=4&category=2) | [Đọc write-up](./Mini_RSA/write-up.md) |
 | [It is my Birthday 2](https://learn.cylabacademy.org/library?page=4&category=2) | Chưa có write-up |
 | [Mind your Ps and Qs](https://learn.cylabacademy.org/library/162?page=4&category=2) | Chưa có write-up |
 | [Dachshund Attacks](https://learn.cylabacademy.org/library?page=4&category=2) | Chưa có write-up |

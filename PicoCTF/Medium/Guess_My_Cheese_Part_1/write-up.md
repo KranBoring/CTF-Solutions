@@ -5,12 +5,14 @@
 #### 1. Overview
 
 * ![image-20261002223546311](images/image-20261002223546311.png)
+* Đây là bài đầu tiên mình giải mã ciphertext được mã hóa bằng mã hóa affine :v
 * `Mục tiêu`: Giải mã cheese secret để lấy được cờ
 * `Lỗ hổng`: Lộ oracle
 
 #### 2. Nền tảng cốt lõi
 
 * Mã hóa affine: [Đọc](https://vi.wikipedia.org/wiki/M%E1%BA%ADt_m%C3%A3_Affine)
+* Hiểu 1 cách đơn giản, kí tự sẽ được đưa về giá trị chính là thứ tự của nó trong bảng chữ cái `(A = 0,B = 1,C = 2,D = 3,...)` rồi được đưa vào hàm mã hóa `P(x) = a*x + b mod 26` với `x` là giá trị của chữ cái đó
 
 #### 3. Phân tích lỗ hổng
 
