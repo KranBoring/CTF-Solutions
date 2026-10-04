@@ -11,19 +11,19 @@
 | [ClusterRSA](https://learn.cylabacademy.org/library/702?page=2&category=2) | [Đọc write-up](./ClusterRSA/write-up.md) |
 | [Black Cobra Pepper](https://learn.cylabacademy.org/library/701?page=2&category=2) | Chưa có write-up |
 | [Crack the Power](https://learn.cylabacademy.org/library?page=2&category=2) | [Đọc write-up](./Crack_the_Power/write-up.md) |
-| [Guess My Cheese (Part 2)](https://learn.cylabacademy.org/library?page=2&category=2) | Chưa có write-up |
+| [Guess My Cheese (Part 2)](https://learn.cylabacademy.org/library?page=2&category=2) | [Đọc write-up](./Guess_My_Cheese_Part_2/write-up.md) |
 | [Guess My Cheese (Part 1)](https://learn.cylabacademy.org/library/473?page=2&category=2) | [Đọc write-up](./Guess_My_Cheese_Part_1/write-up.md) |
 | [rsa_oracle](https://learn.cylabacademy.org/library?page=2&category=2) | [Đọc write-up](./rsa_oracle/write-up.md) |
-| [Custom encryption](https://learn.cylabacademy.org/library?page=2&category=2) | Chưa có write-up |
-| [C3](https://learn.cylabacademy.org/library?page=2&category=2) | Chưa có write-up |
-| [rotation](https://learn.cylabacademy.org/library?page=2&category=2) | Chưa có write-up |
-| [ReadMyCert](https://learn.cylabacademy.org/library?page=2&category=2) | Chưa có write-up |
-| [HideToSee](https://learn.cylabacademy.org/library?page=3&category=2) | Chưa có write-up |
-| [Vigenere](https://learn.cylabacademy.org/library?page=3&category=2) | Chưa có write-up |
-| [transposition-trial](https://learn.cylabacademy.org/library?page=3&category=2) | Chưa có write-up |
-| [substitution2](https://learn.cylabacademy.org/library?page=3&category=2) | Chưa có write-up |
-| [substitution1](https://learn.cylabacademy.org/library?page=3&category=2) | Chưa có write-up |
-| [substitution0](https://learn.cylabacademy.org/library?page=3&category=2) | Chưa có write-up |
+| [Custom encryption](https://learn.cylabacademy.org/library?page=2&category=2) | [Đọc write-up](./Custom_encryption/write-up.md) |
+| [C3](https://learn.cylabacademy.org/library?page=2&category=2) | [Đọc write-up](./C3/write-up.md) |
+| [rotation](https://learn.cylabacademy.org/library?page=2&category=2) | [Đọc write-up](./rotation/write-up.md) |
+| [ReadMyCert](https://learn.cylabacademy.org/library?page=2&category=2) | [Đọc write-up](./ReadMyCert/write-up.md) |
+| [HideToSee](https://learn.cylabacademy.org/library?page=3&category=2) | [Đọc write-up](./HideToSee/write-up.md) |
+| [Vigenere](https://learn.cylabacademy.org/library?page=3&category=2) | [Đọc write-up](./Vigenere/write-up.md) |
+| [transposition-trial](https://learn.cylabacademy.org/library?page=3&category=2) | [Đọc write-up](./transposition-trial/write-up.md) |
+| [substitution2](https://learn.cylabacademy.org/library?page=3&category=2) | [Đọc write-up](./substitution2/write-up.md) |
+| [substitution1](https://learn.cylabacademy.org/library?page=3&category=2) | [Đọc write-up](./substitution1/write-up.md) |
+| [substitution0](https://learn.cylabacademy.org/library?page=3&category=2) | [Đọc write-up](./substitution0/write-up.md) |
 | [rail-fence](https://learn.cylabacademy.org/library?page=3&category=2) | Chưa có write-up |
 | [morse-code](https://learn.cylabacademy.org/library?page=3&category=2) | Chưa có write-up |
 | [credstuff](https://learn.cylabacademy.org/library?page=3&category=2) | Chưa có write-up |
