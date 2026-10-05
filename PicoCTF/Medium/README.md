@@ -31,7 +31,7 @@
 | [basic-mod1](https://learn.cylabacademy.org/library?page=3&category=2) | [Đọc write-up](./basic-mod1/write-up.md) |
 | [spelling-quiz](https://learn.cylabacademy.org/library?page=3&category=2) | [Đọc write-up](./spelling-quiz/write-up.md) |
 | [Mini RSA](https://learn.cylabacademy.org/library?page=4&category=2) | [Đọc write-up](./Mini_RSA/write-up.md) |
-| [It is my Birthday 2](https://learn.cylabacademy.org/library?page=4&category=2) | Chưa có write-up |
+| [It is my Birthday 2](https://learn.cylabacademy.org/library?page=4&category=2) | [Đọc write-up](./It_is_my_Birthday_2/write-up.md) |
 | [Mind your Ps and Qs](https://learn.cylabacademy.org/library/162?page=4&category=2) | Chưa có write-up |
 | [Dachshund Attacks](https://learn.cylabacademy.org/library?page=4&category=2) | Chưa có write-up |
 | [New Caesar](https://learn.cylabacademy.org/library?page=4&category=2) | Chưa có write-up |
