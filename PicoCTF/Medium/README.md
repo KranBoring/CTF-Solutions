@@ -7,7 +7,7 @@
 | [shift registers](https://learn.cylabacademy.org/library/716?page=1&category=2) | [Đọc write-up](./shift_registers/write-up.md) |
 | [Related Messages](https://learn.cylabacademy.org/library/713?page=1&category=2) | [Đọc write-up](./Related_Messages/write-up.md) |
 | [Not TRUE](https://learn.cylabacademy.org/library/711?page=2&category=2) | Chưa có write-up |
-| [cryptomaze](https://learn.cylabacademy.org/library/703?page=2&category=2) | [Đọc write-up] (./cryptomaze/write-up.md) |
+| [cryptomaze](https://learn.cylabacademy.org/library/703?page=2&category=2) | [Đọc write-up](./cryptomaze/write-up.md) |
 | [ClusterRSA](https://learn.cylabacademy.org/library/702?page=2&category=2) | [Đọc write-up](./ClusterRSA/write-up.md) |
 | [Black Cobra Pepper](https://learn.cylabacademy.org/library/701?page=2&category=2) | Chưa có write-up |
 | [Crack the Power](https://learn.cylabacademy.org/library?page=2&category=2) | [Đọc write-up](./Crack_the_Power/write-up.md) |
@@ -32,18 +32,18 @@
 | [spelling-quiz](https://learn.cylabacademy.org/library?page=3&category=2) | [Đọc write-up](./spelling-quiz/write-up.md) |
 | [Mini RSA](https://learn.cylabacademy.org/library?page=4&category=2) | [Đọc write-up](./Mini_RSA/write-up.md) |
 | [It is my Birthday 2](https://learn.cylabacademy.org/library?page=4&category=2) | [Đọc write-up](./It_is_my_Birthday_2/write-up.md) |
-| [Mind your Ps and Qs](https://learn.cylabacademy.org/library/162?page=4&category=2) | [Đọc write-up] (./Mind_your_Ps_and_Qs/write-up.md) |
-| [Dachshund Attacks](https://learn.cylabacademy.org/library?page=4&category=2) | [Đọc write-up] (./Dachshund_Attacks/write-up.md) |
-| [New Caesar](https://learn.cylabacademy.org/library?page=4&category=2) | [Đọc write-up] (./New_Caesar/write-up.md) |
-| [No Padding, No Problem](https://learn.cylabacademy.org/library?page=4&category=2) | [Đọc write-up] (./No_Padding_No_Problem/write-up.md) |
-| [Easy Peasy](https://learn.cylabacademy.org/library?page=4&category=2) | [Đọc write-up] (./Easy_Peasy/write-up.md) |
+| [Mind your Ps and Qs](https://learn.cylabacademy.org/library/162?page=4&category=2) | [Đọc write-up](./Mind_your_Ps_and_Qs/write-up.md) |
+| [Dachshund Attacks](https://learn.cylabacademy.org/library?page=4&category=2) | [Đọc write-up](./Dachshund_Attacks/write-up.md) |
+| [New Caesar](https://learn.cylabacademy.org/library?page=4&category=2) | [Đọc write-up](./New_Caesar/write-up.md) |
+| [No Padding, No Problem](https://learn.cylabacademy.org/library?page=4&category=2) | [Đọc write-up](./No_Padding_No_Problem/write-up.md) |
+| [Easy Peasy](https://learn.cylabacademy.org/library?page=4&category=2) | [Đọc write-up](./Easy_Peasy/write-up.md) |
 | [It's Not My Fault 2](https://learn.cylabacademy.org/library?page=4&category=2) | Chưa có write-up |
-| [Pixelated](https://learn.cylabacademy.org/library?page=4&category=2) | [Đọc write-up] (./Pixelated/write-up.md) |
-| [caesar](https://learn.cylabacademy.org/library?page=4&category=2) | [Đọc write-up] (./caesar/write-up.md) |
-| [Easy1](https://learn.cylabacademy.org/library?page=4&category=2) | [Đọc write-up] (./Easy1/write-up.md) |
-| [Mr-Worldwide](https://learn.cylabacademy.org/library?page=4&category=2) | [Đọc write-up] (./Mr-Worldwide/write-up.md) |
-| [waves over lambda](https://learn.cylabacademy.org/library?page=5&category=2) | [Đọc write-up] (./waves_over_lambda/write-up.md) |
-| [Flags](https://learn.cylabacademy.org/library?page=5&category=2) | [Đọc write-up] (./Flags/write-up.md) |
-| [Tapping](https://learn.cylabacademy.org/library?page=5&category=2) | [Đọc write-up] (./Tapping/write-up.md) |
-| [john_pollard](https://learn.cylabacademy.org/library?page=5&category=2) | [Đọc write-up] (./john_pollard/write-up.md) |
-| [la cifra](https://learn.cylabacademy.org/library?page=5&category=2) | [Đọc write-up] (./la_cifra/write-up.md) |
+| [Pixelated](https://learn.cylabacademy.org/library?page=4&category=2) | [Đọc write-up](./Pixelated/write-up.md) |
+| [caesar](https://learn.cylabacademy.org/library?page=4&category=2) | [Đọc write-up](./caesar/write-up.md) |
+| [Easy1](https://learn.cylabacademy.org/library?page=4&category=2) | [Đọc write-up](./Easy1/write-up.md) |
+| [Mr-Worldwide](https://learn.cylabacademy.org/library?page=4&category=2) | [Đọc write-up](./Mr-Worldwide/write-up.md) |
+| [waves over lambda](https://learn.cylabacademy.org/library?page=5&category=2) | [Đọc write-up](./waves_over_lambda/write-up.md) |
+| [Flags](https://learn.cylabacademy.org/library?page=5&category=2) | [Đọc write-up](./Flags/write-up.md) |
+| [Tapping](https://learn.cylabacademy.org/library?page=5&category=2) | [Đọc write-up](./Tapping/write-up.md) |
+| [john_pollard](https://learn.cylabacademy.org/library?page=5&category=2) | [Đọc write-up](./john_pollard/write-up.md) |
+| [la cifra de](https://learn.cylabacademy.org/library?page=5&category=2) | [Đọc write-up](./la_cifra_de/write-up.md) |
