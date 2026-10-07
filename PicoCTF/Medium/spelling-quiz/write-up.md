@@ -17,7 +17,7 @@
 #### 3. Phân tích
 
 * Đề cho ta 1 file nén, khi giải nén ra ta nhận được 1 đoạn `encrypt.py`, `flag.txt` và `study-guide.txt`
-* Tóm tắt chức năng của file `encrypt.txt` là mã hóa toàn bộ các file có đuôi `txt` trong thư mục hiện tại (thư mục hiện tại bao gồm `flag.txt` và `study-guide.txt`)
+* Tóm tắt chức năng của file `encrypt.py` là mã hóa toàn bộ các file có đuôi `txt` trong thư mục hiện tại (thư mục hiện tại bao gồm `flag.txt` và `study-guide.txt`)
 * File python mã hóa bằng cách ánh xạ `bảng chứ cái gốc (abcdef...)` sang `bảng chữ cái mới tạo ra bằng hàm shuffle`
 
 #### 4. Ý tưởng khai thác

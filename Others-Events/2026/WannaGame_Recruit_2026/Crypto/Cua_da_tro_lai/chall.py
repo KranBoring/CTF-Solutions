@@ -26,11 +26,11 @@ p = getPrime(128)
 F = GF(p)
 
 coeff = [F(randint(0, p-1)) for _ in range(10)]
-xi = [F(randint(0, p-1)) for _ in range(36*36)] #Core
+xi = [F(randint(0, p-1)) for _ in range(36*36)]
 
-A = Matrix(GF(p), 36, 36, [custom_random(coeff, xi[i]) for i in range(36*36)]) #Core
+A = Matrix(GF(p), 36, 36, [custom_random(coeff, xi[i]) for i in range(36*36)])
 e = getPrime(67)
-A_ct = A**e #Core
+A_ct = A**e
 
 print("xi = ", [int(x) for x in xi])
 
