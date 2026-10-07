@@ -107,7 +107,8 @@
 * Nếu coi các ẩn coeff là hệ số của hàm `f`, thì các phần tử của ma trận A (xem rằng các hàng của ma trận A được trải phẳng) ta được viết gói gọn là:
 * ![2](images/2.png)
 * ![3](images/3.png)
-* Và ta có 1 phương trình kiểu này với mỗi phần tử ma trận A, ta sẽ đưa các phương trình này vào hệ phương trình tuyến tính đồng nhất với số lượng phương trình trong hệ bằng với số lượng ẩn coeff. Và ta đưa nó vào ma trận sẽ có dạng như sau:
+* Và ta có 1 phương trình kiểu này với mỗi phần tử ma trận A, ta sẽ đưa các phương trình này vào hệ phương trình tuyến tính đồng nhất với số lượng phương trình trong hệ bằng với số lượng ẩn coeff cộng thêm 1. Và ta đưa nó vào ma trận sẽ có dạng như sau:
+> Từ đoạn này trở đi, ma trận A được hiểu là ma trận của hệ phương trình, không phải ma trận đề cho
 * ![5](images/5.png)
 * Bởi vì `-Ai` là hệ số tự do, nên vector X sẽ có dạng:
 * ![7](images/7.png)
