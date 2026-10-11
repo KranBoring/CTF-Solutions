@@ -13,18 +13,24 @@
 * Có 2 trường hợp khi tìm thặng dư bậc 2 đó là khi `p = 1 mod 4 và p = 3 mod 4`, ở write-up này chúng ta chỉ bàn luận về trường hợp `p = 3 mod 4`
   * Bây giờ, giả sử 1 số `a` thỏa mãn dấu hiệu legendre và có thặng dư bậc 2
   * Vậy sẽ có 1 số `x` thỏa:
-  * $$
-    x^2 = a \text{ (mod p)}
-    $$
+
+$$
+x^2 = a \text{ (mod p)}
+$$
+
   * Theo định lý fermat nhỏ, kết hợp với điều kiện trên, ta có:
-  * $$
-    a^{p-1} = 1 \text{ (mod p)} \to a^{\frac{(p -1 )}{2}} = (x^{2})^{\frac{(p -1 )}{2}} = x^{p - 1} = 1 \text{  (mod p)}
-    $$
+
+$$
+a^{p-1} = 1 \text{ (mod p)} \to a^{\frac{(p -1 )}{2}} = (x^{2})^{\frac{(p -1 )}{2}} = x^{p - 1} = 1 \text{  (mod p)}
+$$
+
   * Như các bạn thấy, bản chất của dấu hiệu legendre được chứng minh thông qua định lý fermat nhỏ:
   * Khi đó, ta có:
-  * $$
-    x^2 = a \text{ (mod p)}\to x^2 = a * 1\text{ (mod p)} \to x^2 = a * a^{\frac{p-1}{2}}\text{ (mod p)} \to x^2 = a^{\frac{p-1}{2} + 1}\text{ (mod p)} \to x^2 = a^{\frac{p+1}{2}}\text{ (mod p)} \to x = \pm a^{\frac{p+1}{4}}\text{ (mod p)}
-    $$
+
+$$
+x^2 = a \text{ (mod p)}\to x^2 = a * 1\text{ (mod p)} \to x^2 = a * a^{\frac{p-1}{2}}\text{ (mod p)} \to x^2 = a^{\frac{p-1}{2} + 1}\text{ (mod p)} \to x^2 = a^{\frac{p+1}{2}}\text{ (mod p)} \to x = \pm a^{\frac{p+1}{4}}\text{ (mod p)}
+$$
+
   * Để có thể tính được `x`- `thặng dư bậc 2 của a` , ta cần `p+1` chia hết cho , nên để sử dụng công thức này thì `p` phải thỏa mãn `p mod 4 = 3`
 
 #### 3. Exploit chain
