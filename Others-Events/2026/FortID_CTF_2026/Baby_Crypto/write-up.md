@@ -85,15 +85,15 @@ X \oplus 0 = X
 $$
 
 $$
-\text{Giả sử rằng độ dài cờ là 12 và cờ là } FortID \{ ?abc\}
+\text{Giả sử rằng độ dài cờ là 12 và cờ là } FortID \lbrace ?abc\rbrace
 $$
 
 $$
-C_1 \oplus C_2 = (FortID \{ ?\backslash\texttt{x00}\backslash\texttt{x00}\backslash\texttt{x00}\} \oplus Keystream) \oplus (FortID \{ ?abc\} \oplus Keystream)
+C_1 \oplus C_2 = (FortID \lbrace ?\backslash\texttt{x00}\backslash\texttt{x00}\backslash\texttt{x00}\rbrace \oplus Keystream) \oplus (FortID \lbrace ?abc\rbrace \oplus Keystream)
 $$
 
 $$
-= FortID \{ ?\backslash\texttt{x00}\backslash\texttt{x00}\backslash\texttt{x00}\} \oplus FortID \{ ?abc\}
+= FortID \lbrace ?\backslash\texttt{x00}\backslash\texttt{x00}\backslash\texttt{x00}\rbrace \oplus FortID \lbrace ?abc\rbrace
 $$
 
 $$
