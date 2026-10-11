@@ -1,0 +1,16 @@
+{
+    "commitment":"d438f6d51d055de1555a4f6defacaf3a889b3700bedadd7edb4d513ba833c859",
+    "encoding":
+    {
+        "column_bits":2,
+        "columns":
+        {
+            "accepted":1,
+            "critical":2,
+            "duplicate":0,
+            "payout_authorized":3
+        },
+            "layout":"little_endian_boolean_hypercube",
+            "report_id_bits":11
+    },
+    "field_modulus":"35182531786822156541290684230036086178800502148536840364113258180206318266211","kind":"bug_bounty_triage_snapshot","note":"This bundle is public for dispute resolution. It does not grant a payout; it only lets researchers replay triage decisions.","params":"/api/transparency/params.json","researcher":{"email":"el1t3_hun73r@bugledger.local","handle":"el1t3_hun73r"},"scheme":"TwinFold-PCS-v2","shards":[{"index":0,"length":1024,"offset":0,"path":"/api/transparency/snapshots/triage-2026-09-28/shards/000.json"},{"index":1,"length":1024,"offset":1024,"path":"/api/transparency/snapshots/triage-2026-09-28/shards/001.json"},{"index":2,"length":1024,"offset":2048,"path":"/api/transparency/snapshots/triage-2026-09-28/shards/002.json"},{"index":3,"length":1024,"offset":3072,"path":"/api/transparency/snapshots/triage-2026-09-28/shards/003.json"},{"index":4,"length":1024,"offset":4096,"path":"/api/transparency/snapshots/triage-2026-09-28/shards/004.json"},{"index":5,"length":1024,"offset":5120,"path":"/api/transparency/snapshots/triage-2026-09-28/shards/005.json"},{"index":6,"length":1024,"offset":6144,"path":"/api/transparency/snapshots/triage-2026-09-28/shards/006.json"},{"index":7,"length":1024,"offset":7168,"path":"/api/transparency/snapshots/triage-2026-09-28/shards/007.json"}],"snapshot_id":"triage-2026-09-28","variables":13,"vault_policy":{"field":"payout_authorized","owned_report_ids":[271,604,918,1247,1569,1842],"required_claimed_value":"1","scope":"any_owned_report"},"vector_length":8192,"verifier":"/api/replay/verifier.py"}
