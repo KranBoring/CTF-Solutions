@@ -25,20 +25,32 @@
 * Theo như ở trên đã phân tích, ta biết rằng kí hiệu legendre của `a` = 1, nên ta có:
 
 $$
-(a/p) = 1\to (n/p) = (a/p)^{e} = (a/p)*(a/p)*... = 1*1*... = 1
+\begin{aligned}
+&(a/p) = 1 \to (n/p) = (a/p)^{e} \\
+&= (a/p)*(a/p)*... \\
+&= 1*1*... = 1
+\end{aligned}
 $$
 
 * Nên để nhận biết được bit 1, thì số trong list phải là số có thặng dư bậc 2
 * Đối với bit 0 thì trong dãy sẽ được đưa vào số đối `n` hay là `-n` thì ta có:
 
 $$
-(n/p) = 1 \to (-n/p) = (n/p)*(-1/p)= 1 * (-1)^{\frac{(p-1)}{2}}
+\begin{aligned}
+&(n/p) = 1 \to (-n/p) = (n/p)*(-1/p) \\
+&= 1 * (-1)^{\frac{(p-1)}{2}}
+\end{aligned}
 $$
 
 * Như ta đã được biết thì `p là một số nguyên tố chia 4 dư 3`, nên:
 
 $$
-p = 3 \text{ (mod 4)} \to p = 3 + 4k\to (-n/p) = 1 * (-1)^{\frac{3+4k-1}{2}} = 1*(-1)^{2k + 1} = 1*(-1)^{2k} * (-1) = 1*1*-1 = -1
+\begin{aligned}
+&p = 3 \text{ (mod 4)} \to p = 3 + 4k \\
+&\to (-n/p) = 1 * (-1)^{\frac{3+4k-1}{2}} \\
+&= 1*(-1)^{2k + 1} \\
+&= 1*(-1)^{2k} * (-1) = 1*1*-1 = -1
+\end{aligned}
 $$
 
 * Vậy thì số `-n` LUÔN LUÔN không phải là số có thặng dư bậc 2
@@ -48,4 +60,6 @@ $$
 
 * Quét qua list, kiểm tra các số có thặng dư bậc 2 hay không bằng kí hiệu legendre, nếu có ta có bit `1`, nếu không là bit `0`
 * Script: [Đọc](solve.py)
-* #### Flag: crypto{p4tterns_1n_re5idu3s}
+* ```
+  Flag: crypto{p4tterns_1n_re5idu3s}
+  ```

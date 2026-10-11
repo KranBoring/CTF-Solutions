@@ -23,28 +23,46 @@
   * Khi đó ta có:
 
 $$
-c_1 = (2p + 3q)^{e_1} \bmod N \to (2p + 3q)^{e_1} - c_1 = 0 \bmod N \to (2p + 3q)^{e_1} - c_1 = k * p * q \bmod N \to (2p + 3q)^{e_1} - c_1 = 0 \bmod q \to c_1 = (2p)^{e_1} \bmod q
+\begin{aligned}
+&c_1 = (2p + 3q)^{e_1} \bmod N \\
+&\to (2p + 3q)^{e_1} - c_1 = 0 \bmod N \\
+&\to (2p + 3q)^{e_1} - c_1 = k * p * q \bmod N \\
+&\to (2p + 3q)^{e_1} - c_1 = 0 \bmod q \\
+&\to c_1 = (2p)^{e_1} \bmod q
+\end{aligned}
 $$
 
   * Tương tự tới `c2`, ta có:
 
 $$
-c_2 = (5p + 7q)^{e_2} \bmod N \to c_2 = (5p)^{e_2} \bmod q
+\begin{aligned}
+&c_2 = (5p + 7q)^{e_2} \bmod N \\
+&\to c_2 = (5p)^{e_2} \bmod q
+\end{aligned}
 $$
 
   * Ta mũ `e1` `c2` và mũ `e2` `c1`, ta được:
 
 $$
-c_1 = (2p)^{e_1} \bmod q \to c_1^{e_2} = (2p)^{e_1e_2} \bmod q \to p^{e_1e_2} = c_1^{e_2} * (2^{e_1e_2})^{-1} \bmod q
-\\
-c_2 = (5p)^{e_2} \bmod q \to c_2^{e_1} = (5p)^{e_1e_2} \bmod q \to p^{e_1e_2} = c_2^{e_1} * (5^{e_1e_2})^{-1} \bmod q
+\begin{aligned}
+&c_1 = (2p)^{e_1} \bmod q \\
+&\to c_1^{e_2} = (2p)^{e_1e_2} \bmod q \\
+&\to p^{e_1e_2} = c_1^{e_2} * (2^{e_1e_2})^{-1} \bmod q \\[4pt]
+&c_2 = (5p)^{e_2} \bmod q \\
+&\to c_2^{e_1} = (5p)^{e_1e_2} \bmod q \\
+&\to p^{e_1e_2} = c_2^{e_1} * (5^{e_1e_2})^{-1} \bmod q
+\end{aligned}
 $$
 
   * Ta khử `p^e1e2` để cô lập `q`:
 
 $$
-c_1^{e_2} * (2^{e_1e_2})^{-1} = c_2^{e_1} * (5^{e_1e_2})^{-1} \bmod q \to c_1^{e_2} * 5^{e_1e_2} = c_2^{e_1} * 2^{e_1e_2} \bmod q \\
-\to c_1^{e_2} * 5^{e_1e_2} - c_2^{e_1} * 2^{e_1e_2} = 0\bmod q \to c_1^{e_2} * 5^{e_1e_2} - c_2^{e_1} * 2^{e_1e_2} = k * q
+\begin{aligned}
+&c_1^{e_2} * (2^{e_1e_2})^{-1} = c_2^{e_1} * (5^{e_1e_2})^{-1} \bmod q \\
+&\to c_1^{e_2} * 5^{e_1e_2} = c_2^{e_1} * 2^{e_1e_2} \bmod q \\
+&\to c_1^{e_2} * 5^{e_1e_2} - c_2^{e_1} * 2^{e_1e_2} = 0\bmod q \\
+&\to c_1^{e_2} * 5^{e_1e_2} - c_2^{e_1} * 2^{e_1e_2} = k * q
+\end{aligned}
 $$
 
   * Và cuối cùng ta chỉ cần tìm ước chung lớn nhất giữa N và kết quả biểu thức trên là được
