@@ -25,32 +25,44 @@
 * Theo như ở trên đã phân tích, ta biết rằng kí hiệu legendre của `a` = 1, nên ta có:
 
 $$
-\begin{aligned}
-&(a/p) = 1 \to (n/p) = (a/p)^{e} \\
-&= (a/p)*(a/p)*... \\
-&= 1*1*... = 1
-\end{aligned}
+(a/p) = 1 \to (n/p) = (a/p)^{e}
+$$
+
+$$
+= (a/p)*(a/p)*...
+$$
+
+$$
+= 1*1*... = 1
 $$
 
 * Nên để nhận biết được bit 1, thì số trong list phải là số có thặng dư bậc 2
 * Đối với bit 0 thì trong dãy sẽ được đưa vào số đối `n` hay là `-n` thì ta có:
 
 $$
-\begin{aligned}
-&(n/p) = 1 \to (-n/p) = (n/p)*(-1/p) \\
-&= 1 * (-1)^{\frac{(p-1)}{2}}
-\end{aligned}
+(n/p) = 1 \to (-n/p) = (n/p)*(-1/p)
+$$
+
+$$
+= 1 * (-1)^{\frac{(p-1)}{2}}
 $$
 
 * Như ta đã được biết thì `p là một số nguyên tố chia 4 dư 3`, nên:
 
 $$
-\begin{aligned}
-&p = 3 \text{ (mod 4)} \to p = 3 + 4k \\
-&\to (-n/p) = 1 * (-1)^{\frac{3+4k-1}{2}} \\
-&= 1*(-1)^{2k + 1} \\
-&= 1*(-1)^{2k} * (-1) = 1*1*-1 = -1
-\end{aligned}
+p = 3 \text{ (mod 4)} \to p = 3 + 4k
+$$
+
+$$
+\to (-n/p) = 1 * (-1)^{\frac{3+4k-1}{2}}
+$$
+
+$$
+= 1*(-1)^{2k + 1}
+$$
+
+$$
+= 1*(-1)^{2k} * (-1) = 1*1*-1 = -1
 $$
 
 * Vậy thì số `-n` LUÔN LUÔN không phải là số có thặng dư bậc 2

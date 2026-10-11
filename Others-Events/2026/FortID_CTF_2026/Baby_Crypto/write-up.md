@@ -32,22 +32,18 @@
       def __init__(self):
           self.key = get_random_bytes(16)
 
-
       def encrypt(self, plaintext):
           cipher = AES.new(self.key, AES.MODE_CTR, nonce=plaintext[:8])
           return cipher.encrypt(plaintext)
-
 
   class Vault:
       def __init__(self):
           self.cipher = Cipher()
           self.entries = {}
 
-
       def insert(self, secret_value):
           ciphertext = self.cipher.encrypt(secret_value.encode("utf-8"))
           self.entries[f"Secret #{len(self.entries)}"] = ciphertext.hex()
-
 
       def export(self):
           return json.dumps(self.entries)
@@ -63,11 +59,15 @@
 * Các chế độ `CBC`, `ECB`,`CTR` của `AES` mã hóa trực tiếp trên bản rõ:
 
 $$
-\begin{aligned}
-&\text{ECB mode: } AES(plaintext, key) \\
-&\text{CBC mode: } AES(plaintext, key, iv) \\
-&\text{CTR mode: } AES(\text{nonce đã được thêm bytes dài 16 bytes}, key) = Keysrteam \to Keystream \oplus plaintext = ciphertext
-\end{aligned}
+\text{ECB mode: } AES(plaintext, key)
+$$
+
+$$
+\text{CBC mode: } AES(plaintext, key, iv)
+$$
+
+$$
+\text{CTR mode: } AES(\text{nonce đã được thêm bytes dài 16 bytes}, key) = Keysrteam \to Keystream \oplus plaintext = ciphertext
 $$
 
 * Vậy thì về bản chất, bản rõ cờ chỉ xor với các keystream sinh ra từ mã hóa `AES nonce`và`key`. Nếu như 2 bản rõ được mã hóa chung 1 `key` và 1 `nonce`, thì có nghĩa rằng dòng keystream sinh ra và xor với 2 bản rõ là giống nhau, ta có thể xor 2 ciphertext của 2 bản rõ với nhau để triệt tiêu đi keystream bằng tính chất của phép xor!
@@ -85,12 +85,19 @@ X \oplus 0 = X
 $$
 
 $$
-\begin{aligned}
-&\text{Giả sử rằng độ dài cờ là 12 và cờ là } FortID \left\{ ?abc\right\} \\
-&C_1 \oplus C_2 = (FortID \left\{ ?\texttt{\textbackslash x00}\texttt{\textbackslash x00}\texttt{\textbackslash x00}\right\} \oplus Keystream) \oplus (FortID \left\{ ?abc\right\} \oplus Keystream) \\
-&= FortID \left\{ ?\texttt{\textbackslash x00}\texttt{\textbackslash x00}\texttt{\textbackslash x00}\right\} \oplus FortID \left\{ ?abc\right\} \\
-&= \texttt{\textbackslash x00}\texttt{\textbackslash x00}\texttt{\textbackslash x00}\texttt{\textbackslash x00}\texttt{\textbackslash x00}\texttt{\textbackslash x00}\texttt{\textbackslash x00}\texttt{\textbackslash x00}abc\texttt{\textbackslash x00}
-\end{aligned}
+\text{Giả sử rằng độ dài cờ là 12 và cờ là } FortID \{ ?abc\}
+$$
+
+$$
+C_1 \oplus C_2 = (FortID \{ ?\texttt{\textbackslash x00}\texttt{\textbackslash x00}\texttt{\textbackslash x00}\} \oplus Keystream) \oplus (FortID \{ ?abc\} \oplus Keystream)
+$$
+
+$$
+= FortID \{ ?\texttt{\textbackslash x00}\texttt{\textbackslash x00}\texttt{\textbackslash x00}\} \oplus FortID \{ ?abc\}
+$$
+
+$$
+= \texttt{\textbackslash x00}\texttt{\textbackslash x00}\texttt{\textbackslash x00}\texttt{\textbackslash x00}\texttt{\textbackslash x00}\texttt{\textbackslash x00}\texttt{\textbackslash x00}\texttt{\textbackslash x00}abc\texttt{\textbackslash x00}
 $$
 
 * Ta thu được phần còn lại của cờ!
@@ -120,12 +127,10 @@ $$
    ___/ /  __/ /__/ /_/ / /  /  __/    | |/ / /_/ / /_/ / / /_
   /____/\___/\___/\__,_/_/   \___/     |___/\__,_/\__,_/_/\__/
 
-
   Options:
     1) Safely Store a Secret Value
     2) Export Vault Data
     3) Exit
-
 
   >
   b'1'
