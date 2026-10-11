@@ -56,7 +56,7 @@
 
 * Lỗ hỗng của bài này là chỉ sử dụng 1 khóa cho tất cả các bản rõ mà ta gửi lên `oracle`, thứ khác duy nhất là `nonce`.
 * Thuật toán mã hóa `AES` chế độ `CTR` khá là đặc biệt so với các chế độ khác đó là thay vì mã hóa trực tiếp trên bản rõ thì nó sẽ mã hóa các chuỗi dài 16 bytes được sinh ra phụ thuộc vào `nonce` rồi tạo ra các `keystream` rồi `xor` với các khối của bản rõ. Chế độ này chuyển`AES`từ mã hóa`Block cipher`sang mã hóa`Stream cipher`
-* Các chế độ `CBC`, `ECB`,`CTR` của `AES` mã hóa trực tiếp trên bản rõ:
+* Các chế độ `CBC`, `ECB`,`CTR` của `AES` mã hóa bằng cách:
 
 $$
 \text{ECB mode: } AES(plaintext, key)
