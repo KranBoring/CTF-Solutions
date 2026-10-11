@@ -29,22 +29,22 @@ $$
 $$
 
 $$
-= (a/p)*(a/p)*...
+= (a/p)\cdot (a/p)\cdot ...
 $$
 
 $$
-= 1*1*... = 1
+= 1\cdot 1\cdot ... = 1
 $$
 
 * Nên để nhận biết được bit 1, thì số trong list phải là số có thặng dư bậc 2
 * Đối với bit 0 thì trong dãy sẽ được đưa vào số đối `n` hay là `-n` thì ta có:
 
 $$
-(n/p) = 1 \to (-n/p) = (n/p)*(-1/p)
+(n/p) = 1 \to (-n/p) = (n/p)\cdot (-1/p)
 $$
 
 $$
-= 1 * (-1)^{\frac{(p-1)}{2}}
+= 1 \cdot  (-1)^{\frac{(p-1)}{2}}
 $$
 
 * Như ta đã được biết thì `p là một số nguyên tố chia 4 dư 3`, nên:
@@ -54,15 +54,15 @@ p = 3 \text{ (mod 4)} \to p = 3 + 4k
 $$
 
 $$
-\to (-n/p) = 1 * (-1)^{\frac{3+4k-1}{2}}
+\to (-n/p) = 1 \cdot  (-1)^{\frac{3+4k-1}{2}}
 $$
 
 $$
-= 1*(-1)^{2k + 1}
+= 1\cdot (-1)^{2k + 1}
 $$
 
 $$
-= 1*(-1)^{2k} * (-1) = 1*1*-1 = -1
+= 1\cdot (-1)^{2k} \cdot  (-1) = 1\cdot 1\cdot -1 = -1
 $$
 
 * Vậy thì số `-n` LUÔN LUÔN không phải là số có thặng dư bậc 2
