@@ -89,15 +89,15 @@ $$
 $$
 
 $$
-C_1 \oplus C_2 = (FortID \{ ?\texttt{\textbackslash x00}\texttt{\textbackslash x00}\texttt{\textbackslash x00}\} \oplus Keystream) \oplus (FortID \{ ?abc\} \oplus Keystream)
+C_1 \oplus C_2 = (FortID \{ ?\backslash\texttt{x00}\backslash\texttt{x00}\backslash\texttt{x00}\} \oplus Keystream) \oplus (FortID \{ ?abc\} \oplus Keystream)
 $$
 
 $$
-= FortID \{ ?\texttt{\textbackslash x00}\texttt{\textbackslash x00}\texttt{\textbackslash x00}\} \oplus FortID \{ ?abc\}
+= FortID \{ ?\backslash\texttt{x00}\backslash\texttt{x00}\backslash\texttt{x00}\} \oplus FortID \{ ?abc\}
 $$
 
 $$
-= \texttt{\textbackslash x00}\texttt{\textbackslash x00}\texttt{\textbackslash x00}\texttt{\textbackslash x00}\texttt{\textbackslash x00}\texttt{\textbackslash x00}\texttt{\textbackslash x00}\texttt{\textbackslash x00}abc\texttt{\textbackslash x00}
+= \backslash\texttt{x00}\backslash\texttt{x00}\backslash\texttt{x00}\backslash\texttt{x00}\backslash\texttt{x00}\backslash\texttt{x00}\backslash\texttt{x00}\backslash\texttt{x00}abc\backslash\texttt{x00}
 $$
 
 * Ta thu được phần còn lại của cờ!
