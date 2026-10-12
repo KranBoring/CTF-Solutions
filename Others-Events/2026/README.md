@@ -5,3 +5,4 @@
 - [H7CTF](./H7CTF/README.md)
 - [WannaGame Recruit 2026](./WannaGame_Recruit_2026/README.md)
 - [FortID CTF 2026](./FortID_CTF_2026/README.md)
+- [W1n.game Training 2026](./W1n.game_Training/README.md)
