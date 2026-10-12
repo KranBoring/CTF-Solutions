@@ -1,7 +1,7 @@
 from pwn import *
 import json
 
-host = "localhost"
+host = "socket.cryptohack.org"
 port = 13383
 
 def readjson():

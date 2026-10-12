@@ -10,6 +10,7 @@
 - [CTFlearn](./CTFlearn/README.md)
 - [Dreamhack](./Dreamhack/README.md)
 - [HTB](./HTB/README.md)
-- [ctf.hackme.quest](./ctf.hackme.quest/README.md)
+- [HackmeCTF](./HackmeCTF/README.md)
+- [Cryptopals](./Cryptopals/README.md)
 - [Others-Events](./Others-Events/README.md)
 
