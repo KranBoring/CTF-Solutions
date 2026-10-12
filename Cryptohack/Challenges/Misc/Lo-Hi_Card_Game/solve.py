@@ -1,8 +1,7 @@
 from pwn import *
-from sage.all import *
 import json
 
-host = "socket.cryptohack.org"
+host = "localhost"
 port = 13383
 
 def readjson():
@@ -20,6 +19,11 @@ SUITS = ['Clubs', 'Hearts', 'Diamonds', 'Spades']
     
 desk = [f"{value} of {suit}" for suit in SUITS for value in VALUES]
 
+def countwin(res):
+    global win
+    if "Correct!" in res["msg"]:
+        win += 1
+
 def findindex(value, suit):
     return desk.index(f"{value} of {suit}")
 
@@ -36,6 +40,7 @@ def recoverState():
 
     for r in range(11):
         respone = readjson()
+        countwin(respone)
         if int(respone["round"]) < 33:
             payjson(json_test)
         value, suit = checkhand(respone["hand"])
@@ -55,7 +60,7 @@ def rebase(n, base=52):
         return [n % base] + rebase(n//base, base)
 
 def checksuit(suit1, suit2):
-    return SUITS.index(suit1) > SUITS.index(suit2)
+    return (SUITS.index(suit1) > SUITS.index(suit2))
 
 def checkvalue(value1, value2):
     return (VALUES.index(value1) > VALUES.index(value2))
@@ -64,6 +69,7 @@ def autojson(state = "lower"):
     return {"choice":state}
 while True:
     while True:
+        win = 0
         try:
             io = remote(host, port)
             x1 = recoverState()
@@ -99,6 +105,7 @@ while True:
                 payjson(autojson())
             current_hand = (hidden_value,hidden_suit)
             res = readjson()
+            countwin(res)
         except Exception:
             break
     if "crypto{" not in res["msg"]:
@@ -106,3 +113,4 @@ while True:
     else:
         break
 print(res["msg"])
+print(f"So tran thang:{win}\nSo tran thua:{200 - win}\nTy le thang:{win/200}\nThan bai🔥🔥🔥🔥🔥")
