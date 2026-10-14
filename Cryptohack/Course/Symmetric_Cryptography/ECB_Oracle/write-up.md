@@ -112,7 +112,7 @@ crypto{p3n6u1n5_h473_3cb}
 
 #### 7. Ngoài lề
 
-* Nhìn chung, thủ thuật tấn công `AES-ECB Oracle`chỉ có vậy. Nếu các bạn tự code script có tham khảo cách giải và script của mình ở trên, các bạn sẽ thấy, đễ giải được cờ phải chờ thời gian rất là lâu. Ở dòng ngoài lề này mình đã vừa cập nhập thêm bộ đếm cho `script solve` ở trên. Thì thời gian để giải được cờ chỉ dài 26 kí tự là tốn tận hơn 6p mới xong. Nếu gặp những dữ liệu có hàm trăm kí tự. Thì thời gian để script mình solve được phải tốn rất nhiều tiếng đồng hồ mới xong =)))))
+* Nhìn chung, thủ thuật tấn công `AES-ECB Oracle`chỉ có vậy. Nếu các bạn tự code script có tham khảo cách giải và script của mình ở trên, các bạn sẽ thấy, đễ giải được cờ phải chờ thời gian rất là lâu. Ở dòng ngoài lề này mình đã vừa cập nhập thêm bộ đếm cho `script solve` ở trên. Thì thời gian để giải được cờ chỉ dài 26 kí tự là tốn tận hơn 11p mới xong. Nếu gặp những dữ liệu có hàm trăm kí tự. Thì thời gian để script mình solve được phải tốn rất nhiều tiếng đồng hồ mới xong =)))))
 * ```
   crypto{p
   crypto{p3
@@ -134,7 +134,7 @@ crypto{p3n6u1n5_h473_3cb}
   crypto{p3n6u1n5_h473_3cb}
   Thoi gian thuc thi: 671.8649241924286
   ```
-* Ở script [solve1](solve1.py), mình đã cải tiến từ script solve. Các bạn có thể xem qua ý tưởng code của mình để hiểu ý tưởng nhé. Nó giảm thời gian từ hơn 6p chỉ còn có cỡ 14s cho 26 kí tự cờ
+* Ở script [solve1](solve1.py), mình đã cải tiến từ script solve. Các bạn có thể xem qua ý tưởng code của mình để hiểu ý tưởng nhé. Nó giảm thời gian từ hơn 11p chỉ còn có cỡ 14s cho 26 kí tự cờ
 * ```
   crypto{p
   crypto{p3
