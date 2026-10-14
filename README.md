@@ -12,5 +12,6 @@
 - [HTB](./HTB/README.md)
 - [HackmeCTF](./HackmeCTF/README.md)
 - [Cryptopals](./Cryptopals/README.md)
+- [Root-me](./Root-me/README.md)
 - [Others-Events](./Others-Events/README.md)
 

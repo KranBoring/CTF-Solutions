@@ -78,7 +78,7 @@
 
   * Nhập n,e,c vào 1 danh sách
   * Xét từng tổ hợp ciphertext chập 3 trong danh sách,  thực hiện `Hastad’s Broadcast Attack`, nếu `M` có căn bậc 3 nguyên thì in `m` ra.
-* Script: [Đọc](solve.py)
+* Script: [Đọc](newsol1.py)
 * Kết quả:
 * ```
   yes
