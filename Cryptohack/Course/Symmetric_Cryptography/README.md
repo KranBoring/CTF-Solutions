@@ -2,16 +2,16 @@
 
 | Challenge | Write-up |
 | --- | --- |
-| [Keyed Permutations](https://cryptohack.org/challenges/aes/#header-aes0) | Chưa có write-up |
-| [Resisting Bruteforce](https://cryptohack.org/challenges/aes/#header-aes1) | Chưa có write-up |
-| [Structure of AES](https://cryptohack.org/challenges/aes/#header-aes2) | Chưa có write-up |
-| [Round Keys](https://cryptohack.org/challenges/aes/#header-aes3) | Chưa có write-up |
-| [Confusion through Substitution](https://cryptohack.org/challenges/aes/#header-aes4) | Chưa có write-up |
-| [Diffusion through Permutation](https://cryptohack.org/challenges/aes/#header-aes5) | Chưa có write-up |
-| [Bringing It All Together](https://cryptohack.org/challenges/aes/#header-aes6) | Chưa có write-up |
-| [Modes of Operation Starter](https://cryptohack.org/challenges/aes/#header-block_cipher_starter) | Chưa có write-up |
-| [Passwords as Keys](https://cryptohack.org/challenges/aes/#header-passwords_as_keys) | Chưa có write-up |
-| [ECB Oracle](https://cryptohack.org/challenges/aes/#header-ecb_oracle) | Chưa có write-up |
+| [Keyed Permutations](https://cryptohack.org/challenges/aes/#header-aes0) | [Đọc write-up](./Keyed_Permutations/write-up.md) |
+| [Resisting Bruteforce](https://cryptohack.org/challenges/aes/#header-aes1) | [Đọc write-up](./Resisting_Bruteforce/write-up.md) |
+| [Structure of AES](https://cryptohack.org/challenges/aes/#header-aes2) | [Đọc write-up](./Structure_of_AES/write-up.md) |
+| [Round Keys](https://cryptohack.org/challenges/aes/#header-aes3) | [Đọc write-up](./Round_Keys/write-up.md) |
+| [Confusion through Substitution](https://cryptohack.org/challenges/aes/#header-aes4) | [Đọc write-up](./Confusion_through_Substitution/write-up.md) |
+| [Diffusion through Permutation](https://cryptohack.org/challenges/aes/#header-aes5) | [Đọc write-up](./Diffusion_through_Permutation/write-up.md) |
+| [Bringing It All Together](https://cryptohack.org/challenges/aes/#header-aes6) | [Đọc write-up](./Bringing_It_All_Together/write-up.md) |
+| [Modes of Operation Starter](https://cryptohack.org/challenges/aes/#header-block_cipher_starter) | [Đọc write-up](./Modes_of_Operation_Starter/write-up.md) |
+| [Passwords as Keys](https://cryptohack.org/challenges/aes/#header-passwords_as_keys) | [Đọc write-up](./Passwords_as_Keys/write-up.md) |
+| [ECB Oracle](https://cryptohack.org/challenges/aes/#header-ecb_oracle) | [Đọc write-up](./ECB_Oracle/write-up.md) |
 | [ECB CBC WTF](https://cryptohack.org/challenges/aes/#header-ecbcbcwtf) | Chưa có write-up |
 | [Flipping Cookie](https://cryptohack.org/challenges/aes/#header-flipping_cookie) | Chưa có write-up |
 | [Symmetry](https://cryptohack.org/challenges/aes/#header-symmetry) | Chưa có write-up |
