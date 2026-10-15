@@ -100,7 +100,7 @@
 * ![1792039855029](image/write-up/1792039855029.png)
 * File ảnh PNG luôn bắt đầu với file header là 8 bytes: `89 50 4e 47 0d 0a 1a 0a`
 * ![img](https://thumb.wikimedia.org/wikipedia/commons/thumb/1/17/PNG-Gradient_hex.png/250px-PNG-Gradient_hex.png?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail)
-* Khi đọc thử ảnh phân tích các bytes của 1 file png. Mình còn thấy thêm 8 bytes nữa là `89 50 4e 47 0d 0a 1a 0a`
+* Khi đọc thử ảnh phân tích các bytes của 1 file png. Mình còn thấy thêm 8 bytes nữa là `00 00 00 4d 49 48 44 52`
 * Khi mình đọc chi tiết hơn ở phần Critical chunks được nhắc đến trên wiki. Mình nhận ra các bytes `00 00 00 4d`là để ngăn cách với file header, và 4 bytes `49 48 44 52` chính là ký tự `IHDR` trong ảnh. Nên về lý thuyết, 16 bytes đầu của mỗi bức ảnh PNG luôn cố định
 * Mình có tải ngẫu nhiên 1 bức ảnh quả táo PNG từ trên mạng về để kiểm tra thì chính xác là nó =))))
 * ![1792040356404](image/write-up/1792040356404.png)
@@ -109,7 +109,7 @@
 
 #### 5. Exploit chain
 
-* Các bạn hoàn toàn có thể ghi sẵn 8 bytes đầu là `89 50 4e 47 0d 0a 1a 0a 89 50 4e 47 0d 0a 1a 0a` rồi xor với khối đầu tiên của bức ảnh mã hóa. Nếu không thì bạn cứ tải 1 bức ảnh `png`bất kỳ rồi đọc 16 bytes đầu để trích xuất dãy bytes cũng được =)))
+* Các bạn hoàn toàn có thể ghi sẵn 8 bytes đầu là `89 50 4e 47 0d 0a 1a 0a 00 00 00 4d 49 48 44 52` rồi xor với khối đầu tiên của bức ảnh mã hóa. Nếu không thì bạn cứ tải 1 bức ảnh `png`bất kỳ rồi đọc 16 bytes đầu để trích xuất dãy bytes cũng được =)))
 * Script: [Đọc](solve.py)
 * ```Python
   import requests
