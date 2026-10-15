@@ -109,7 +109,7 @@
 
 #### 5. Exploit chain
 
-* Các bạn hoàn toàn có thể ghi sẵn 8 bytes đầu là `89 50 4e 47 0d 0a 1a 0a 00 00 00 4d 49 48 44 52` rồi xor với khối đầu tiên của bức ảnh mã hóa. Nếu không thì bạn cứ tải 1 bức ảnh `png`bất kỳ rồi đọc 16 bytes đầu để trích xuất dãy bytes cũng được =)))
+* Các bạn hoàn toàn có thể ghi sẵn 16 bytes đầu là `89 50 4e 47 0d 0a 1a 0a 00 00 00 4d 49 48 44 52` rồi xor với khối đầu tiên của bức ảnh mã hóa. Nếu không thì bạn cứ tải 1 bức ảnh `png`bất kỳ rồi đọc 16 bytes đầu để trích xuất dãy bytes cũng được =)))
 * Script: [Đọc](solve.py)
 * ```Python
   import requests
