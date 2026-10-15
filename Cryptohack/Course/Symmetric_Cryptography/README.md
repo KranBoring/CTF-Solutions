@@ -12,7 +12,7 @@
 | [Modes of Operation Starter](https://cryptohack.org/challenges/aes/#header-block_cipher_starter) | [Đọc write-up](./Modes_of_Operation_Starter/write-up.md) |
 | [Passwords as Keys](https://cryptohack.org/challenges/aes/#header-passwords_as_keys) | [Đọc write-up](./Passwords_as_Keys/write-up.md) |
 | [ECB Oracle](https://cryptohack.org/challenges/aes/#header-ecb_oracle) | [Đọc write-up](./ECB_Oracle/write-up.md) |
-| [ECB CBC WTF](https://cryptohack.org/challenges/aes/#header-ecbcbcwtf) | Chưa có write-up |
-| [Flipping Cookie](https://cryptohack.org/challenges/aes/#header-flipping_cookie) | Chưa có write-up |
-| [Symmetry](https://cryptohack.org/challenges/aes/#header-symmetry) | Chưa có write-up |
-| [Bean Counter](https://cryptohack.org/challenges/aes/#header-bean_counter) | Chưa có write-up |
+| [ECB CBC WTF](https://cryptohack.org/challenges/aes/#header-ecbcbcwtf) | [Đọc write-up](./ECB_CBC_WTF/write-up.md) |
+| [Flipping Cookie](https://cryptohack.org/challenges/aes/#header-flipping_cookie) | [Đọc write-up](./Flipping_Cookie/write-up.md) |
+| [Symmetry](https://cryptohack.org/challenges/aes/#header-symmetry) | [Đọc write-up](./Symmetry/write-up.md) |
+| [Bean Counter](https://cryptohack.org/challenges/aes/#header-bean_counter) | [Đọc write-up](./Bean_Counter/write-up.md) |

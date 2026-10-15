@@ -46,7 +46,7 @@
   - Course
     - [Introduction to CryptoHack](./Cryptohack/Course/Introduction_to_CryptoHack/README.md) (9/10)
     - [Modular Arithmetic](./Cryptohack/Course/Modular_Arithmetic/README.md) (11/11)
-    - [Symmetric Cryptography](./Cryptohack/Course/Symmetric_Cryptography/README.md) (10/14)
+    - [Symmetric Cryptography](./Cryptohack/Course/Symmetric_Cryptography/README.md) (14/14)
     - [Public-Key Cryptography](./Cryptohack/Course/Public-Key_Cryptography/README.md) (0/18)
     - [Elliptic Curves](./Cryptohack/Course/Elliptic_Curves/README.md) (0/11)
   - Challenges
