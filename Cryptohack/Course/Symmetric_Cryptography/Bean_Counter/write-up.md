@@ -129,7 +129,6 @@
   img = Image.open(io.BytesIO(png))
   img.show()
   ```
-
 * ![1792041100554](image/write-up/1792041100554.png)
 * ```
   crypto{hex_bytes_beans}

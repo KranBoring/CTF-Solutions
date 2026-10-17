@@ -2,12 +2,12 @@
 
 | Challenge | Write-up |
 | --- | --- |
-| [Modular Exponentiation](https://cryptohack.org/challenges/rsa/#header-rsa_starter_1) | Chưa có write-up |
-| [Public Keys](https://cryptohack.org/challenges/rsa/#header-rsa_starter_2) | Chưa có write-up |
-| [Euler's Totient](https://cryptohack.org/challenges/rsa/#header-rsa_starter_3) | Chưa có write-up |
-| [Private Keys](https://cryptohack.org/challenges/rsa/#header-rsa_starter_4) | Chưa có write-up |
-| [RSA Decryption](https://cryptohack.org/challenges/rsa/#header-rsa_starter_5) | Chưa có write-up |
-| [RSA Signatures](https://cryptohack.org/challenges/rsa/#header-rsa_starter_6) | Chưa có write-up |
+| [Modular Exponentiation](https://cryptohack.org/challenges/rsa/#header-rsa_starter_1) | [Đọc write-up](./Modular_Exponentiation/write-up.md) |
+| [Public Keys](https://cryptohack.org/challenges/rsa/#header-rsa_starter_2) | [Đọc write-up](./Public_Keys/write-up.md) |
+| [Euler's Totient](https://cryptohack.org/challenges/rsa/#header-rsa_starter_3) | [Đọc write-up](./Euler_s_Totient/write-up.md) |
+| [Private Keys](https://cryptohack.org/challenges/rsa/#header-rsa_starter_4) | [Đọc write-up](./Private_Keys/write-up.md) |
+| [RSA Decryption](https://cryptohack.org/challenges/rsa/#header-rsa_starter_5) | [Đọc write-up](./RSA_Decryption/write-up.md) |
+| [RSA Signatures](https://cryptohack.org/challenges/rsa/#header-rsa_starter_6) | [Đọc write-up](./RSA_Signatures/write-up.md) |
 | [Factoring](https://cryptohack.org/challenges/rsa/#header-rsa_factoring) | Chưa có write-up |
 | [Monoprime](https://cryptohack.org/challenges/rsa/#header-monoprime) | Chưa có write-up |
 | [Manyprime](https://cryptohack.org/challenges/rsa/#header-manyprime) | Chưa có write-up |

@@ -18,7 +18,7 @@
   - Challenges
     - [Entry Level](./Cyber-edu/Challenges/Entry_Level/README.md) (1/1)
     - [Easy](./Cyber-edu/Challenges/Easy/README.md) (6/9)
-    - [Medium](./Cyber-edu/Challenges/Medium/README.md) (1/18)
+    - [Medium](./Cyber-edu/Challenges/Medium/README.md) (6/18)
     - [Hard](./Cyber-edu/Challenges/Hard/README.md) (0/8)
     - [Insane](./Cyber-edu/Challenges/Insane/README.md) (0/2)
 - [Root-me](./Root-me/README.md)
@@ -47,7 +47,7 @@
     - [Introduction to CryptoHack](./Cryptohack/Course/Introduction_to_CryptoHack/README.md) (9/10)
     - [Modular Arithmetic](./Cryptohack/Course/Modular_Arithmetic/README.md) (11/11)
     - [Symmetric Cryptography](./Cryptohack/Course/Symmetric_Cryptography/README.md) (14/14)
-    - [Public-Key Cryptography](./Cryptohack/Course/Public-Key_Cryptography/README.md) (0/18)
+    - [Public-Key Cryptography](./Cryptohack/Course/Public-Key_Cryptography/README.md) (6/18)
     - [Elliptic Curves](./Cryptohack/Course/Elliptic_Curves/README.md) (0/11)
   - Challenges
     - [Introduction](./Cryptohack/Challenges/Introduction/README.md) (3/3)
