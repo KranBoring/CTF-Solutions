@@ -18,7 +18,7 @@
   - Challenges
     - [Entry Level](./Cyber-edu/Challenges/Entry_Level/README.md) (1/1)
     - [Easy](./Cyber-edu/Challenges/Easy/README.md) (6/9)
-    - [Medium](./Cyber-edu/Challenges/Medium/README.md) (6/18)
+    - [Medium](./Cyber-edu/Challenges/Medium/README.md) (1/18)
     - [Hard](./Cyber-edu/Challenges/Hard/README.md) (0/8)
     - [Insane](./Cyber-edu/Challenges/Insane/README.md) (0/2)
 - [Root-me](./Root-me/README.md)
