@@ -252,6 +252,70 @@ def course_complete(status: str, label: str, readme: Path, root: Path) -> bool:
     return status_is_external(matches[0])
 
 
+def event_challenge_folders(parent: Path, root: Path) -> list[Path]:
+    """Find challenge leaves for one event without crossing nested README indexes."""
+    folders = set()
+    for marker in ("write-up.md", "solve.py"):
+        for path in parent.rglob(marker):
+            if any(part in {".git", "skill-ctf-writeup-sync"} for part in path.relative_to(root).parts):
+                continue
+            folder = path.parent
+            parts = folder.relative_to(parent).parts
+            if (folder / "README.md").is_file() and folder != parent:
+                continue
+            if any((parent.joinpath(*parts[:index]) / "README.md").is_file()
+                   for index in range(1, len(parts))):
+                continue
+            folders.add(folder)
+    return sorted(folders)
+
+
+def event_table_rows(folders: list[Path], readme_dir: Path) -> list[str]:
+    grouped = all(len(folder.relative_to(readme_dir).parts) > 1 for folder in folders)
+    groups: dict[str | None, list[Path]] = {}
+    for folder in folders:
+        relative = folder.relative_to(readme_dir).parts
+        category = relative[0] if grouped else None
+        groups.setdefault(category, []).append(folder)
+
+    rows = []
+    for category, challenges in groups.items():
+        if category is not None:
+            rows.extend([f"## {category}", ""])
+        rows.extend(["| Challenge | Write-up |", "| --- | --- |"])
+        for folder in challenges:
+            writeup = folder / "write-up.md"
+            if writeup.is_file() and meaningful(writeup):
+                status = f"[Đọc write-up]({relative_link(writeup, readme_dir)})"
+            else:
+                status = "Chưa có write-up"
+            rows.append(f"| {folder.name} | {status} |")
+        rows.append("")
+    if rows and rows[-1] == "":
+        rows.pop()
+    return rows
+
+
+def create_missing_event_readmes(root: Path, dry: bool) -> int:
+    """Create an event index when challenge folders exist but README.md does not."""
+    events = root / "Others-Events"
+    created = 0
+    for year in sorted(path for path in events.iterdir() if path.is_dir()):
+        for event in sorted(path for path in year.iterdir() if path.is_dir()):
+            readme = event / "README.md"
+            if readme.exists():
+                continue
+            folders = event_challenge_folders(event, root)
+            if not folders:
+                continue
+            title = event.name.replace("_", " ")
+            rows = [f"# {title}", "", *event_table_rows(folders, event)]
+            if not dry:
+                atomic_write(readme, "\n".join(rows) + "\n")
+            created += 1
+    return created
+
+
 def create_others_event_table(readme: Path, root: Path, dry: bool) -> bool:
     """Create the required table for an event README that has challenge folders."""
     if "Others-Events" not in readme.relative_to(root).parts:
@@ -270,34 +334,10 @@ def create_others_event_table(readme: Path, root: Path, dry: bool) -> bool:
             continue
         if child != readme.resolve() and child.is_file() and child.name.casefold() == "readme.md":
             return False
-    folders = []
-    for marker in ("write-up.md", "solve.py"):
-        for path in readme.parent.rglob(marker):
-            if any(part in {".git", "skill-ctf-writeup-sync"} for part in path.relative_to(root).parts):
-                continue
-            folder = path.parent
-            relative_parts = folder.relative_to(readme.parent).parts
-            if (folder / "README.md").exists() and folder != readme.parent:
-                continue
-            if any((readme.parent.joinpath(*relative_parts[:index]) / "README.md").is_file()
-                   for index in range(1, len(relative_parts))):
-                continue
-            if folder not in folders:
-                folders.append(folder)
+    folders = event_challenge_folders(readme.parent, root)
     if not folders:
         return False
-    rows = ["", "| Challenge | Write-up |", "| --- | --- |"]
-    for folder in sorted(folders):
-        writeup = folder / "write-up.md"
-        if writeup.is_file():
-            try:
-                done = meaningful(writeup)
-            except (OSError, UnicodeError):
-                done = False
-        else:
-            done = False
-        status = f"[Đọc write-up]({relative_link(writeup, readme.parent)})" if done else "Chưa có write-up"
-        rows.append(f"| {folder.name} | {status} |")
+    rows = ["", *event_table_rows(folders, readme.parent)]
     if not dry:
         original = read_text(readme)
         newline = "\r\n" if "\r\n" in original else "\n"
@@ -473,6 +513,7 @@ def main() -> None:
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()
     root = args.root.resolve()
+    created_event_readmes = create_missing_event_readmes(root, args.dry_run)
     changed_readmes = 0
     created_event_tables = 0
     issues: list[str] = []
@@ -486,7 +527,7 @@ def main() -> None:
     progress_updates = update_progress(root, args.dry_run)
     verb = "Would update" if args.dry_run else "Updated"
     event_verb = "would create" if args.dry_run else "created"
-    print(f"{verb} {changed_readmes} README files, {event_verb} {created_event_tables} event tables, and refresh {progress_updates} progress links.")
+    print(f"{verb} {changed_readmes} README files, {event_verb} {created_event_readmes} event READMEs and {created_event_tables} event tables, and refresh {progress_updates} progress links.")
     if issues:
         print("Unresolved:")
         print("\n".join("- " + issue for issue in issues))

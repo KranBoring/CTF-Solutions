@@ -9,4 +9,4 @@
 | [interencdec](https://learn.cylabacademy.org/library?page=1&category=2) | [Đọc write-up](interencdec/write-up.md) |
 | [Mod 26](https://learn.cylabacademy.org/library/144?page=1&category=2) | [Đọc write-up](Mod_26/write-up.md) |
 | [The Numbers](https://learn.cylabacademy.org/library/68?page=1&category=2) | [Đọc write-up](The_Numbers/write-up.md) |
-| [13](https://learn.cylabacademy.org/library?page=1&category=2) | Chưa có write-up |
+| [13](https://learn.cylabacademy.org/library?page=1&category=2) | [Đọc write-up](13/write-up.md) |

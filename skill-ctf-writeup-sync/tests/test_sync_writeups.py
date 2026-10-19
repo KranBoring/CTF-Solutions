@@ -108,6 +108,25 @@ class MappingTests(unittest.TestCase):
         self.assertEqual(sync.row_completion(readme, self.root), (1, 1))
 
 
+    def test_missing_event_readme_is_created_with_challenge_rows(self):
+        event = self.root / "Others-Events" / "2026" / "DeadFace_2026"
+        solved = event / "Crypto" / "Recovered_Flag"
+        pending = event / "Stego" / "Hidden_Image"
+        solved.mkdir(parents=True)
+        pending.mkdir(parents=True)
+        (solved / "write-up.md").write_text("Recovered the flag.", encoding="utf-8")
+        (pending / "solve.py").write_text("print('pending')", encoding="utf-8")
+        self.assertEqual(sync.create_missing_event_readmes(self.root, dry=True), 1)
+        self.assertFalse((event / "README.md").exists())
+        self.assertEqual(sync.create_missing_event_readmes(self.root, dry=False), 1)
+        readme = (event / "README.md").read_text(encoding="utf-8")
+        self.assertIn("# DeadFace 2026", readme)
+        self.assertIn("## Crypto", readme)
+        self.assertIn("## Stego", readme)
+        self.assertEqual(readme.count("| Challenge | Write-up |"), 2)
+        self.assertIn("Recovered_Flag | [Đọc write-up](Crypto/Recovered_Flag/write-up.md)", readme)
+        self.assertIn("Hidden_Image | Chưa có write-up", readme)
+
     def test_navigation_readme_does_not_import_nested_event_challenges(self):
         parent = self.root / "Others-Events"
         nested = parent / "2026" / "ExampleEvent"

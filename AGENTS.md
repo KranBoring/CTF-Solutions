@@ -60,16 +60,23 @@ Sau khi ánh xạ chắc chắn:
 
 ### 6. Others-Events khi README event chưa có bảng
 
-Áp dụng cho README bên trong `Others-Events` có thư mục challenge nhưng chưa có bảng challenge:
+Áp dụng cho event trong `Others-Events/<năm>/<event>` có challenge folder:
 
-1. Chỉ xem đây là README event nếu nó có challenge folder ở cây con; bỏ qua README điều hướng chỉ liệt kê năm/event con.
-2. Một challenge folder phải có trực tiếp `write-up.md` hoặc `solve.py`. Duyệt đệ quy. Nếu một folder có README con chứa bảng challenge riêng, không kéo các bài của README con lên bảng cha.
-3. Mỗi challenge folder chỉ tạo một dòng. Tên mặc định là basename folder; nếu README hiện tại đã có mục/link tới folder đó với tên hiển thị khác thì dùng nhãn sẵn có. Giữ nguyên tên folder và không đổi tên file.
-4. Thêm bảng ở cuối README, trước đó một dòng trống:
+1. Nếu thư mục event chưa có `README.md`, tạo README với tiêu đề lấy từ tên event và bảng challenge, nhưng chỉ khi tìm thấy ít nhất một challenge folder hợp lệ.
+2. README chỉ liên kết tới README con (năm/event khác) là README điều hướng; không thêm bảng challenge vào đó.
+3. `Others-Events/README.md` liệt kê các năm có event, mới nhất trước. Mỗi `Others-Events/<năm>/README.md` liệt kê các event trực tiếp của năm đó; đặt hậu tố tiến độ trên link event nếu README event có bảng challenge. Khi cấu trúc này được tạo lần đầu, thay các link event trực tiếp trong README gốc bằng các link năm; không đặt số tiến độ lên link năm vì year README là trang điều hướng.
+
+Với README event đã có nhưng chưa có bảng challenge:
+
+4. Chỉ xem đây là README event nếu nó có challenge folder ở cây con.
+5. Một challenge folder phải có trực tiếp `write-up.md` hoặc `solve.py`. Duyệt đệ quy. Nếu một folder có README con chứa bảng challenge riêng, không kéo các bài của README con lên bảng cha.
+6. Nếu challenge nằm trong các thư mục category trực tiếp của event (ví dụ `Cryptography/<challenge>` và `Steganography/<challenge>`), tạo một heading `## <tên category>` và một bảng riêng dưới mỗi heading. Xác định category bằng thư mục cha trực tiếp bên dưới event; không gộp các category vào bảng phẳng. Nếu challenge folder nằm trực tiếp trong event, dùng một bảng chung không chia category.
+7. Mỗi challenge folder chỉ tạo một dòng. Tên mặc định là basename folder; nếu README hiện tại đã có mục/link tới folder đó với tên hiển thị khác thì dùng nhãn sẵn có. Giữ nguyên tên folder và không đổi tên file.
+8. Thêm bảng ở cuối README, trước đó một dòng trống:
    `| Challenge | Write-up |`
    `| --- | --- |`
-5. Với mỗi folder, link nội bộ tương đối tới write-up nếu file có nội dung; nếu không thì ghi `Chưa có write-up`. Nếu chỉ có `solve.py` mà chưa có `write-up.md`, không tự tạo file trong đồng bộ; báo file write-up thiếu.
-6. Duy trì các dòng bảng đã có; không tạo bảng thứ hai nếu README đã có một bảng challenge. Với bảng hiện hữu, cập nhật theo các quy tắc parse/map ở trên.
+9. Với mỗi folder, link nội bộ tương đối tới write-up nếu file có nội dung; nếu không thì ghi `Chưa có write-up`. Nếu chỉ có `solve.py` mà chưa có `write-up.md`, không tự tạo file trong đồng bộ; báo file write-up thiếu.
+10. Duy trì các dòng bảng đã có; không tạo bảng thứ hai nếu README đã có một bảng challenge. Với bảng hiện hữu, cập nhật theo các quy tắc parse/map ở trên.
 
 ### 7. Tính lại số hoàn thành ở README cha và README gốc
 

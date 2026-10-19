@@ -2,7 +2,7 @@
 
 | Challenge | Write-up |
 | --- | --- |
-| [Finding Flags](https://cryptohack.org/challenges/introduction/#header-fflags) | Chưa có write-up |
+| [Finding Flags](https://cryptohack.org/challenges/introduction/#header-fflags) | [Đọc write-up](Finding_Flags/write-up.md) |
 | [Great Snakes](https://cryptohack.org/challenges/introduction/#header-nc-intro) | [Đọc write-up](Great_Snakes/write-up.md) |
 | [ASCII](https://cryptohack.org/challenges/general/#header-enc1) | [Đọc write-up](ASCII/write-up.md) |
 | [Hex](https://cryptohack.org/challenges/general/#header-enc2) | [Đọc write-up](Hex/write-up.md) |
