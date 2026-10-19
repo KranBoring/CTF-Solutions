@@ -19,4 +19,4 @@
 | [secret-reverse](https://app.cyber-edu.co/challenges/aa455f10-347e-11eb-9092-99628f9090e3?tenant=cyberedu) | Chưa có write-up |
 | [secret-story](https://app.cyber-edu.co/challenges/04e7b4e0-94f5-11ea-825b-d19b823163f2?tenant=cyberedu) | Chưa có write-up |
 | [strippedGO](https://app.cyber-edu.co/challenges/191414c0-347f-11eb-bbaf-459f98cfa891?tenant=cyberedu) | Chưa có write-up |
-| [train-to-paddington](https://app.cyber-edu.co/challenges/864f5080-449c-11ed-8547-6d4ef5d6360e?tenant=cyberedu) | [Đọc write-up](./train-to-paddington/write-up.md) |
+| [train-to-paddington](https://app.cyber-edu.co/challenges/864f5080-449c-11ed-8547-6d4ef5d6360e?tenant=cyberedu) | [Đọc write-up](train-to-paddington/write-up.md) |

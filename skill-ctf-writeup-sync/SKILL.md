@@ -1,23 +1,21 @@
 ---
 name: ctf-writeup-sync
-description: Manage this CTF repository's write-up indexes and create new website challenge folders when the user says "Cập nhập wu" or "Tạo folder web ...".
+description: Update CTF write-up indexes and progress, or create challenge folders for a new website.
 ---
 
 # CTF repository workflow
 
-This skill applies only inside the CTF repository. Read the repository root `AGENTS.md` before acting; it is the authoritative workflow and takes precedence over this file. Follow its naming, ordering, URL, validation, and safety rules exactly.
+Use this skill only in CTF-Solutions. The repository-root `AGENTS.md` is authoritative; consult only the section for the requested task instead of restating or copying its full procedure into the conversation.
 
-## Triggers
+## `Cập nhập wu`
 
-- When the user says `Cập nhập wu`, execute the complete write-up synchronization procedure in `AGENTS.md`.
-- When the user says `Tạo folder web ...`, execute the website and difficulty folder creation procedure in `AGENTS.md`, including the requested priority order.
+1. Run `python3 skill-ctf-writeup-sync/scripts/sync_writeups.py --dry-run <repo-root>` (on Windows, use Ubuntu WSL).
+2. Review its proposed counts and unresolved/ambiguous rows. Exact normalized names, explicit valid write-up links, final URL slugs, and approved `challenge-aliases.csv` entries are the only mapping evidence. Do not guess; the helper skips uncertain rows.
+3. If the preview is in scope, run the same command without `--dry-run`.
+4. Verify with `git diff --check`, a second dry-run (the proposed change count should be zero; unresolved rows may remain), and `python3 -m unittest discover -s skill-ctf-writeup-sync/tests`. Report unresolved mappings; do not claim full sync if any remain.
 
-Do not use a generic or old standalone synchronizer as a substitute for `AGENTS.md`: challenge names, nested layouts, CryptoHack course references, tables with extra columns, and `Others-Events` require repository-aware handling. Preserve existing content and report ambiguous mappings before changing them.
+The helper performs deterministic parsing and writes atomically; do not load its source into context unless debugging. It preserves challenge URLs and unrelated columns. CryptoHack Course and `Others-Events` creation rules remain governed by `AGENTS.md`.
 
-## Stable execution
+## `Tạo folder web ...`
 
-- Read the repository `AGENTS.md` before touching files. Treat existing user changes as protected.
-- For ordinary table/index synchronization, use `scripts/sync_writeups.py --dry-run <repo-root>` first. Review its unresolved and ambiguous mappings; never resolve them with fuzzy matching.
-- Run the same command without `--dry-run` only after the preview shows the intended scope. The helper edits only detected write-up cells and progress suffixes, and writes files through an atomic replacement.
-- The helper is not a replacement for the CryptoHack Course rules or the `Others-Events` table-creation rules in `AGENTS.md`; handle those cases explicitly and verify the resulting diff.
-- After every run, inspect `git diff --check`, the changed README rows, and all unresolved mappings. If a parser would rewrite unrelated columns, line endings, URLs, IDs, or labels, stop and restore that file before continuing.
+Follow the website-creation procedure in `AGENTS.md`. Use the official/user-provided challenge list, then invoke `autocreatemyfolder "<original challenge name>"` in WSL from each category directory. Never guess blocked/hidden entries or overwrite an existing challenge folder.

@@ -2,5 +2,5 @@
 
 | Challenge | Write-up |
 | --- | --- |
-| RSA | [Đọc write-up](./RSA/write-up.md) |
-| ECB | [Đọc write-up](./ECB/write-up.md) |
+| RSA | [Đọc write-up](RSA/write-up.md) |
+| ECB | [Đọc write-up](ECB/write-up.md) |

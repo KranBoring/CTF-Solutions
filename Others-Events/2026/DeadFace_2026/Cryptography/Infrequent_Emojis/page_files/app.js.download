@@ -1,0 +1,253 @@
+(function () {
+  'use strict';
+
+  function showToast(message, type) {
+    var existing = document.querySelector('.toast');
+    if (existing) existing.remove();
+
+    var toast = document.createElement('div');
+    toast.className = 'toast' + (type ? ' ' + type : '');
+    toast.textContent = message;
+    document.body.appendChild(toast);
+    setTimeout(function () { toast.classList.add('show'); }, 10);
+    setTimeout(function () {
+      toast.classList.remove('show');
+      setTimeout(function () { toast.remove(); }, 300);
+    }, 2500);
+  }
+
+  function getCSRFToken() {
+    var meta = document.querySelector('meta[name="csrf-token"]');
+    return meta ? meta.getAttribute('content') : '';
+  }
+
+  // Like/unlike
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest('.like-btn');
+    if (!btn) return;
+    e.preventDefault();
+
+    var postId = btn.getAttribute('data-post-id');
+    var liked = btn.classList.contains('liked');
+    var url = '/post/' + postId + (liked ? '/unlike' : '/like');
+
+    btn.classList.add('liking');
+    setTimeout(function () { btn.classList.remove('liking'); }, 300);
+
+    fetch(url, {
+      method: 'POST',
+      headers: { 'X-Requested-With': 'XMLHttpRequest' },
+    })
+      .then(function (r) {
+        if (r.redirected) { window.location.href = '/login'; return {}; }
+        return r.json();
+      })
+      .then(function (data) {
+        if (!data || data.error) return;
+        if (data.liked) {
+          btn.classList.add('liked');
+          btn.querySelector('svg').setAttribute('fill', 'currentColor');
+        } else {
+          btn.classList.remove('liked');
+          btn.querySelector('svg').setAttribute('fill', 'none');
+        }
+        var countEl = btn.parentElement.querySelector('.like-count');
+        if (countEl) countEl.textContent = data.likeCount + ' likes';
+      })
+      .catch(function () { showToast('Something went wrong', 'error'); });
+  });
+
+  // Comment form
+  document.addEventListener('submit', function (e) {
+    var form = e.target.closest('.comment-form');
+    if (!form) return;
+    e.preventDefault();
+
+    var postId = form.getAttribute('data-post-id');
+    var input = form.querySelector('input[name="body"]');
+    var body = input.value.trim();
+    if (!body) return;
+
+    var btn = form.querySelector('.comment-submit');
+    btn.disabled = true;
+
+    fetch('/post/' + postId + '/comment', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'X-Requested-With': 'XMLHttpRequest',
+      },
+      body: 'body=' + encodeURIComponent(body),
+    })
+      .then(function (r) {
+        if (r.redirected) { window.location.href = '/login'; return {}; }
+        return r.json();
+      })
+      .then(function (data) {
+        if (!data || data.error) {
+          if (data && data.error) showToast(data.error, 'error');
+          return;
+        }
+        input.value = '';
+
+        var card = form.closest('.post-card');
+        if (card) {
+          var commentsEl = card.querySelector('.post-recent-comments');
+          if (!commentsEl) {
+            commentsEl = document.createElement('div');
+            commentsEl.className = 'post-recent-comments';
+            form.closest('.post-comment-form').insertBefore(commentsEl, form);
+          }
+          var commentEl = document.createElement('div');
+          commentEl.className = 'recent-comment';
+          commentEl.innerHTML =
+            '<a href="/' + data.username + '" class="comment-username">' + data.username + '</a>' +
+            '<span>' + data.body + '</span>';
+          commentsEl.appendChild(commentEl);
+        }
+        showToast('Comment posted', 'success');
+      })
+      .catch(function () { showToast('Something went wrong', 'error'); })
+      .finally(function () { btn.disabled = false; });
+  });
+
+  // Follow/unfollow
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest('.follow-btn');
+    if (!btn) return;
+    e.preventDefault();
+
+    var username = btn.getAttribute('data-username');
+    var following = btn.textContent.trim() === 'Following';
+    var url = '/' + username + (following ? '/unfollow' : '/follow');
+
+    fetch(url, {
+      method: 'POST',
+      headers: { 'X-Requested-With': 'XMLHttpRequest' },
+    })
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        btn.textContent = data.following ? 'Following' : 'Follow';
+        var countEl = document.querySelector('.follower-count');
+        if (countEl) countEl.textContent = data.followerCount;
+        if (data.following) {
+          btn.classList.remove('btn-primary');
+          btn.classList.add('btn-secondary');
+        } else {
+          btn.classList.remove('btn-secondary');
+          btn.classList.add('btn-primary');
+        }
+      })
+      .catch(function () { showToast('Something went wrong', 'error'); });
+  });
+
+  // Delete post
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest('.delete-post-btn');
+    if (!btn) return;
+    e.preventDefault();
+    if (!confirm('Delete this post?')) return;
+
+    var postId = btn.getAttribute('data-post-id');
+
+    fetch('/post/' + postId, {
+      method: 'DELETE',
+      headers: { 'X-Requested-With': 'XMLHttpRequest' },
+    })
+      .then(function (r) {
+        if (r.ok) {
+          showToast('Post deleted', 'success');
+          window.location.href = '/';
+        }
+      })
+      .catch(function () { showToast('Something went wrong', 'error'); });
+  });
+
+  // Delete comment
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest('.comment-delete');
+    if (!btn) return;
+    e.preventDefault();
+    if (!confirm('Delete this comment?')) return;
+
+    var postId = btn.getAttribute('data-post-id');
+    var commentId = btn.getAttribute('data-comment-id');
+
+    fetch('/post/' + postId + '/comment/' + commentId, {
+      method: 'DELETE',
+      headers: { 'X-Requested-With': 'XMLHttpRequest' },
+    })
+      .then(function (r) {
+        if (r.ok) {
+          var el = btn.closest('.detail-comment');
+          if (el) el.remove();
+          showToast('Comment deleted', 'success');
+        }
+      })
+      .catch(function () { showToast('Something went wrong', 'error'); });
+  });
+
+  // Image preview on upload
+  var fileInput = document.getElementById('post-image');
+  if (fileInput) {
+    fileInput.addEventListener('change', function (e) {
+      var file = e.target.files[0];
+      if (!file) return;
+      var reader = new FileReader();
+      reader.onload = function (ev) {
+        var preview = document.querySelector('.upload-preview');
+        if (!preview) {
+          preview = document.createElement('div');
+          preview.className = 'upload-preview';
+          fileInput.parentElement.appendChild(preview);
+        }
+        preview.innerHTML = '<img src="' + ev.target.result + '" alt="Preview">';
+      };
+      reader.readAsDataURL(file);
+    });
+  }
+
+  // Load more (infinite scroll)
+  var loadMoreBtn = document.getElementById('load-more');
+  if (loadMoreBtn) {
+    var offset = parseInt(loadMoreBtn.getAttribute('data-offset'), 10) || 10;
+    var loading = false;
+
+    function loadMore() {
+      if (loading) return;
+      loading = true;
+      loadMoreBtn.textContent = 'Loading...';
+
+      var url = new URL(window.location.href);
+      url.searchParams.set('offset', offset);
+
+      fetch(url.toString(), {
+        headers: { 'X-Requested-With': 'XMLHttpRequest' },
+      })
+        .then(function (r) { return r.text(); })
+        .then(function (html) {
+          if (!html.trim()) {
+            loadMoreBtn.remove();
+            return;
+          }
+          var container = document.getElementById('feed-posts');
+          var temp = document.createElement('div');
+          temp.innerHTML = html;
+          while (temp.firstChild) {
+            container.appendChild(temp.firstChild);
+          }
+          offset += 10;
+          loading = false;
+          loadMoreBtn.textContent = 'Load More';
+        })
+        .catch(function () {
+          loading = false;
+          loadMoreBtn.textContent = 'Load More';
+        });
+    }
+
+    loadMoreBtn.addEventListener('click', loadMore);
+  }
+
+  window.showToast = showToast;
+})();

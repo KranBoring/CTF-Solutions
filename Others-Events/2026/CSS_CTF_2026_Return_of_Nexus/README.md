@@ -2,5 +2,5 @@
 
 | Challenge | Write-up |
 | --- | --- |
-| Chrono I | [Đọc write-up](./Crypto/Chrono_I/write-up.md) |
-| Chrono II | [Đọc write-up](./Crypto/Chrono_II/write-up.md) |
+| Chrono I | [Đọc write-up](Crypto/Chrono_I/write-up.md) |
+| Chrono II | [Đọc write-up](Crypto/Chrono_II/write-up.md) |
