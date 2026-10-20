@@ -17,7 +17,7 @@
   * Khi mỗi quân cờ di chuyển, sẽ có một thứ gọi là tọa độ đích, chính là vị trí mà quân cờ tiến tới.
   * Như ví dụ là:
   * ![1792455625663](image/write-up/1792455625663.png)
-  * Bishop(quân tượng) đi từ ô d2 lên ô a5 trên bàn cờ
+  * Bishop(quân tượng) đi lên ô d2 và quân đen di chuyển chuột lên ô a5 trên bàn cờ
 * Các bạn cần biết cách giải mã Vigenère Cipher (Caesar đa bảng, các bạn có thể giải [bài](https://learn.cylabacademy.org/library/316?page=3&category=2) này trước để biết)
 
 #### 3. Phân tích lỗ hỗng.
