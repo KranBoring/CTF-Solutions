@@ -1,4 +1,0 @@
-interface:
-  display_name: CTF Repository Workflow
-  short_description: Sync write-ups and create CTF website folders
-  default_prompt: Follow AGENTS.md for the requested CTF workflow.
