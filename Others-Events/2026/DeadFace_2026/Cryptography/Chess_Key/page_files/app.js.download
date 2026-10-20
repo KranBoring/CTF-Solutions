@@ -1,0 +1,326 @@
+'use strict';
+
+// ── Like buttons ──────────────────────────────────────────────────
+document.addEventListener('click', async (e) => {
+  const btn = e.target.closest('.like-btn');
+  if (!btn || btn.disabled) return;
+
+  const postId = btn.dataset.postId;
+  try {
+    const r = await fetch(`/t/post/${postId}/like`, { method: 'POST' });
+    const data = await r.json();
+    if (data.ok) {
+      btn.classList.toggle('like-btn--active', data.liked);
+      btn.querySelector('.like-count').textContent = data.count;
+    }
+  } catch {}
+});
+
+// ── Markdown preview ──────────────────────────────────────────────
+function initPreview() {
+  const toggle = document.getElementById('preview-toggle');
+  const box = document.getElementById('preview-box');
+  const textarea = document.getElementById('reply-content') || document.getElementById('content');
+
+  if (!toggle || !box || !textarea) return;
+
+  let showing = false;
+
+  toggle.addEventListener('click', () => {
+    showing = !showing;
+    box.classList.toggle('hidden', !showing);
+    toggle.textContent = showing ? 'Edit' : 'Preview';
+    if (showing) box.innerHTML = simpleMarkdown(textarea.value);
+  });
+
+  textarea.addEventListener('input', () => {
+    if (showing) box.innerHTML = simpleMarkdown(textarea.value);
+  });
+}
+
+// Minimal markdown renderer for preview (real render is server-side)
+function simpleMarkdown(text) {
+  return text
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/^### (.+)$/gm, '<h3>$1</h3>')
+    .replace(/^## (.+)$/gm, '<h2>$1</h2>')
+    .replace(/^# (.+)$/gm, '<h1>$1</h1>')
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*(.+?)\*/g, '<em>$1</em>')
+    .replace(/`(.+?)`/g, '<code>$1</code>')
+    .replace(/^> (.+)$/gm, '<blockquote>$1</blockquote>')
+    .replace(/^[-*] (.+)$/gm, '<li>$1</li>')
+    .replace(/(<li>.*<\/li>)/s, '<ul>$1</ul>')
+    .split('\n\n').map(p => p.startsWith('<') ? p : `<p>${p}</p>`).join('\n');
+}
+
+// ── @mention autocomplete ─────────────────────────────────────────
+
+let mentionDropdown = null;
+let mentionActive = null; // { textarea, triggerPos, query }
+let mentionDebounce = null;
+
+function initMentionAutocomplete() {
+  document.querySelectorAll('textarea').forEach(ta => {
+    ta.addEventListener('input', onMentionInput);
+    ta.addEventListener('keydown', onMentionKeydown);
+    ta.addEventListener('blur', () => {
+      // Delay so mousedown on a list item fires first
+      setTimeout(closeMentionDropdown, 150);
+    });
+  });
+}
+
+function onMentionInput(e) {
+  const ta = e.target;
+  const before = ta.value.slice(0, ta.selectionStart);
+  const m = /@([a-zA-Z0-9_-]+)$/.exec(before);
+
+  if (!m) { closeMentionDropdown(); return; }
+
+  mentionActive = { textarea: ta, triggerPos: ta.selectionStart - m[0].length, query: m[1] };
+
+  clearTimeout(mentionDebounce);
+  mentionDebounce = setTimeout(() => fetchMentionUsers(m[1]), 120);
+}
+
+async function fetchMentionUsers(q) {
+  try {
+    const res = await fetch('/mentions/users?q=' + encodeURIComponent(q));
+    if (!res.ok) return;
+    const users = await res.json();
+    renderMentionDropdown(users);
+  } catch {}
+}
+
+function renderMentionDropdown(users) {
+  if (!users.length) { closeMentionDropdown(); return; }
+
+  if (!mentionDropdown) {
+    mentionDropdown = document.createElement('ul');
+    mentionDropdown.className = 'mention-dropdown';
+    document.body.appendChild(mentionDropdown);
+  }
+
+  mentionDropdown.innerHTML = users.map(u => {
+    const avatarInner = u.avatar_url
+      ? `<img src="${u.avatar_url}" alt="" class="mention-dd-avatar">`
+      : `<span class="mention-dd-avatar mention-dd-avatar--color" style="--ac:${u.avatar_color}">${u.username[0].toUpperCase()}</span>`;
+    return `<li class="mention-dd-item" data-username="${u.username}">
+      ${avatarInner}<span class="mention-dd-name">@${u.username}</span>
+    </li>`;
+  }).join('');
+
+  positionMentionDropdown();
+  mentionDropdown.style.display = 'block';
+
+  mentionDropdown.querySelectorAll('.mention-dd-item').forEach(item => {
+    item.addEventListener('mousedown', e => {
+      e.preventDefault(); // prevent textarea blur
+      applyMention(item.dataset.username);
+    });
+  });
+}
+
+function positionMentionDropdown() {
+  if (!mentionActive || !mentionDropdown) return;
+  const { textarea, triggerPos } = mentionActive;
+  const coords = getCaretCoords(textarea, triggerPos);
+  const lh = parseFloat(getComputedStyle(textarea).lineHeight) || 20;
+  const DW = 240, DH = mentionDropdown.offsetHeight || 220;
+
+  let top = coords.top + lh - window.scrollY; // convert to fixed coords
+  let left = coords.left;
+
+  if (top + DH > window.innerHeight - 8) top = coords.top - window.scrollY - DH - 4;
+  if (left + DW > window.innerWidth - 8) left = window.innerWidth - DW - 8;
+
+  mentionDropdown.style.top = top + 'px';
+  mentionDropdown.style.left = left + 'px';
+}
+
+function closeMentionDropdown() {
+  if (mentionDropdown) mentionDropdown.style.display = 'none';
+  mentionActive = null;
+}
+
+function applyMention(username) {
+  if (!mentionActive) return;
+  const { textarea, triggerPos } = mentionActive;
+  const after = textarea.value.slice(textarea.selectionStart);
+  textarea.value = textarea.value.slice(0, triggerPos) + '@' + username + ' ' + after;
+  const pos = triggerPos + username.length + 2;
+  textarea.setSelectionRange(pos, pos);
+  textarea.focus();
+  closeMentionDropdown();
+}
+
+function onMentionKeydown(e) {
+  if (!mentionDropdown || mentionDropdown.style.display === 'none') return;
+
+  const items = [...mentionDropdown.querySelectorAll('.mention-dd-item')];
+  if (!items.length) return;
+  const activeItem = mentionDropdown.querySelector('.mention-dd-item--active');
+  const activeIdx = activeItem ? items.indexOf(activeItem) : -1;
+
+  if (e.key === 'ArrowDown') {
+    e.preventDefault();
+    const next = items[(activeIdx + 1) % items.length];
+    setActiveItem(activeItem, next);
+  } else if (e.key === 'ArrowUp') {
+    e.preventDefault();
+    const prev = items[(activeIdx - 1 + items.length) % items.length];
+    setActiveItem(activeItem, prev);
+  } else if ((e.key === 'Enter' || e.key === 'Tab') && activeItem) {
+    e.preventDefault();
+    applyMention(activeItem.dataset.username);
+  } else if (e.key === 'Escape') {
+    e.preventDefault();
+    closeMentionDropdown();
+  }
+}
+
+function setActiveItem(old, next) {
+  if (old) old.classList.remove('mention-dd-item--active');
+  if (next) next.classList.add('mention-dd-item--active');
+}
+
+// Measures the pixel position of `pos` in `textarea` by mirroring its style
+function getCaretCoords(textarea, pos) {
+  const style = getComputedStyle(textarea);
+  const mirror = document.createElement('div');
+
+  ['boxSizing', 'width', 'fontSize', 'fontFamily', 'fontWeight', 'fontStyle',
+   'lineHeight', 'letterSpacing', 'wordSpacing',
+   'paddingTop', 'paddingRight', 'paddingBottom', 'paddingLeft',
+   'borderTopWidth', 'borderRightWidth', 'borderBottomWidth', 'borderLeftWidth',
+  ].forEach(p => { mirror.style[p] = style[p]; });
+
+  mirror.style.position = 'absolute';
+  mirror.style.top = '-9999px';
+  mirror.style.left = '-9999px';
+  mirror.style.whiteSpace = 'pre-wrap';
+  mirror.style.wordWrap = 'break-word';
+  mirror.style.overflow = 'hidden';
+
+  const before = document.createTextNode(textarea.value.slice(0, pos));
+  const marker = document.createElement('span');
+  marker.textContent = '​';
+  mirror.appendChild(before);
+  mirror.appendChild(marker);
+  document.body.appendChild(mirror);
+
+  const taRect = textarea.getBoundingClientRect();
+  const mRect = mirror.getBoundingClientRect();
+  const sRect = marker.getBoundingClientRect();
+  document.body.removeChild(mirror);
+
+  return {
+    top: taRect.top + window.scrollY + (sRect.top - mRect.top) - textarea.scrollTop,
+    left: taRect.left + (sRect.left - mRect.left) - textarea.scrollLeft,
+  };
+}
+
+// ── Inline post editing ───────────────────────────────────────────
+
+document.addEventListener('click', function (e) {
+  const editBtn = e.target.closest('[data-edit-post-id]');
+  if (editBtn) {
+    const id = editBtn.dataset.editPostId;
+    const content = document.getElementById('post-content-' + id);
+    const form    = document.getElementById('edit-form-'    + id);
+    if (!content || !form) return;
+    content.style.display = 'none';
+    form.style.display    = '';
+    const ta = document.getElementById('edit-content-' + id);
+    if (ta) { ta.focus(); ta.setSelectionRange(ta.value.length, ta.value.length); }
+    return;
+  }
+
+  const cancelBtn = e.target.closest('[data-cancel-edit-post-id]');
+  if (cancelBtn) {
+    const id = cancelBtn.dataset.cancelEditPostId;
+    const content = document.getElementById('post-content-' + id);
+    const form    = document.getElementById('edit-form-'    + id);
+    if (!content || !form) return;
+    content.style.display = '';
+    form.style.display    = 'none';
+    return;
+  }
+
+  const setdateBtn = e.target.closest('[data-setdate-post-id]');
+  if (setdateBtn) {
+    const id   = setdateBtn.dataset.setdatePostId;
+    const form = document.getElementById('setdate-form-' + id);
+    if (!form) return;
+    form.style.display = form.style.display === 'none' ? '' : 'none';
+    return;
+  }
+
+  const cancelSetdateBtn = e.target.closest('[data-cancel-setdate-post-id]');
+  if (cancelSetdateBtn) {
+    const id   = cancelSetdateBtn.dataset.cancelSetdatePostId;
+    const form = document.getElementById('setdate-form-' + id);
+    if (form) form.style.display = 'none';
+    return;
+  }
+});
+
+// ── Image upload ──────────────────────────────────────────────────
+
+function initImageUpload() {
+  document.querySelectorAll('.img-upload-btn').forEach(btn => {
+    const fileInput = btn.parentElement.querySelector('.img-upload-input');
+    const textarea = document.getElementById(btn.dataset.target);
+    if (!fileInput || !textarea) return;
+
+    btn.addEventListener('click', () => fileInput.click());
+
+    fileInput.addEventListener('change', async () => {
+      const file = fileInput.files[0];
+      if (!file) return;
+      fileInput.value = '';
+
+      const original = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = 'Uploading…';
+      btn.classList.add('img-upload-btn--busy');
+
+      try {
+        const body = new FormData();
+        body.append('image', file);
+        const res = await fetch('/upload/image', { method: 'POST', body });
+        const data = await res.json();
+
+        if (!res.ok) {
+          alert(data.error || 'Upload failed.');
+          return;
+        }
+
+        // Insert markdown at cursor, surrounded by newlines as needed
+        const pos = textarea.selectionStart;
+        const val = textarea.value;
+        const pre = val.slice(0, pos);
+        const post = val.slice(pos);
+        const nl = (pre && !pre.endsWith('\n')) ? '\n' : '';
+        const insert = nl + data.markdown + '\n';
+        textarea.value = pre + insert + post;
+        const cursor = pos + insert.length;
+        textarea.setSelectionRange(cursor, cursor);
+        textarea.focus();
+      } catch {
+        alert('Upload failed. Please try again.');
+      } finally {
+        btn.disabled = false;
+        btn.textContent = original;
+        btn.classList.remove('img-upload-btn--busy');
+      }
+    });
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  initPreview();
+  initMentionAutocomplete();
+  initImageUpload();
+});

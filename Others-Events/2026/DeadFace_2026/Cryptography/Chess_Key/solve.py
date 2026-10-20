@@ -1,15 +1,49 @@
-BOARD = {
-    '8': {'a': 'A', 'b': 'I', 'c': 'W', 'd': 'Y', 'e': 'A', 'f': 'E', 'g': 'I', 'h': 'O'},
-    '7': {'a': 'J', 'b': 'B', 'c': 'K', 'd': 'B', 'e': 'F', 'f': 'J', 'g': 'P', 'h': 'U'},
-    '6': {'a': 'X', 'b': 'L', 'c': 'C', 'd': 'M', 'e': 'K', 'f': 'Q', 'g': 'V', 'h': 'A'},
-    '5': {'a': 'Z', 'b': 'C', 'c': 'N', 'd': 'D', 'e': 'O', 'f': 'W', 'g': 'B', 'h': 'E'},
-    '4': {'a': 'D', 'b': 'G', 'c': 'L', 'd': 'P', 'e': 'E', 'f': 'Q', 'g': 'F', 'h': 'I'},
-    '3': {'a': 'H', 'b': 'M', 'c': 'R', 'd': 'X', 'e': 'R', 'f': 'F', 'g': 'S', 'h': 'K'},
-    '2': {'a': 'N', 'b': 'S', 'c': 'Y', 'd': 'C', 'e': 'G', 'f': 'T', 'g': 'G', 'h': 'U'},
-    '1': {'a': 'T', 'b': 'Z', 'c': 'D', 'd': 'H', 'e': 'J', 'f': 'L', 'g': 'V', 'h': 'H'},
+import string
+
+chesskey = {
+    'a':" TNHDZXJA",
+    'b':" ZSMGCLBI",
+    'c':" DYRLNCKW",
+    'd':" HCXPDMBY",
+    'e':" JGREOKFA",
+    'f':" LTFQWQJE",
+    'g':" VGSFBVPI",
+    'h':" HUKIEAUO"
 }
+data = open("MagnusCarlsen.pgn").read().strip().split(' ')
+pgn_malnus = []
+for i in range(len(data)):
+    if data[i][-1] == '.' and data[i + 1] != "O-O-O":
+        if data[i + 1][-1] != '+':
+            pgn_malnus.append(data[i + 1])
+        else:
+            pgn_malnus.append(data[i + 1][:-1])
+pgn_malnus.pop()
 
-def get_char(square: str) -> str:
-    file, rank = square[0], square[1]
-    return BOARD[rank][file]
+def get_char(square):
+    col,row = square[-2], square[-1]
+    return chesskey[col][int(row)]
 
+def recover_key(pgn):
+    key = ''.join([get_char(step) for step in pgn])
+    return key
+
+def Vigenere_decode(ciphertext, key):
+    key_index = 0
+    plaintext = ""
+    for char in ciphertext:
+        if char.isalpha():
+            base = ord('A') if char.isupper() else ord('a')
+            c = ord(char) - base
+            k = ord(key[key_index]) - ord('A')
+            p = chr((c - k) % 26 + base)
+            plaintext += p
+            key_index += 1
+        else:
+            plaintext += char
+    return plaintext
+
+key = recover_key(pgn_malnus)
+ciphertext = "nZ3ipU8_yy3p5_hvyKi0"
+plaintext = Vigenere_decode(ciphertext, key)
+print(plaintext)

@@ -1,0 +1,2477 @@
+<!DOCTYPE html>
+<!-- saved from url=(0058)https://ghosttown.deadface.io/t/38/carlsen-gave-me-an-idea -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carlsen gave me an idea — GhostTown</title>
+  <link rel="icon" href="https://ghosttown.deadface.io/uploads/favicon.png">
+  <style>/* ─── Reset & Base ─────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #08090f;
+  --bg-card: #0e1018;
+  --bg-card-hover: #13151f;
+  --bg-input: #0a0c14;
+  --bg-nav: #080a12;
+
+  --border: #1c2035;
+  --border-hover: #2d3355;
+
+  --text: #c8d0e8;
+  --text-dim: #6b7394;
+  --text-muted: #3d4466;
+
+  --accent: #00d4ff;
+  --accent-glow: rgba(0, 212, 255, 0.15);
+  --accent-dim: #00a8cc;
+
+  --purple: #9b59ff;
+  --purple-glow: rgba(155, 89, 255, 0.15);
+
+  --green: #39ff14;
+  --red: #ff2d55;
+  --orange: #ff6b35;
+  --gold: #f0c040;
+
+  --font: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --mono: ui-monospace, 'Cascadia Code', 'Fira Code', 'Courier New', monospace;
+
+  --radius: 6px;
+  --radius-lg: 10px;
+
+  --shadow: 0 2px 8px rgba(0,0,0,0.4);
+  --shadow-lg: 0 4px 24px rgba(0,0,0,0.6);
+}
+
+html { font-size: 16px; scroll-behavior: smooth; }
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ─── Navbar ───────────────────────────────────────────────────── */
+.nav-logo {
+  height: 36px;
+  max-width: 160px;
+  object-fit: contain;
+  display: block;
+}
+
+.navbar {
+  background: var(--bg-nav);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--mono);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text);
+  text-decoration: none;
+}
+.nav-brand:hover { text-decoration: none; color: var(--text); }
+.brand-icon { color: var(--red); font-size: 1.2rem; }
+.brand-accent { color: var(--accent); }
+
+.nav-search {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  max-width: 280px;
+  margin: 0 0.5rem;
+}
+
+.nav-search-input {
+  flex: 1;
+  height: 30px;
+  padding: 0 0.6rem;
+  font-size: 0.8rem;
+  font-family: var(--font);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-right: none;
+  border-radius: var(--radius) 0 0 var(--radius);
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.15s;
+  min-width: 0;
+}
+.nav-search-input:focus { border-color: var(--accent); }
+.nav-search-input::placeholder { color: var(--text-muted); }
+
+.nav-search-btn {
+  height: 30px;
+  padding: 0 0.55rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  color: var(--text-dim);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  line-height: 1;
+  white-space: nowrap;
+}
+.nav-search-btn:hover { background: var(--bg-card-hover); color: var(--accent); }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.nav-link { color: var(--text-dim); font-size: 0.875rem; }
+.nav-link:hover { color: var(--text); text-decoration: none; }
+.nav-link--dim { opacity: 0.7; }
+
+.nav-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--ac, var(--accent));
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-decoration: none;
+  font-family: var(--mono);
+  border: 2px solid transparent;
+  transition: border-color 0.15s;
+}
+.nav-avatar:hover { border-color: var(--ac, var(--accent)); text-decoration: none; }
+
+/* ─── Buttons ──────────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 1rem;
+  border-radius: var(--radius);
+  font-size: 0.875rem;
+  font-weight: 500;
+  font-family: var(--font);
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.15s;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.btn:hover { text-decoration: none; }
+
+.btn--primary {
+  background: var(--accent);
+  color: #000;
+  border-color: var(--accent);
+}
+.btn--primary:hover { background: var(--accent-dim); border-color: var(--accent-dim); }
+
+.btn--ghost {
+  background: transparent;
+  color: var(--text-dim);
+  border-color: var(--border);
+}
+.btn--ghost:hover { border-color: var(--border-hover); color: var(--text); background: var(--bg-card-hover); }
+
+.btn--sm { padding: 0.3rem 0.75rem; font-size: 0.8rem; }
+.btn--full { width: 100%; justify-content: center; }
+.btn--full-mobile { width: 100%; justify-content: center; }
+
+.btn-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  padding: 0.2rem 0.4rem;
+  border-radius: var(--radius);
+  transition: color 0.15s, background 0.15s;
+}
+.btn-icon:hover { color: var(--text-dim); background: var(--bg-card-hover); }
+.btn-icon--danger:hover { color: var(--red); }
+
+.inline-form { display: inline; }
+
+/* ─── Layout ───────────────────────────────────────────────────── */
+.main-content { flex: 1; padding: 2rem 0 4rem; }
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+.container--narrow { max-width: 720px; }
+.container--auth { max-width: 420px; }
+
+/* ─── Hero ─────────────────────────────────────────────────────── */
+.page-hero {
+  text-align: center;
+  padding: 2.5rem 0 1.5rem;
+}
+
+.hero-logo {
+  max-height: 80px;
+  max-width: 320px;
+  object-fit: contain;
+  margin: 0 auto 1rem;
+  display: block;
+}
+
+.hero-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  font-family: var(--mono);
+  letter-spacing: -0.5px;
+  margin-bottom: 0.5rem;
+}
+
+.text-accent { color: var(--accent); }
+
+.hero-sub {
+  color: var(--text-dim);
+  font-size: 1rem;
+}
+
+/* ─── Stats Bar ────────────────────────────────────────────────── */
+.stats-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem;
+  margin: 0 0 2rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+}
+
+.stat-value {
+  font-family: var(--mono);
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.stat-divider {
+  width: 1px;
+  height: 2rem;
+  background: var(--border);
+}
+
+/* ─── Category Cards ───────────────────────────────────────────── */
+.category-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.category-card {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1.25rem 1.5rem;
+  background: var(--bg-card);
+  transition: background 0.15s;
+}
+
+.category-card:hover { background: var(--bg-card-hover); }
+.category-card + .category-card { border-top: 1px solid var(--border); }
+
+.category-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--cc, var(--accent)) 15%, transparent);
+  border: 1px solid color-mix(in srgb, var(--cc, var(--accent)) 30%, transparent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.category-info { flex: 1; min-width: 0; }
+
+.category-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  display: block;
+  margin-bottom: 0.2rem;
+}
+.category-name:hover { color: var(--accent); text-decoration: none; }
+
+.category-desc {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  margin-bottom: 0.4rem;
+}
+
+.category-latest {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.latest-label { color: var(--text-muted); }
+
+.latest-link {
+  color: var(--text-dim);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.latest-link:hover { color: var(--text); }
+
+.latest-by { color: var(--text-muted); }
+
+.category-meta {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-shrink: 0;
+}
+
+.meta-count {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.1rem;
+}
+
+.count-value {
+  font-family: var(--mono);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.count-label {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+/* ─── Page Header ──────────────────────────────────────────────── */
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  flex-wrap: wrap;
+}
+
+.breadcrumb a { color: var(--text-dim); }
+.breadcrumb a:hover { color: var(--text); }
+.bc-sep { color: var(--text-muted); }
+.bc-current { color: var(--text); }
+
+.page-header-actions { display: flex; gap: 0.5rem; align-items: center; }
+
+.category-description-text {
+  color: var(--text-dim);
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+  padding: 0.75rem 1rem;
+  background: var(--bg-card);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+/* ─── Topic List ───────────────────────────────────────────────── */
+.topic-list {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.topic-list-header {
+  display: grid;
+  grid-template-columns: 1fr 80px 80px 130px;
+  gap: 1rem;
+  padding: 0.6rem 1.25rem;
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.topic-row {
+  display: grid;
+  grid-template-columns: 1fr 80px 80px 130px;
+  gap: 1rem;
+  padding: 0.9rem 1.25rem;
+  background: var(--bg-card);
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.15s;
+}
+.topic-row:last-child { border-bottom: none; }
+.topic-row:hover { background: var(--bg-card-hover); }
+.topic-row--pinned { background: color-mix(in srgb, var(--purple) 5%, var(--bg-card)); }
+
+.topic-row-main {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  min-width: 0;
+}
+
+.topic-row-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
+.topic-title-link {
+  color: var(--text);
+  font-weight: 500;
+  font-size: 0.95rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: block;
+}
+.topic-title-link:hover { color: var(--accent); text-decoration: none; }
+
+.topic-author {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.tl-meta {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  font-family: var(--mono);
+  text-align: right;
+}
+
+.topic-activity {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.1rem;
+}
+
+.time-ago { font-size: 0.78rem; color: var(--text-dim); }
+.activity-user { font-size: 0.75rem; color: var(--text-muted); font-family: var(--font); }
+
+.pin-icon, .lock-icon { font-size: 0.8rem; flex-shrink: 0; }
+.lock-badge { font-size: 0.8rem; color: var(--text-muted); }
+
+/* ─── Empty State ──────────────────────────────────────────────── */
+.empty-state {
+  padding: 3rem 1.25rem;
+  text-align: center;
+  background: var(--bg-card);
+}
+
+.empty-icon {
+  font-size: 2rem;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+}
+
+.empty-text { color: var(--text-dim); }
+
+/* ─── Topic Page ───────────────────────────────────────────────── */
+.topic-page-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 1.5rem;
+  line-height: 1.3;
+}
+
+/* ─── Posts ────────────────────────────────────────────────────── */
+.posts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  margin-bottom: 2rem;
+}
+
+.post-card {
+  display: flex;
+  gap: 0;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-bottom: 0.75rem;
+}
+
+.post-aside {
+  width: 140px;
+  flex-shrink: 0;
+  padding: 1.25rem 1rem;
+  background: color-mix(in srgb, var(--bg-card-hover) 50%, var(--bg-card));
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  text-align: center;
+}
+
+.post-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--ac, var(--accent));
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  font-family: var(--mono);
+  margin-bottom: 0.2rem;
+}
+
+.post-username {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text);
+  word-break: break-word;
+}
+.post-username:hover { color: var(--accent); text-decoration: none; }
+.post-username--admin { color: var(--purple); }
+
+.post-user-count, .post-user-joined {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+.post-body { flex: 1; min-width: 0; padding: 1.25rem 1.5rem; }
+
+.post-meta-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.post-date { font-size: 0.78rem; color: var(--text-muted); }
+
+.post-actions { display: flex; align-items: center; gap: 0.5rem; }
+
+/* ─── Reassign Panel ────────────────────────────────────────────── */
+.reassign-panel {
+  position: fixed;
+  z-index: 500;
+  background: var(--bg-card);
+  border: 1px solid var(--border-hover);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  width: 260px;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.reassign-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.55rem 0.75rem 0.4rem;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.reassign-panel-title {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--text-muted);
+  font-family: var(--mono);
+}
+
+.reassign-panel-search {
+  padding: 0.5rem 0.6rem;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.reassign-panel-search .form-input {
+  padding: 0.35rem 0.6rem;
+  font-size: 0.82rem;
+  height: auto;
+  width: 100%;
+}
+
+.reassign-user-list {
+  list-style: none;
+  overflow-y: auto;
+  max-height: 240px;
+  padding: 0.2rem 0;
+  flex: 1;
+}
+
+.reassign-user-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.45rem 0.75rem;
+  cursor: pointer;
+  transition: background 0.1s;
+  outline: none;
+}
+
+.reassign-user-item:hover,
+.reassign-user-item:focus { background: var(--bg-card-hover); }
+
+.reassign-user-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.6rem;
+  font-weight: 700;
+  font-family: var(--mono);
+  background: var(--ac, var(--border-hover));
+  color: #fff;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.reassign-user-avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+.reassign-user-name {
+  font-size: 0.85rem;
+  color: var(--text);
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.reassign-empty {
+  padding: 0.75rem;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  list-style: none;
+}
+
+/* ─── Like Button ──────────────────────────────────────────────── */
+.like-btn {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.15s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+.like-btn:hover:not(:disabled) { border-color: var(--red); color: var(--red); }
+.like-btn--active { border-color: var(--red); color: var(--red); background: color-mix(in srgb, var(--red) 10%, transparent); }
+.like-btn:disabled { opacity: 0.5; cursor: default; }
+
+/* ─── Markdown Body ────────────────────────────────────────────── */
+.markdown-body { font-size: 0.9rem; line-height: 1.7; color: var(--text); }
+.markdown-body h1, .markdown-body h2, .markdown-body h3 {
+  margin-top: 1.25em; margin-bottom: 0.5em; color: var(--text);
+  font-weight: 600; border-bottom: 1px solid var(--border); padding-bottom: 0.3em;
+}
+.markdown-body h1 { font-size: 1.4em; }
+.markdown-body h2 { font-size: 1.2em; }
+.markdown-body h3 { font-size: 1.05em; border: none; }
+.markdown-body p { margin-bottom: 0.75em; }
+.markdown-body a { color: var(--accent); }
+.markdown-body strong { color: var(--text); font-weight: 600; }
+.markdown-body em { color: var(--text-dim); }
+.markdown-body code {
+  background: #0d1120; border: 1px solid var(--border);
+  padding: 0.15em 0.4em; border-radius: 4px;
+  font-family: var(--mono); font-size: 0.85em; color: var(--green);
+}
+.markdown-body pre {
+  background: #0d1120; border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 1rem 1.25rem;
+  overflow-x: auto; margin: 0.75em 0;
+}
+.markdown-body pre code { background: none; border: none; padding: 0; color: var(--green); font-size: 0.85em; }
+.markdown-body blockquote {
+  border-left: 3px solid var(--border-hover); margin: 0.75em 0;
+  padding: 0.5em 1em; color: var(--text-dim);
+  background: var(--bg-card-hover); border-radius: 0 var(--radius) var(--radius) 0;
+}
+.markdown-body ul, .markdown-body ol { margin: 0.5em 0 0.75em 1.5em; }
+.markdown-body li { margin: 0.2em 0; }
+.markdown-body table { width: 100%; border-collapse: collapse; margin: 0.75em 0; font-size: 0.875em; }
+.markdown-body th, .markdown-body td { border: 1px solid var(--border); padding: 0.4em 0.75em; }
+.markdown-body th { background: var(--bg-card-hover); color: var(--text); }
+.markdown-body hr { border: none; border-top: 1px solid var(--border); margin: 1em 0; }
+
+/* ─── Reply Section ────────────────────────────────────────────── */
+.reply-section {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+
+.reply-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 1rem;
+  font-family: var(--mono);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.login-prompt {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  color: var(--text-dim);
+}
+
+/* ─── Forms ────────────────────────────────────────────────────── */
+.form-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+}
+
+.reply-form { background: none; border: none; padding: 0; }
+
+.form-page-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  font-family: var(--mono);
+}
+
+.form-group { margin-bottom: 1.25rem; }
+
+.form-label {
+  display: block;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-dim);
+  margin-bottom: 0.4rem;
+  font-weight: 500;
+}
+
+.form-input, .form-textarea {
+  width: 100%;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.6rem 0.875rem;
+  color: var(--text);
+  font-size: 0.9rem;
+  font-family: var(--font);
+  transition: border-color 0.15s, box-shadow 0.15s;
+  outline: none;
+}
+
+.form-input:focus, .form-textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+.form-textarea { resize: vertical; min-height: 120px; font-family: var(--mono); font-size: 0.875rem; line-height: 1.6; }
+
+.form-input--sm { width: auto; max-width: 100px; }
+
+.form-hint { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.3rem; }
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-top: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.form-row {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.form-row .form-group { flex: 1; min-width: 0; }
+
+/* ─── Preview ──────────────────────────────────────────────────── */
+.preview-wrap { flex: 1; }
+
+.editor-toolbar {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.img-upload-btn--busy {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Keep uploaded images from overflowing post content */
+.markdown-body img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  margin: 0.25rem 0;
+}
+
+.preview-box {
+  margin-top: 0.75rem;
+  padding: 1rem 1.25rem;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  min-height: 60px;
+}
+.preview-box.hidden { display: none; }
+
+/* ─── Auth ─────────────────────────────────────────────────────── */
+.auth-card {
+  margin: 2rem auto;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem 2rem;
+  text-align: center;
+}
+
+.auth-brand {
+  font-size: 2.5rem;
+  color: var(--red);
+  margin-bottom: 0.5rem;
+}
+
+.auth-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  font-family: var(--mono);
+}
+
+.auth-form { text-align: left; }
+.auth-form .btn { margin-top: 0.5rem; }
+
+.auth-switch {
+  margin-top: 1.25rem;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  text-align: center;
+}
+
+/* ─── Alert ────────────────────────────────────────────────────── */
+.alert {
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius);
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+.alert--error {
+  background: color-mix(in srgb, var(--red) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--red) 30%, transparent);
+  color: #ff8fa3;
+}
+
+/* ─── Badges ───────────────────────────────────────────────────── */
+.badge {
+  font-size: 0.65rem;
+  padding: 0.1em 0.4em;
+  border-radius: 4px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.badge--admin {
+  background: color-mix(in srgb, var(--purple) 20%, transparent);
+  border: 1px solid color-mix(in srgb, var(--purple) 40%, transparent);
+  color: var(--purple);
+}
+
+/* ─── Pagination ───────────────────────────────────────────────── */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.page-info { font-size: 0.85rem; color: var(--text-dim); }
+
+/* ─── Profile ──────────────────────────────────────────────────── */
+.profile-layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.profile-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  text-align: center;
+  position: sticky;
+  top: 68px;
+}
+
+.profile-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--ac, var(--accent));
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.75rem;
+  font-family: var(--mono);
+  margin-bottom: 0.5rem;
+}
+
+.profile-username {
+  font-size: 1.1rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.profile-bio {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  line-height: 1.5;
+  margin: 0.25rem 0 0.5rem;
+}
+
+.profile-stats {
+  display: flex;
+  gap: 1.5rem;
+  margin: 0.5rem 0 1rem;
+  width: 100%;
+  justify-content: center;
+}
+
+.pstat { display: flex; flex-direction: column; align-items: center; gap: 0.1rem; }
+.pstat-value { font-family: var(--mono); font-size: 1rem; font-weight: 600; color: var(--accent); }
+.pstat-label { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; }
+
+.profile-topics {}
+
+.section-title {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+  font-family: var(--mono);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+}
+
+.recent-topic {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+.recent-topic:last-child { border-bottom: none; }
+
+.recent-topic-title { font-size: 0.9rem; font-weight: 500; color: var(--text); }
+.recent-topic-title:hover { color: var(--accent); text-decoration: none; }
+.recent-topic-meta { font-size: 0.75rem; color: var(--text-muted); }
+
+/* ─── Color Input ──────────────────────────────────────────────── */
+.color-input {
+  width: 48px;
+  height: 36px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--bg-input);
+  cursor: pointer;
+  padding: 2px;
+}
+
+.color-picker-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.avatar-preview {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--ac, var(--accent));
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  font-family: var(--mono);
+}
+
+/* ─── API Tokens ────────────────────────────────────────────────── */
+.token-reveal {
+  background: color-mix(in srgb, var(--green) 8%, transparent);
+  border: 1px solid color-mix(in srgb, var(--green) 25%, transparent);
+  border-radius: var(--radius);
+  padding: 0.9rem 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.token-reveal-label { font-size: 0.8rem; color: var(--text-dim); margin-bottom: 0.5rem; }
+
+.token-reveal-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.token-value {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--green);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.35rem 0.6rem;
+  word-break: break-all;
+  flex: 1;
+  min-width: 0;
+}
+
+.token-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  margin-bottom: 1.25rem;
+}
+
+.token-table th {
+  text-align: left;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  padding: 0 0.5rem 0.5rem;
+  font-weight: 500;
+  border-bottom: 1px solid var(--border);
+}
+
+.token-table td {
+  padding: 0.55rem 0.5rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+
+.token-table tr:last-child td { border-bottom: none; }
+
+.token-name { color: var(--text); font-weight: 500; }
+.token-date { color: var(--text-muted); font-size: 0.8rem; white-space: nowrap; }
+.token-action { text-align: right; width: 40px; }
+
+.token-create-form {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.token-create-form .form-input { flex: 1; }
+
+/* ─── Avatar Images ────────────────────────────────────────────── */
+.nav-avatar img,
+.post-avatar img,
+.profile-avatar img,
+.avatar-preview img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ─── Avatar Upload ─────────────────────────────────────────────── */
+.avatar-upload-row {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.avatar-upload-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.avatar-preview--lg {
+  width: 72px;
+  height: 72px;
+  font-size: 1.75rem;
+  flex-shrink: 0;
+}
+
+.form-check {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  cursor: pointer;
+}
+
+.form-check input[type="checkbox"] {
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+}
+
+/* ─── Alert Success ─────────────────────────────────────────────── */
+.alert--success {
+  background: color-mix(in srgb, var(--green) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--green) 30%, transparent);
+  color: var(--green);
+}
+
+/* ─── Settings ──────────────────────────────────────────────────── */
+.settings-layout {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.settings-nav {
+  width: 160px;
+  flex-shrink: 0;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 0.4rem;
+  position: sticky;
+  top: 4.5rem;
+}
+
+.settings-nav-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 0.4rem 0.5rem;
+}
+
+.settings-nav-item {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  color: var(--text-dim);
+  font-size: 0.875rem;
+  font-family: var(--font);
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.settings-nav-item:hover {
+  background: var(--bg-card-hover);
+  color: var(--text);
+}
+
+.settings-nav-item--active {
+  background: var(--accent-glow);
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.settings-pane {
+  flex: 1;
+  min-width: 0;
+}
+
+@media (max-width: 640px) {
+  .settings-layout {
+    flex-direction: column;
+  }
+  .settings-nav {
+    width: 100%;
+    position: static;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+  }
+  .settings-nav-item {
+    flex: 1;
+    text-align: center;
+    min-width: 5rem;
+  }
+}
+
+.settings-section-title {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  font-family: var(--mono);
+  margin-bottom: 1.25rem;
+  margin-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.form-input--short { max-width: 140px; }
+
+/* Toggle switch */
+.settings-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.settings-toggle input[type="checkbox"] { display: none; }
+
+.toggle-track {
+  width: 40px;
+  height: 22px;
+  border-radius: 11px;
+  background: var(--border-hover);
+  border: 1px solid var(--border-hover);
+  position: relative;
+  transition: background 0.2s, border-color 0.2s;
+  flex-shrink: 0;
+}
+
+.settings-toggle input:checked ~ .toggle-track {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.toggle-thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #fff;
+  transition: transform 0.2s;
+}
+
+.settings-toggle input:checked ~ .toggle-track .toggle-thumb {
+  transform: translateX(18px);
+}
+
+.toggle-label { font-size: 0.875rem; color: var(--text); }
+
+/* ─── User Management ──────────────────────────────────────────── */
+.form-page-title-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.user-mgmt-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.user-mgmt-table th {
+  text-align: left;
+  padding: 0.5rem 0.75rem;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+.user-mgmt-table td {
+  padding: 0.6rem 0.75rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+
+.user-mgmt-table tr:last-child td { border-bottom: none; }
+.user-mgmt-table tr:hover td { background: var(--bg-card-hover); }
+
+.user-mgmt-user {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.user-mgmt-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  font-weight: 700;
+  font-family: var(--mono);
+  background: var(--ac, var(--border-hover));
+  color: #fff;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.user-mgmt-avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+.user-mgmt-username { color: var(--text); font-weight: 500; font-size: 0.875rem; }
+.user-mgmt-username:hover { color: var(--accent); text-decoration: none; }
+
+.user-mgmt-email { color: var(--text-dim); font-size: 0.8rem; }
+.user-mgmt-meta { color: var(--text-muted); font-size: 0.8rem; white-space: nowrap; }
+.user-mgmt-actions { text-align: right; white-space: nowrap; }
+
+.badge--admin {
+  display: inline-block;
+  background: var(--accent-glow);
+  color: var(--accent);
+  font-size: 0.6rem;
+  font-family: var(--mono);
+  padding: 0.1rem 0.35rem;
+  border-radius: 3px;
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 1.5;
+  vertical-align: middle;
+  margin-left: 0.3rem;
+}
+
+/* ─── Error Page ───────────────────────────────────────────────── */
+.error-card {
+  margin: 4rem auto;
+  text-align: center;
+  padding: 3rem 2rem;
+}
+
+.error-icon { font-size: 3rem; color: var(--red); margin-bottom: 1rem; }
+.error-title { font-size: 1.5rem; font-family: var(--mono); margin-bottom: 0.5rem; }
+.error-message { color: var(--text-dim); margin-bottom: 1.5rem; }
+
+/* ─── Footer ───────────────────────────────────────────────────── */
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 1.25rem;
+  margin-top: auto;
+}
+
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.footer-brand { font-family: var(--mono); font-weight: 600; color: var(--text-dim); }
+.footer-sep { color: var(--border-hover); }
+
+/* ─── Username ─────────────────────────────────────────────────── */
+.username { color: var(--accent); }
+.username:hover { text-decoration: underline; }
+.category-link { color: var(--text-dim); }
+.category-link:hover { color: var(--text); }
+
+/* ─── Scrollbar ────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border-hover); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+/* ─── Inline post editing ──────────────────────────────────────── */
+.post-edited-tag {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-left: 0.15rem;
+}
+
+.post-edit-form {
+  margin-top: 0.75rem;
+}
+
+.post-edit-textarea {
+  width: 100%;
+  min-height: 140px;
+  resize: vertical;
+  font-size: 0.875rem;
+}
+
+.post-edit-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.post-edit-btns {
+  display: flex;
+  gap: 0.4rem;
+}
+
+/* ─── @mention rendered links ──────────────────────────────────── */
+.mention {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+.mention:hover { text-decoration: underline; }
+
+/* ─── @mention autocomplete dropdown ───────────────────────────── */
+.mention-dropdown {
+  position: fixed;
+  z-index: 600;
+  background: var(--bg-card);
+  border: 1px solid var(--border-hover);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  list-style: none;
+  margin: 0;
+  padding: 0.25rem 0;
+  min-width: 200px;
+  max-width: 260px;
+  max-height: 260px;
+  overflow-y: auto;
+  display: none;
+}
+
+.mention-dd-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.45rem 0.75rem;
+  cursor: pointer;
+  transition: background 0.1s;
+}
+.mention-dd-item:hover,
+.mention-dd-item--active {
+  background: var(--bg-card-hover);
+}
+
+.mention-dd-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.mention-dd-avatar--color {
+  background: var(--ac, var(--accent));
+  color: #000;
+  font-size: 0.7rem;
+  font-weight: 700;
+  font-family: var(--mono);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mention-dd-name {
+  font-size: 0.875rem;
+  font-family: var(--mono);
+  color: var(--text);
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ─── Branding admin UI ────────────────────────────────────────── */
+.branding-preview {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 0.75rem;
+}
+
+.branding-preview-img {
+  height: 40px;
+  max-width: 180px;
+  object-fit: contain;
+}
+
+.branding-preview-favicon {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+
+.branding-upload-form {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.form-file-input {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.3rem 0.5rem;
+  cursor: pointer;
+  flex: 1;
+  min-width: 0;
+}
+.form-file-input::-webkit-file-upload-button {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text-dim);
+  padding: 0.2rem 0.6rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+  margin-right: 0.5rem;
+}
+.form-file-input:hover { border-color: var(--border-hover); }
+
+/* ─── Hero Search ──────────────────────────────────────────────── */
+.hero-search {
+  display: flex;
+  gap: 0.5rem;
+  max-width: 540px;
+  margin: 1.5rem auto 0;
+}
+
+.hero-search-input {
+  flex: 1;
+  font-size: 0.95rem;
+}
+
+/* ─── Search Results Page ──────────────────────────────────────── */
+.search-page-form {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.search-page-input {
+  flex: 1;
+  font-size: 0.95rem;
+}
+
+.search-meta {
+  font-size: 0.875rem;
+  color: var(--text-dim);
+  margin-bottom: 1rem;
+}
+
+.search-notice {
+  padding: 2rem;
+  text-align: center;
+  color: var(--text-dim);
+  font-size: 0.95rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.search-results {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.search-result {
+  padding: 1rem 1.25rem;
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border);
+  transition: background 0.15s;
+}
+.search-result:last-child { border-bottom: none; }
+.search-result:hover { background: var(--bg-card-hover); }
+
+.search-result-category {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--cc, var(--accent));
+  margin-bottom: 0.25rem;
+}
+.search-result-category a { color: inherit; text-decoration: none; }
+.search-result-category a:hover { text-decoration: underline; }
+
+.search-result-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+  line-height: 1.35;
+}
+.search-result-title a { color: var(--text); text-decoration: none; }
+.search-result-title a:hover { color: var(--accent); }
+
+.search-result-snippet {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  line-height: 1.55;
+  margin-bottom: 0.4rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.search-result-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-family: var(--mono);
+}
+
+.result-sep { color: var(--border-hover); }
+.result-type { color: var(--accent); opacity: 0.8; }
+
+.search-hl {
+  background: var(--accent);
+  color: #000;
+  border-radius: 2px;
+  padding: 0 1px;
+  font-weight: 600;
+}
+
+/* ─── Responsive ───────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .category-card { flex-wrap: wrap; }
+  .category-meta { width: 100%; justify-content: space-between; }
+
+  .topic-list-header { grid-template-columns: 1fr 60px 80px; }
+  .topic-list-header .tl-meta:nth-child(3) { display: none; }
+  .topic-row { grid-template-columns: 1fr 60px 80px; }
+  .topic-row .tl-meta:nth-child(3) { display: none; }
+
+  .profile-layout { grid-template-columns: 1fr; }
+  .profile-card { position: static; }
+
+  .post-aside { width: 100px; }
+  .post-user-joined { display: none; }
+
+  .stats-bar { gap: 1rem; }
+  .hero-title { font-size: 1.6rem; }
+  .nav-search { display: none; }
+  .hero-search { flex-direction: column; }
+}
+
+@media (max-width: 480px) {
+  .post-card { flex-direction: column; }
+  .post-aside { width: 100%; flex-direction: row; padding: 0.75rem 1rem; border-right: none; border-bottom: 1px solid var(--border); }
+  .post-aside .post-avatar { width: 36px; height: 36px; font-size: 0.9rem; margin: 0; }
+}
+
+/* ─── Post date editor (admin) ──────────────────────────────────── */
+.post-setdate-form {
+  margin-top: 0.5rem;
+  padding: 0.65rem 0.85rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  max-width: 300px;
+}
+.post-setdate-label {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.post-setdate-input {
+  font-family: inherit;
+  font-size: 0.82rem;
+  color-scheme: dark;
+}
+.post-setdate-btns { display: flex; gap: 0.5rem; }
+</style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="https://ghosttown.deadface.io/" class="nav-brand">
+        
+        <img src="./page_files/logo.png" alt="GhostTown" class="nav-logo">
+        
+      </a>
+      <form action="https://ghosttown.deadface.io/search" method="GET" class="nav-search" role="search">
+        <input type="search" name="q" class="nav-search-input" placeholder="Search…" value="" autocomplete="off" aria-label="Search">
+        <button type="submit" class="nav-search-btn" aria-label="Submit search">⌕</button>
+      </form>
+      <div class="nav-links">
+        
+          <a href="https://ghosttown.deadface.io/login" class="btn btn--ghost btn--sm">Login</a>
+          <a href="https://ghosttown.deadface.io/register" class="btn btn--primary btn--sm">Join</a>
+        
+      </div>
+    </div>
+  </nav>
+  <main class="main-content">
+
+
+<div class="container">
+  <div class="page-header">
+    <div class="breadcrumb">
+      <a href="https://ghosttown.deadface.io/">GhostTown</a>
+      <span class="bc-sep">›</span>
+      <a href="https://ghosttown.deadface.io/c/tech-talk" style="color: #39ff14">Tech Talk</a>
+      <span class="bc-sep">›</span>
+      <span class="bc-current">Carlsen gave me an idea</span>
+    </div>
+    <div class="page-header-actions">
+      
+        
+      
+    </div>
+  </div>
+
+  <h1 class="topic-page-title">
+    
+    Carlsen gave me an idea
+  </h1>
+
+  
+
+  <div class="posts-list">
+    
+    <div class="post-card" id="post-376">
+      <div class="post-aside">
+        <div class="post-avatar">
+          <img src="./page_files/13.png" alt="">
+        </div>
+        <a href="https://ghosttown.deadface.io/u/b1tfr34k" class="post-username">
+          b1tfr34k
+          
+        </a>
+        <span class="post-user-count">78 posts</span>
+        <span class="post-user-joined">Since Jun 25, 2026</span>
+      </div>
+      <div class="post-body">
+        <div class="post-meta-top">
+          <span class="post-date">
+            Sep 6, 2026
+            
+          </span>
+          <div class="post-actions">
+            <button class="like-btn " data-post-id="376" disabled="" title="&quot;Login" to="" like&#34;="">
+              ♥ <span class="like-count">0</span>
+            </button>
+            
+            
+            
+          </div>
+        </div>
+        <div class="post-content markdown-body" id="post-content-376">
+          <p>Been watching Magnus Carlsen for years. The man sees a chessboard differently than everyone else. You watch him make a move that looks completely ordinary, then ten moves later you realize the other guy has been walking into a cage the entire time.</p>
+<p>That's the kind of thinking I respect.</p>
+<p>Anyway, I was watching one of his matches from this year where he opened with the English Opening and something clicked.</p>
+<p>Why not turn the game itself into a cipher?</p>
+<p>I already had the first part built. Took a chessboard and mapped the squares to alphabetic characters. Obviously there are 64 squares and only 26 letters, so there is some repetition in the mapping. That is intentional. The square alone isn't enough.</p>
+<p>Only Magnus's moves matter though. idk about the other player.</p>
+<p>I used that particular 2026 Carlsen game to derive the key for a message I left behind on one of our victim's machines.</p>
+<p>A chess game is public information. Nobody looks twice at it. That's what I like about this.</p>
+<p>Millions of people can see the key material and have absolutely no idea they're looking at it.</p>
+
+        </div>
+        
+        
+      </div>
+    </div>
+    
+    <div class="post-card" id="post-377">
+      <div class="post-aside">
+        <div class="post-avatar">
+          <img src="./page_files/3.jpg" alt="">
+        </div>
+        <a href="https://ghosttown.deadface.io/u/mort1cia" class="post-username">
+          mort1cia
+          
+        </a>
+        <span class="post-user-count">60 posts</span>
+        <span class="post-user-joined">Since Jun 25, 2026</span>
+      </div>
+      <div class="post-body">
+        <div class="post-meta-top">
+          <span class="post-date">
+            Sep 6, 2026
+            
+          </span>
+          <div class="post-actions">
+            <button class="like-btn " data-post-id="377" disabled="" title="&quot;Login" to="" like&#34;="">
+              ♥ <span class="like-count">0</span>
+            </button>
+            
+            
+            
+          </div>
+        </div>
+        <div class="post-content markdown-body" id="post-content-377">
+          <p>I like the concept, but do not mistake obscurity for cryptographic strength. Once someone recognizes that the artifact is chess-related, the search space becomes substantially smaller.</p>
+<p>That said, using a specific public game as external key material is clever. Especially if nothing on the victim's system identifies the game directly.</p>
+
+        </div>
+        
+        
+      </div>
+    </div>
+    
+    <div class="post-card" id="post-378">
+      <div class="post-aside">
+        <div class="post-avatar">
+          <img src="./page_files/13.png" alt="">
+        </div>
+        <a href="https://ghosttown.deadface.io/u/b1tfr34k" class="post-username">
+          b1tfr34k
+          
+        </a>
+        <span class="post-user-count">78 posts</span>
+        <span class="post-user-joined">Since Jun 25, 2026</span>
+      </div>
+      <div class="post-body">
+        <div class="post-meta-top">
+          <span class="post-date">
+            Sep 6, 2026
+            
+          </span>
+          <div class="post-actions">
+            <button class="like-btn " data-post-id="378" disabled="" title="&quot;Login" to="" like&#34;="">
+              ♥ <span class="like-count">0</span>
+            </button>
+            
+            
+            
+          </div>
+        </div>
+        <div class="post-content markdown-body" id="post-content-378">
+          <p>Exactly.</p>
+<p>I'm not pretending I invented AES in my garage.</p>
+<p>This is a puzzle with layers. The ciphertext tells you nothing about Carlsen. The board tells you nothing about which game. The game tells you nothing about how the moves interact with the board.</p>
+<p>YOU HAVE TO MAKE THE CONNECTION.</p>
+<p>And Magnus has played enough chess that "Carlsen game" doesn't exactly narrow things down much.</p>
+
+        </div>
+        
+        
+      </div>
+    </div>
+    
+    <div class="post-card" id="post-379">
+      <div class="post-aside">
+        <div class="post-avatar">
+          <img src="./page_files/4.jpg" alt="">
+        </div>
+        <a href="https://ghosttown.deadface.io/u/spookyboi" class="post-username">
+          spookyboi
+          
+        </a>
+        <span class="post-user-count">51 posts</span>
+        <span class="post-user-joined">Since Jun 25, 2026</span>
+      </div>
+      <div class="post-body">
+        <div class="post-meta-top">
+          <span class="post-date">
+            Sep 6, 2026
+            
+          </span>
+          <div class="post-actions">
+            <button class="like-btn " data-post-id="379" disabled="" title="&quot;Login" to="" like&#34;="">
+              ♥ <span class="like-count">0</span>
+            </button>
+            
+            
+            
+          </div>
+        </div>
+        <div class="post-content markdown-body" id="post-content-379">
+          <p>English Opening is a clue.</p>
+
+        </div>
+        
+        
+      </div>
+    </div>
+    
+    <div class="post-card" id="post-380">
+      <div class="post-aside">
+        <div class="post-avatar">
+          <img src="./page_files/13.png" alt="">
+        </div>
+        <a href="https://ghosttown.deadface.io/u/b1tfr34k" class="post-username">
+          b1tfr34k
+          
+        </a>
+        <span class="post-user-count">78 posts</span>
+        <span class="post-user-joined">Since Jun 25, 2026</span>
+      </div>
+      <div class="post-body">
+        <div class="post-meta-top">
+          <span class="post-date">
+            Sep 6, 2026
+            
+          </span>
+          <div class="post-actions">
+            <button class="like-btn " data-post-id="380" disabled="" title="&quot;Login" to="" like&#34;="">
+              ♥ <span class="like-count">0</span>
+            </button>
+            
+            
+            
+          </div>
+        </div>
+        <div class="post-content markdown-body" id="post-content-380">
+          <p>Only because I just told YOU that.</p>
+<p>The victim didn't get this thread taped to their monitor. ;)</p>
+
+        </div>
+        
+        
+      </div>
+    </div>
+    
+    <div class="post-card" id="post-381">
+      <div class="post-aside">
+        <div class="post-avatar">
+          <img src="./page_files/7.jpg" alt="">
+        </div>
+        <a href="https://ghosttown.deadface.io/u/gh0st404" class="post-username">
+          gh0st404
+          
+        </a>
+        <span class="post-user-count">85 posts</span>
+        <span class="post-user-joined">Since Jun 25, 2026</span>
+      </div>
+      <div class="post-body">
+        <div class="post-meta-top">
+          <span class="post-date">
+            Sep 6, 2026
+            
+          </span>
+          <div class="post-actions">
+            <button class="like-btn " data-post-id="381" disabled="" title="&quot;Login" to="" like&#34;="">
+              ♥ <span class="like-count">0</span>
+            </button>
+            
+            
+            
+          </div>
+        </div>
+        <div class="post-content markdown-body" id="post-content-381">
+          <p>lol imagine the investigators pulling 900 magnus games and writing a parser because some old guy decided chess wasnt complicated enuff already</p>
+
+        </div>
+        
+        
+      </div>
+    </div>
+    
+    <div class="post-card" id="post-382">
+      <div class="post-aside">
+        <div class="post-avatar">
+          <img src="./page_files/8.jpg" alt="">
+        </div>
+        <a href="https://ghosttown.deadface.io/u/lamia415" class="post-username">
+          lamia415
+          
+        </a>
+        <span class="post-user-count">39 posts</span>
+        <span class="post-user-joined">Since Jun 25, 2026</span>
+      </div>
+      <div class="post-body">
+        <div class="post-meta-top">
+          <span class="post-date">
+            Sep 6, 2026
+            
+          </span>
+          <div class="post-actions">
+            <button class="like-btn " data-post-id="382" disabled="" title="&quot;Login" to="" like&#34;="">
+              ♥ <span class="like-count">0</span>
+            </button>
+            
+            
+            
+          </div>
+        </div>
+        <div class="post-content markdown-body" id="post-content-382">
+          <p>ngl using Magnus as key material is kinda based</p>
+<p>but if your board has repeated letters somebody is absolutely gonna assume you messed it up 💀</p>
+
+        </div>
+        
+        
+      </div>
+    </div>
+    
+    <div class="post-card" id="post-383">
+      <div class="post-aside">
+        <div class="post-avatar">
+          <img src="./page_files/13.png" alt="">
+        </div>
+        <a href="https://ghosttown.deadface.io/u/b1tfr34k" class="post-username">
+          b1tfr34k
+          
+        </a>
+        <span class="post-user-count">78 posts</span>
+        <span class="post-user-joined">Since Jun 25, 2026</span>
+      </div>
+      <div class="post-body">
+        <div class="post-meta-top">
+          <span class="post-date">
+            Sep 6, 2026
+            
+          </span>
+          <div class="post-actions">
+            <button class="like-btn " data-post-id="383" disabled="" title="&quot;Login" to="" like&#34;="">
+              ♥ <span class="like-count">0</span>
+            </button>
+            
+            
+            
+          </div>
+        </div>
+        <div class="post-content markdown-body" id="post-content-383">
+          <p>GOOD.</p>
+<p>Let them.</p>
+<p>People have this strange assumption that every irregularity is a mistake. Sometimes the fastest way to hide a mechanism is to make part of it look badly designed.</p>
+<p>Besides, the repetition forces them to understand the moves instead of treating the board as a simple substitution table.</p>
+
+        </div>
+        
+        
+      </div>
+    </div>
+    
+    <div class="post-card" id="post-384">
+      <div class="post-aside">
+        <div class="post-avatar">
+          <img src="./page_files/11.jpg" alt="">
+        </div>
+        <a href="https://ghosttown.deadface.io/u/mirveal" class="post-username">
+          mirveal
+          
+        </a>
+        <span class="post-user-count">54 posts</span>
+        <span class="post-user-joined">Since Jun 25, 2026</span>
+      </div>
+      <div class="post-body">
+        <div class="post-meta-top">
+          <span class="post-date">
+            Sep 6, 2026
+            
+          </span>
+          <div class="post-actions">
+            <button class="like-btn " data-post-id="384" disabled="" title="&quot;Login" to="" like&#34;="">
+              ♥ <span class="like-count">0</span>
+            </button>
+            
+            
+            
+          </div>
+        </div>
+        <div class="post-content markdown-body" id="post-content-384">
+          <p>I actually like that part.</p>
+<p>A static square-to-letter mapping would be pretty easy to model once you recovered enough plaintext. Making the game sequence part of the interpretation means the board is more like a lookup layer than the cipher itself.</p>
+<p>Also, using a famous player's game as external data has a nice "everyone has the file but nobody knows they have the file" quality to it.</p>
+
+        </div>
+        
+        
+      </div>
+    </div>
+    
+    <div class="post-card" id="post-385">
+      <div class="post-aside">
+        <div class="post-avatar">
+          <img src="./page_files/13.png" alt="">
+        </div>
+        <a href="https://ghosttown.deadface.io/u/b1tfr34k" class="post-username">
+          b1tfr34k
+          
+        </a>
+        <span class="post-user-count">78 posts</span>
+        <span class="post-user-joined">Since Jun 25, 2026</span>
+      </div>
+      <div class="post-body">
+        <div class="post-meta-top">
+          <span class="post-date">
+            Sep 6, 2026
+            
+          </span>
+          <div class="post-actions">
+            <button class="like-btn " data-post-id="385" disabled="" title="&quot;Login" to="" like&#34;="">
+              ♥ <span class="like-count">0</span>
+            </button>
+            
+            
+            
+          </div>
+        </div>
+        <div class="post-content markdown-body" id="post-content-385">
+          <p>That's exactly it.</p>
+<p>The chess record isn't secret.</p>
+<p>The algorithm isn't particularly magical.</p>
+<p>The trick is knowing which ordinary pieces belong together.</p>
+<p>People spend too much time looking for secret information when they should be looking for SECRET RELATIONSHIPS BETWEEN PUBLIC INFORMATION.</p>
+<p>That's half the reason intelligence agencies collect boring garbage nobody thinks matters.</p>
+<p>But that's another thread.</p>
+
+        </div>
+        
+        
+      </div>
+    </div>
+    
+    <div class="post-card" id="post-386">
+      <div class="post-aside">
+        <div class="post-avatar">
+          <img src="./page_files/12.jpg" alt="">
+        </div>
+        <a href="https://ghosttown.deadface.io/u/sunstalker" class="post-username">
+          sunstalker
+          
+        </a>
+        <span class="post-user-count">61 posts</span>
+        <span class="post-user-joined">Since Jun 25, 2026</span>
+      </div>
+      <div class="post-body">
+        <div class="post-meta-top">
+          <span class="post-date">
+            Sep 6, 2026
+            
+          </span>
+          <div class="post-actions">
+            <button class="like-btn " data-post-id="386" disabled="" title="&quot;Login" to="" like&#34;="">
+              ♥ <span class="like-count">0</span>
+            </button>
+            
+            
+            
+          </div>
+        </div>
+        <div class="post-content markdown-body" id="post-content-386">
+          <p>So somewhere an analyst is staring at your weird chessboard while you're sitting there watching Magnus clips 😂♟️</p>
+<p>Honestly that's evil.</p>
+<p>Also I give it like 20 minutes before someone writes Python to test every game automatically 😂</p>
+
+        </div>
+        
+        
+      </div>
+    </div>
+    
+    <div class="post-card" id="post-387">
+      <div class="post-aside">
+        <div class="post-avatar">
+          <img src="./page_files/13.png" alt="">
+        </div>
+        <a href="https://ghosttown.deadface.io/u/b1tfr34k" class="post-username">
+          b1tfr34k
+          
+        </a>
+        <span class="post-user-count">78 posts</span>
+        <span class="post-user-joined">Since Jun 25, 2026</span>
+      </div>
+      <div class="post-body">
+        <div class="post-meta-top">
+          <span class="post-date">
+            Sep 6, 2026
+            
+          </span>
+          <div class="post-actions">
+            <button class="like-btn " data-post-id="387" disabled="" title="&quot;Login" to="" like&#34;="">
+              ♥ <span class="like-count">0</span>
+            </button>
+            
+            
+            
+          </div>
+        </div>
+        <div class="post-content markdown-body" id="post-content-387">
+          <p>Let them write it.</p>
+<p>Finding the right game still doesn't tell them what to extract.</p>
+<p>And if they solve it?</p>
+<p>Good.</p>
+<p>A puzzle nobody can solve is just noise.</p>
+<p>I want them to understand exactly what I did about five seconds before they realize what the hidden message says.</p>
+<p>That's the fun part.</p>
+
+        </div>
+        
+        
+      </div>
+    </div>
+    
+  </div>
+
+  
+
+  
+  <div class="login-prompt">
+    <a href="https://ghosttown.deadface.io/login?next=/t/38/carlsen-gave-me-an-idea" class="btn btn--primary">Login to Reply</a>
+    <span> or </span>
+    <a href="https://ghosttown.deadface.io/register" class="btn btn--ghost">Join GhostTown</a>
+  </div>
+  
+
+  <a name="bottom"></a>
+</div>
+
+
+
+
+  </main>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span class="footer-brand">☠ GhostTown</span>
+      <span class="footer-sep">·</span>
+      <span class="footer-tag">Encrypted. Anonymous. Off-grid.</span>
+    </div>
+  </footer>
+  <script src="./page_files/app.js.download"></script>
+
+
+
+</body><div id="flash-glass-translate-host" style="color-scheme: initial; forced-color-adjust: initial; math-depth: initial; position-anchor: initial; text-size-adjust: initial; appearance: initial; color: initial; font: initial; font-palette: initial; font-synthesis: initial; position-area: initial; text-orientation: initial; text-rendering: initial; text-spacing-trim: initial; -webkit-font-smoothing: initial; -webkit-locale: initial; -webkit-text-orientation: initial; -webkit-writing-mode: initial; writing-mode: initial; zoom: initial; accent-color: initial; place-content: initial; place-items: initial; place-self: initial; alignment-baseline: initial; anchor-name: initial; anchor-scope: initial; animation-composition: initial; animation: initial; animation-trigger: initial; app-region: initial; aspect-ratio: initial; backdrop-filter: initial; backface-visibility: initial; background: initial; background-blend-mode: initial; baseline-shift: initial; baseline-source: initial; block-size: initial; border-block: initial; border: initial; border-radius: initial; border-collapse: initial; border-end-end-radius: initial; border-end-start-radius: initial; border-inline: initial; border-shape: initial; border-start-end-radius: initial; border-start-start-radius: initial; bottom: initial; box-decoration-break: initial; box-shadow: initial; box-sizing: initial; break-after: initial; break-before: initial; break-inside: initial; buffered-rendering: initial; caption-side: initial; caret-animation: initial; caret-color: initial; caret-shape: initial; clear: initial; clip: initial; clip-path: initial; clip-rule: initial; color-interpolation: initial; color-interpolation-filters: initial; color-rendering: initial; columns: initial; column-fill: initial; gap: initial; rule-break: initial; rule: initial; rule-inset: initial; rule-visibility-items: initial; column-span: initial; contain: initial; contain-intrinsic-block-size: initial; contain-intrinsic-size: initial; contain-intrinsic-inline-size: initial; container: initial; content: initial; content-visibility: initial; corner-shape: initial; corner-block-end-shape: initial; corner-block-start-shape: initial; counter-increment: initial; counter-reset: initial; counter-set: initial; cursor: initial; cx: initial; cy: initial; d: initial; display: initial; dominant-baseline: initial; dynamic-range-limit: initial; empty-cells: initial; field-sizing: initial; fill: initial; fill-opacity: initial; fill-rule: initial; filter: initial; flex: initial; flex-flow: initial; flex-line-count: initial; float: initial; flood-color: initial; flood-opacity: initial; frame-sizing: initial; grid: initial; grid-area: initial; hyphenate-character: initial; hyphenate-limit-chars: initial; hyphens: initial; image-orientation: initial; image-rendering: initial; initial-letter: initial; inline-size: initial; inset-block: initial; inset-inline: initial; interactivity: initial; interest-delay: initial; interpolate-size: initial; isolation: initial; letter-spacing: initial; lighting-color: initial; line-break: initial; list-style: initial; margin-block: initial; margin: initial; margin-inline: initial; margin-trim: initial; marker: initial; mask: initial; mask-type: initial; math-shift: initial; math-style: initial; max-block-size: initial; max-height: initial; max-inline-size: initial; max-width: initial; min-block-size: initial; min-height: initial; min-inline-size: initial; min-width: initial; mix-blend-mode: initial; object-fit: initial; object-position: initial; object-view-box: initial; offset: initial; opacity: initial; order: initial; orphans: initial; outline: initial; outline-offset: initial; overflow-anchor: initial; overflow-block: initial; overflow-clip-margin: initial; overflow-inline: initial; overflow-wrap: initial; overflow: initial; overlay: initial; overscroll-behavior-block: initial; overscroll-behavior-inline: initial; overscroll-behavior: initial; padding-block: initial; padding: initial; padding-inline: initial; page: initial; page-margin-safety: initial; page-orientation: initial; paint-order: initial; perspective: initial; perspective-origin: initial; pointer-events: initial; position-try: initial; position-visibility: initial; print-color-adjust: initial; quotes: initial; r: initial; reading-flow: initial; reading-order: initial; resize: initial; right: initial; rotate: initial; ruby-align: initial; ruby-overhang: initial; ruby-position: initial; rule-overlap: initial; rx: initial; ry: initial; scale: initial; scroll-axis-lock: initial; scroll-behavior: initial; scroll-initial-target: initial; scroll-margin-block: initial; scroll-margin: initial; scroll-margin-inline: initial; scroll-marker-group: initial; scroll-padding-block: initial; scroll-padding: initial; scroll-padding-inline: initial; scroll-snap-align: initial; scroll-snap-stop: initial; scroll-snap-type: initial; scroll-target-group: initial; scroll-timeline: initial; scrollbar-color: initial; scrollbar-gutter: initial; scrollbar-width: initial; shape-image-threshold: initial; shape-margin: initial; shape-outside: initial; shape-rendering: initial; size: initial; speak: initial; stop-color: initial; stop-opacity: initial; stroke: initial; stroke-dasharray: initial; stroke-dashoffset: initial; stroke-linecap: initial; stroke-linejoin: initial; stroke-miterlimit: initial; stroke-opacity: initial; stroke-width: initial; tab-size: initial; table-layout: initial; text-align: initial; text-align-last: initial; text-anchor: initial; text-autospace: initial; text-box: initial; text-combine-upright: initial; text-decoration: initial; text-decoration-skip-ink: initial; text-decoration-skip-spaces: initial; text-emphasis: initial; text-emphasis-position: initial; text-fit: initial; text-indent: initial; text-justify: initial; text-overflow: initial; text-shadow: initial; text-transform: initial; text-underline-offset: initial; text-underline-position: initial; text-wrap: initial; timeline-scope: initial; timeline-trigger: initial; touch-action: initial; transform: initial; transform-box: initial; transform-origin: initial; transform-style: initial; transition: initial; translate: initial; trigger-scope: initial; user-select: initial; vector-effect: initial; vertical-align: initial; view-timeline: initial; view-transition-class: initial; view-transition-group: initial; view-transition-name: initial; view-transition-scope: initial; visibility: initial; border-spacing: initial; -webkit-box-align: initial; -webkit-box-decoration-break: initial; -webkit-box-direction: initial; -webkit-box-flex: initial; -webkit-box-ordinal-group: initial; -webkit-box-orient: initial; -webkit-box-pack: initial; -webkit-box-reflect: initial; -webkit-line-break: initial; -webkit-line-clamp: initial; -webkit-mask-box-image: initial; -webkit-rtl-ordering: initial; -webkit-ruby-position: initial; -webkit-tap-highlight-color: initial; -webkit-text-combine: initial; -webkit-text-decorations-in-effect: initial; -webkit-text-fill-color: initial; -webkit-text-security: initial; -webkit-text-stroke: initial; -webkit-user-drag: initial; white-space-collapse: initial; widows: initial; will-change: initial; window-drag: initial; word-break: initial; word-spacing: initial; x: initial; y: initial; position: fixed; top: 0px; left: 0px; width: 0px; height: 0px; z-index: 2147483647;"><template shadowrootmode="closed"><style>
+  :host { all: initial; }
+  *, *::before, *::after { box-sizing: border-box; }
+  #flash-glass-translate-tooltip, #flash-glass-translate-trigger {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+      'Noto Sans', 'Noto Sans CJK SC', 'PingFang SC', 'Hiragino Sans', 'Malgun Gothic', sans-serif;
+    -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+    letter-spacing: normal; text-transform: none; text-align: left; direction: ltr;
+  }
+  /* Synced with popup's index.css design tokens (HSL → hex) */
+  #flash-glass-translate-tooltip {
+    --fg-bg: #0f172a; --fg-bg2: #1a2540; --fg-border: #2d3a52; --fg-text: #f4f5f7; --fg-text2: #b8c4d6;
+    --fg-muted: #97a5ba; --fg-faint: #97a5ba; --fg-dim: #3b4a63; --fg-shadow: rgba(0,0,0,.45);
+    --fg-btn-bg: #f4f5f7; --fg-btn-text: #0f172a; --fg-btn-hover: #e2e4e9; --fg-input-bg: #131d33;
+    --fg-accent: #818cf8; --fg-accent-bg: rgba(129,140,248,.16); --fg-accent-bg-hover: rgba(129,140,248,.28);
+    position: fixed; z-index: 2147483647; width: 320px; max-width: calc(100vw - 16px);
+    background: var(--fg-bg); color: var(--fg-text); border: 1px solid var(--fg-border);
+    border-radius: 12px; padding: 12px 14px; font-size: 13px; line-height: 1.5; font-weight: 400;
+    box-shadow: 0 12px 40px var(--fg-shadow), 0 2px 6px var(--fg-shadow);
+    pointer-events: auto; display: none; word-break: break-word; overflow-wrap: anywhere;
+  }
+  #flash-glass-translate-tooltip.fg-light {
+    --fg-bg: #ffffff; --fg-bg2: #f0f1f4; --fg-border: #d4d7de; --fg-text: #0f172a; --fg-text2: #4b5563;
+    --fg-muted: #6b7280; --fg-faint: #6b7280; --fg-dim: #d4d7de; --fg-shadow: rgba(15,23,42,.12);
+    --fg-btn-bg: #0f172a; --fg-btn-text: #ffffff; --fg-btn-hover: #1e293b; --fg-input-bg: #ffffff;
+    --fg-accent: #4f46e5; --fg-accent-bg: rgba(79,70,229,.10); --fg-accent-bg-hover: rgba(79,70,229,.18);
+  }
+  #flash-glass-translate-tooltip.fg-enter { animation: fg-pop .14s cubic-bezier(.2,.8,.2,1); }
+  #flash-glass-translate-tooltip button, #flash-glass-translate-tooltip input { font: inherit; letter-spacing: inherit; margin: 0; }
+  #flash-glass-translate-tooltip button { -webkit-appearance: none; appearance: none; }
+  #flash-glass-translate-tooltip button:focus-visible, #flash-glass-translate-tooltip [role="button"]:focus-visible {
+    outline: 2px solid var(--fg-accent); outline-offset: 1px;
+  }
+  #flash-glass-translate-tooltip input::placeholder { color: var(--fg-muted); opacity: .8; }
+  #flash-glass-translate-tooltip ::-webkit-scrollbar { width: 6px; height: 6px; }
+  #flash-glass-translate-tooltip ::-webkit-scrollbar-thumb { background: var(--fg-border); border-radius: 3px; }
+  #flash-glass-translate-tooltip ::-webkit-scrollbar-track { background: transparent; }
+
+  /* hover (thay cho onmouseover inline) — !important để thắng style inline của phần tử */
+  [data-fg-hover] { transition: background .15s, color .15s, border-color .15s; }
+  [data-fg-hover="btn"]:hover { background: var(--fg-btn-hover) !important; }
+  [data-fg-hover="ai"]:hover { background: var(--fg-accent-bg-hover) !important; }
+  [data-fg-hover="ghost"]:hover { border-color: var(--fg-faint) !important; color: var(--fg-text2) !important; }
+  [data-fg-hover="bg-border"]:hover { background: var(--fg-border) !important; }
+  [data-fg-hover="bg2"]:hover { background: var(--fg-bg2) !important; }
+  [data-fg-hover="text2"]:hover { color: var(--fg-text2) !important; }
+  [data-fg-hover="text"]:hover:not(:disabled) { color: var(--fg-text) !important; }
+
+  /* ── Chọn ngôn ngữ (cờ dạng ảnh + search) ── */
+  .fg-flag { width: 18px; height: 12px; border-radius: 2px; object-fit: cover; flex: 0 0 auto; display: block;
+    box-shadow: 0 0 0 1px rgba(128,128,128,.25); }
+  .fg-flag-globe { width: 18px; height: 12px; flex: 0 0 auto; display: inline-flex; align-items: center;
+    justify-content: center; color: var(--fg-muted); }
+  .fg-lang-btn { display: inline-flex; align-items: center; gap: 5px; height: 24px; padding: 0 6px 0 5px; min-width: 0; flex: 0 1 auto;
+    border: 1px solid transparent; border-radius: 6px; background: var(--fg-bg2); color: var(--fg-text);
+    font-size: 11px; font-weight: 600; cursor: pointer; transition: background .15s, border-color .15s; }
+  .fg-lang-btn:hover, .fg-lang-btn[aria-expanded="true"] { border-color: var(--fg-border); background: var(--fg-border); }
+  .fg-lang-btn > span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+  .fg-lang-btn > svg { flex: 0 0 auto; opacity: .55; }
+  .fg-lang-menu { position: absolute; left: 0; right: 0; z-index: 5; background: var(--fg-bg);
+    border: 1px solid var(--fg-border); border-radius: 10px; box-shadow: 0 10px 30px var(--fg-shadow);
+    padding: 6px; animation: fg-pop .12s cubic-bezier(.2,.8,.2,1); }
+  .fg-lang-search { width: 100%; height: 28px; padding: 0 8px; border: 1px solid var(--fg-border); border-radius: 6px;
+    background: var(--fg-input-bg); color: var(--fg-text); font-size: 12px; outline: none; }
+  .fg-lang-search:focus { border-color: var(--fg-accent); }
+  .fg-lang-list { margin-top: 5px; max-height: 196px; overflow-y: auto; display: flex; flex-direction: column; gap: 1px; }
+  .fg-lang-item { display: flex; align-items: center; gap: 8px; width: 100%; padding: 5px 7px; border: none;
+    border-radius: 6px; background: transparent; color: var(--fg-text); font-size: 12px; text-align: left; cursor: pointer; }
+  .fg-lang-item:hover, .fg-lang-item.fg-active { background: var(--fg-bg2); }
+  .fg-lang-item[aria-selected="true"] { font-weight: 600; }
+  .fg-lang-item > span:first-of-type { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .fg-lang-item > small { flex: 0 0 auto; font-size: 10px; color: var(--fg-muted); text-transform: uppercase; }
+  .fg-lang-sep { height: 1px; margin: 4px 2px; background: var(--fg-border); flex: 0 0 auto; }
+  .fg-lang-empty { padding: 10px 6px; text-align: center; font-size: 11px; color: var(--fg-muted); }
+
+  .fg-icon-btn { background: none; border: none; cursor: pointer; padding: 4px; color: var(--fg-faint); display: inline-flex;
+    align-items: center; justify-content: center; line-height: 1; border-radius: 6px; transition: color .15s, background .15s; }
+  .fg-icon-btn:hover:not(:disabled) { color: var(--fg-text); background: var(--fg-bg2); }
+  .fg-icon-btn.fg-on { color: var(--fg-text); background: var(--fg-bg2); }
+  .fg-icon-btn:disabled { opacity: .35; cursor: default; }
+  .fg-fade-in { animation: fg-fade .18s ease-out; }
+
+  @keyframes fg-pop { from { opacity: 0; transform: translateY(4px) scale(.98); } to { opacity: 1; transform: none; } }
+  @keyframes fg-fade { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes fg-shimmer { 0% { background-position: -400px 0; } 100% { background-position: 400px 0; } }
+  @keyframes fg-spin { to { transform: rotate(360deg); } }
+  @keyframes fg-ai-pulse { 0%,100% { opacity: .9; } 50% { opacity: .4; } }
+  @keyframes fg-ai-bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
+  @media (prefers-reduced-motion: reduce) { * { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+</style><div id="flash-glass-translate-tooltip" class="" style="display: none; pointer-events: auto; left: 427.7px; top: 337.625px; transition: top 0.2s cubic-bezier(0.2, 0.8, 0.2, 1), left 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);">
+    <div data-fg-header="" style="margin:-2px -4px 9px 0;display:flex;align-items:center;gap:6px">
+      <div style="display:flex;align-items:center;gap:5px;flex:1 1 auto;min-width:0">
+        <button type="button" class="fg-lang-btn" data-fg-lang-btn="source" aria-haspopup="listbox" aria-expanded="false" title="Source language">
+      <img class="fg-flag" src="chrome-extension://pahpmlblfmellglfkaknhbgkdlcndbak/flags/GB.svg" alt="" draggable="false"><span>English</span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg>
+    </button>
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--fg-muted)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg>
+        <button type="button" class="fg-lang-btn" data-fg-lang-btn="target" aria-haspopup="listbox" aria-expanded="false" title="Translate to">
+      <img class="fg-flag" src="chrome-extension://pahpmlblfmellglfkaknhbgkdlcndbak/flags/VN.svg" alt="" draggable="false"><span>Tiếng Việt</span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg>
+    </button>
+      </div>
+      <div style="display:flex;align-items:center;gap:1px;flex:0 0 auto">
+        <button class="fg-icon-btn" data-fg-action="pin" title="Pin popup" aria-label="Pin popup" aria-pressed="false"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="17" y2="22"></line><path d="M5 17h14v-1.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V6h1a2 2 0 0 0 0-4H8a2 2 0 0 0 0 4h1v4.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24Z"></path></svg></button>
+        <button class="fg-icon-btn" data-fg-action="close" title="Close" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+      </div>
+    </div>
+    <div data-fg-original-display="" style="color:var(--fg-muted);font-size:11.5px;line-height:1.45;max-height:50px;overflow:hidden;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical">I used that particular 2026 Carlsen game to derive the key for a me</div>
+    <div data-fg-pron="" style="font-size:12px;color:var(--fg-text2);margin-top:1px;display:none"></div>
+    <div data-fg-trans-row="" style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-top:6px">
+      <div style="font-size:13.5px;line-height:1.5;color:var(--fg-text);min-width:0;flex:1 1 auto;max-height:168px;overflow-y:auto" data-fg-translated=""><span data-fg-pos=""></span>Tôi đã sử dụng trò chơi Carlsen 2026 cụ thể đó để tìm ra chìa khóa cho tôi</div>
+      
+    </div>
+    <div data-fg-ai=""></div>
+    <div data-fg-syn=""></div>
+    <div style="margin-top:10px;padding-top:9px;border-top:1px solid var(--fg-bg2);display:flex;align-items:center;justify-content:space-between;gap:8px">
+      <label style="display:flex;align-items:center;gap:6px;min-width:0;font-size:10.5px;color:var(--fg-muted);cursor:pointer;user-select:none">
+        <input type="checkbox" data-fg-noauto="" style="margin:0;width:12px;height:12px;flex:0 0 auto;accent-color:var(--fg-accent);cursor:pointer">
+        <span style="line-height:1.3">Don't auto-translate this site</span>
+      </label>
+      <button data-fg-action="add-to-set" style="flex:0 0 auto;background:var(--fg-btn-bg);color:var(--fg-btn-text);border:none;border-radius:7px;
+          padding:0 12px;height:28px;font-size:11.5px;font-weight:600;cursor:pointer;
+          display:inline-flex;align-items:center;justify-content:center;gap:4px" data-fg-hover="btn"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>Add to Set</button>
+    </div></div></template></div></html>

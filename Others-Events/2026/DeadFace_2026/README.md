@@ -4,7 +4,7 @@
 
 | Challenge | Write-up |
 | --- | --- |
-| Chess_Key | Chưa có write-up |
+| Chess_Key | [Đọc write-up](Cryptography/Chess_Key/write-up.md) |
 | DECODE-DLE | [Đọc write-up](Cryptography/DECODE-DLE/write-up.md) |
 | Digital_Design | [Đọc write-up](Cryptography/Digital_Design/write-up.md) |
 | Hail_Caesar | [Đọc write-up](Cryptography/Hail_Caesar/write-up.md) |
