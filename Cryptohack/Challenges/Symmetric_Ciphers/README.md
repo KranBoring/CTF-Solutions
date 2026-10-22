@@ -14,12 +14,12 @@
 | [ECB CBC WTF](https://cryptohack.org/challenges/aes/#header-ecbcbcwtf) | Đang nằm ở course [Symmetric Cryptography](../../Course/Symmetric_Cryptography/README.md) |
 | [ECB Oracle](https://cryptohack.org/challenges/aes/#header-ecb_oracle) | Đang nằm ở course [Symmetric Cryptography](../../Course/Symmetric_Cryptography/README.md) |
 | [Flipping Cookie](https://cryptohack.org/challenges/aes/#header-flipping_cookie) | Đang nằm ở course [Symmetric Cryptography](../../Course/Symmetric_Cryptography/README.md) |
-| [Lazy CBC](https://cryptohack.org/challenges/aes/#header-lazy_cbc) | Chưa có write-up |
-| [Triple DES](https://cryptohack.org/challenges/aes/#header-triple_des) | Chưa có write-up |
+| [Lazy CBC](https://cryptohack.org/challenges/aes/#header-lazy_cbc) | [Đọc write-up](Lazy_CBC/write-up.md) |
+| [Triple DES](https://cryptohack.org/challenges/aes/#header-triple_des) | [Đọc write-up](Triple_DES/write-up.md) |
 | [Symmetry](https://cryptohack.org/challenges/aes/#header-symmetry) | Đang nằm ở course [Symmetric Cryptography](../../Course/Symmetric_Cryptography/README.md) |
 | [Bean Counter](https://cryptohack.org/challenges/aes/#header-bean_counter) | Đang nằm ở course [Symmetric Cryptography](../../Course/Symmetric_Cryptography/README.md) |
-| [CTRIME](https://cryptohack.org/challenges/aes/#header-ctrime) | Chưa có write-up |
-| [Logon Zero](https://cryptohack.org/challenges/aes/#header-logon-zero) | Chưa có write-up |
+| [CTRIME](https://cryptohack.org/challenges/aes/#header-ctrime) | [Đọc write-up](CTRIME/write-up.md) |
+| [Logon Zero](https://cryptohack.org/challenges/aes/#header-logon-zero) | [Đọc write-up](Logon_Zero/write-up.md) |
 | [Stream of Consciousness](https://cryptohack.org/challenges/aes/#header-stream_consciousness) | Chưa có write-up |
 | [Dancing Queen](https://cryptohack.org/challenges/aes/#header-dancing-queen) | Chưa có write-up |
 | [Oh SNAP](https://cryptohack.org/challenges/aes/#header-oh_snap) | Chưa có write-up |
