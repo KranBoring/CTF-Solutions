@@ -57,7 +57,7 @@
   - Challenges
     - [Introduction](./Cryptohack/Challenges/Introduction/README.md) (3/3)
     - [General](./Cryptohack/Challenges/General/README.md) (19/19)
-    - [Symmetric Ciphers](./Cryptohack/Challenges/Symmetric_Ciphers/README.md) (22/29)
+    - [Symmetric Ciphers](./Cryptohack/Challenges/Symmetric_Ciphers/README.md) (23/29)
     - [Mathematics](./Cryptohack/Challenges/Mathematics/README.md) (6/16)
     - [RSA](./Cryptohack/Challenges/RSA/README.md) (12/29)
     - [Diffie-Hellman](./Cryptohack/Challenges/Diffie-Hellman/README.md) (7/14)

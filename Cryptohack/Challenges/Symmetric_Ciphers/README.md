@@ -24,7 +24,7 @@
 | [Dancing Queen](https://cryptohack.org/challenges/aes/#header-dancing-queen) | [Đọc write-up](Dancing_Queen/write-up.md) |
 | [Oh SNAP](https://cryptohack.org/challenges/aes/#header-oh_snap) | [Đọc write-up](Oh_SNAP/write-up.md) |
 | [Pad Thai](https://cryptohack.org/challenges/aes/#header-pad_thai) | [Đọc write-up](Pad_Thai/write-up.md) |
-| [Rhetorical Oracle](https://cryptohack.org/challenges/aes/#header-rhetorical_oracle) | Chưa có write-up |
+| [Rhetorical Oracle](https://cryptohack.org/challenges/aes/#header-rhetorical_oracle) | [Đọc write-up](Rhetorical_Oracle/write-up.md) |
 | [The Good, The Pad, The Ugly](https://cryptohack.org/challenges/aes/#header-good_pad_ugly) | Chưa có write-up |
 | [Oracular Spectacular](https://cryptohack.org/challenges/aes/#header-oracular_spectacular) | Chưa có write-up |
 | [Rhetorical Oracle 2](https://cryptohack.org/challenges/aes/#header-rhetorical_oracle_2) | Chưa có write-up |

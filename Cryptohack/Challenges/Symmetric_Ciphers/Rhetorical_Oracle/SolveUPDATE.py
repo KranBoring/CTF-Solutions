@@ -21,22 +21,27 @@ def sendl(payload):
 def json_unpad(payload):
     return dumps({'ciphertext': payload.hex()})
 
-def padding_attack(payload):
-    sendl(json_unpad(payload))
-    check = loads(reline())['good_pad']
-    return check
+def padding_attack(payload, leng):
+    io.send(payload.encode())
+    res = []
+    for i in range(leng):
+        check = loads(reline())['good_pad']
+        res.append(check)
+    return res
 
+CHUNK_BATCH = 12
 def find_state(ciphertext):
     know_bytes = b''
     for count in range(16):
         payloads = [b'\x00' * (16 - count - 1) + bytes([i]) + xorn(know_bytes[::-1], count + 1) + ciphertext for i in range(256)]
-        bytes_index = 0
-        while True:
-            res = padding_attack(payloads[bytes_index])
-            if res == True:
-                know_bytes += bytes([(count + 1) ^ bytes_index])
+        for i in range(0, 256, CHUNK_BATCH):
+            batch = ''.join([json_unpad(payload) + '\n' for payload in payloads[i:i + CHUNK_BATCH]])
+            leng = len(payloads[i:i + CHUNK_BATCH])
+            res = padding_attack(batch, leng)
+            if True in res:
+                res = i + res.index(True)
                 break
-            bytes_index += 1
+        know_bytes += bytes([(count + 1) ^ res])
     return know_bytes[::-1]
 
 start = time()
