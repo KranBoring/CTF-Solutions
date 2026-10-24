@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+*.pyo
+*.wasm
+tests/
+.pytest_cache/
+.venv/
+flag.txt

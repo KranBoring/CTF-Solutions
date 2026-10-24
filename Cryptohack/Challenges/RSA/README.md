@@ -15,7 +15,7 @@
 | [Manyprime](https://cryptohack.org/challenges/rsa/#header-manyprime) | Đang nằm ở course [Public-Key Cryptography](../../Course/Public-Key_Cryptography/README.md) |
 | [Salty](https://cryptohack.org/challenges/rsa/#header-salty) | Đang nằm ở course [Public-Key Cryptography](../../Course/Public-Key_Cryptography/README.md) |
 | [Modulus Inutilis](https://cryptohack.org/challenges/rsa/#header-modulus_inutilis) | Đang nằm ở course [Public-Key Cryptography](../../Course/Public-Key_Cryptography/README.md) |
-| [Everything is Big](https://cryptohack.org/challenges/rsa/#header-big) | Chưa có write-up |
+| [Everything is Big](https://cryptohack.org/challenges/rsa/#header-big) | [Đọc write-up](Everything_is_Big/write-up.md) |
 | [Crossed Wires](https://cryptohack.org/challenges/rsa/#header-wires) | Chưa có write-up |
 | [Everything is Still Big](https://cryptohack.org/challenges/rsa/#header-big2) | Chưa có write-up |
 | [Endless Emails](https://cryptohack.org/challenges/rsa/#header-johan) | Chưa có write-up |

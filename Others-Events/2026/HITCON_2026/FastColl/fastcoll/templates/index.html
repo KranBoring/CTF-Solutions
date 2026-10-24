@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080c14">
+  <title>fastcoll · XXH3-128</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <main class="shell">
+    <div class="eyebrow"><span class="pulse"></span> HITCON CTF / CRYPTO</div>
+    <section class="panel" aria-labelledby="title">
+      <div class="panel-top"><span>FASTCOLL</span><span>01 / 01</span></div>
+      <h1 id="title">Find the <em>collision.</em></h1>
+      <p class="intro">Upload one WebAssembly module. The judge calls its exported <code>xx_hash()</code> entry point and waits for two different messages with the same XXH3-128 digest.</p>
+      <form id="upload-form">
+        <label class="drop" id="dropzone" for="wasm-file">
+          <span class="upload-icon" aria-hidden="true">↥</span>
+          <span class="drop-title" id="file-label">Choose a .wasm file</span>
+          <span class="drop-hint">or drop it here · 1 MiB maximum</span>
+          <input id="wasm-file" name="file" type="file" accept=".wasm,application/wasm" required>
+        </label>
+        <button id="submit-button" type="submit">Run submission <span aria-hidden="true">↗</span></button>
+      </form>
+      <div class="result" id="result" role="status" aria-live="polite" hidden>
+        <span class="result-icon" id="result-icon" aria-hidden="true"></span>
+        <div>
+          <strong id="result-title"></strong>
+          <p id="result-message"></p>
+          <code id="flag" hidden></code>
+        </div>
+      </div>
+      <div class="panel-bottom">
+        <span>1,000,000 calls per submission</span>
+        <span>256–1024 bytes per message</span>
+      </div>
+    </section>
+    <p class="footnote">Each host hash call uses the next secret seed. The counter starts fresh for every upload.</p>
+  </main>
+</body>
+</html>

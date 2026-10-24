@@ -1,0 +1,4 @@
+Flask==3.1.2
+gunicorn==23.0.0
+wasmtime==50.0.1
+xxhash==3.8.0

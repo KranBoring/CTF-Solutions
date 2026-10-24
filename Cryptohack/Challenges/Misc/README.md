@@ -5,6 +5,8 @@
 | [Gotta Go Fast](https://cryptohack.org/challenges/misc/#header-gofast) | Chưa có write-up |
 | [No Leaks](https://cryptohack.org/challenges/misc/#header-noleaks) | Chưa có write-up |
 | [Lo-Hi Card Game](https://cryptohack.org/challenges/misc/#header-lcg1) | [Đọc write-up](Lo-Hi_Card_Game/write-up.md) |
+| [Bad Temper](https://cryptohack.org/challenges/misc/#header-bad_temper) | Chưa có write-up |
+| [Bad Temper 2](https://cryptohack.org/challenges/misc/#header-bad_temper_2) | Chưa có write-up |
 | [Nothing Up My Sleeve](https://cryptohack.org/challenges/misc/#header-roulette) | Chưa có write-up |
 | [RSA vs RNG](https://cryptohack.org/challenges/misc/#header-rsa-vs-rng) | Chưa có write-up |
 | [Trust Games](https://cryptohack.org/challenges/misc/#header-lcg2) | Chưa có write-up |

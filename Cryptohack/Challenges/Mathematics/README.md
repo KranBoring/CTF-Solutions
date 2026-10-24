@@ -7,6 +7,7 @@
 | [Modular Square Root](https://cryptohack.org/challenges/maths/#header-tonelli-shanks) | Đang nằm ở course [Modular Arithmetic](../../Course/Modular_Arithmetic/README.md) |
 | [Chinese Remainder Theorem](https://cryptohack.org/challenges/maths/#header-crt1) | Đang nằm ở course [Modular Arithmetic](../../Course/Modular_Arithmetic/README.md) |
 | [Successive Powers](https://cryptohack.org/challenges/maths/#header-powers) | Chưa có write-up |
+| [Common Ground](https://cryptohack.org/challenges/maths/#header-common_ground) | Chưa có write-up |
 | [Adrien's Signs](https://cryptohack.org/challenges/maths/#header-adrien) | Đang nằm ở course [Modular Arithmetic](../../Course/Modular_Arithmetic/README.md) |
 | [Modular Binomials](https://cryptohack.org/challenges/maths/#header-bionomials) | Đang nằm ở course [Modular Arithmetic](../../Course/Modular_Arithmetic/README.md) |
 | [Broken RSA](https://cryptohack.org/challenges/maths/#header-broken-rsa) | Chưa có write-up |

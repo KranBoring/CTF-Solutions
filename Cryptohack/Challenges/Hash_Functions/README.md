@@ -9,6 +9,8 @@
 | [PriMeD5](https://cryptohack.org/challenges/hashes/#header-primed5) | Chưa có write-up |
 | [Twin Keys](https://cryptohack.org/challenges/hashes/#header-twinkeys) | Chưa có write-up |
 | [No Difference](https://cryptohack.org/challenges/hashes/#header-no_difference) | Chưa có write-up |
+| [Seventy-Two](https://cryptohack.org/challenges/hashes/#header-seventy_two) | Chưa có write-up |
+| [Long Story Short](https://cryptohack.org/challenges/hashes/#header-long_story_short) | Chưa có write-up |
 | [MD0](https://cryptohack.org/challenges/hashes/#header-md0) | Chưa có write-up |
 | [MDFlag](https://cryptohack.org/challenges/hashes/#header-mdflag) | Chưa có write-up |
 | [Mixed Up](https://cryptohack.org/challenges/hashes/#header-mixed_up) | Chưa có write-up |

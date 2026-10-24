@@ -20,12 +20,14 @@
 | [Bean Counter](https://cryptohack.org/challenges/aes/#header-bean_counter) | Đang nằm ở course [Symmetric Cryptography](../../Course/Symmetric_Cryptography/README.md) |
 | [CTRIME](https://cryptohack.org/challenges/aes/#header-ctrime) | [Đọc write-up](CTRIME/write-up.md) |
 | [Logon Zero](https://cryptohack.org/challenges/aes/#header-logon-zero) | [Đọc write-up](Logon_Zero/write-up.md) |
-| [Stream of Consciousness](https://cryptohack.org/challenges/aes/#header-stream_consciousness) | Chưa có write-up |
-| [Dancing Queen](https://cryptohack.org/challenges/aes/#header-dancing-queen) | Chưa có write-up |
-| [Oh SNAP](https://cryptohack.org/challenges/aes/#header-oh_snap) | Chưa có write-up |
-| [Pad Thai](https://cryptohack.org/challenges/aes/#header-pad_thai) | Chưa có write-up |
+| [Stream of Consciousness](https://cryptohack.org/challenges/aes/#header-stream_consciousness) | [Đọc write-up](Stream_of_Consciousness/write-up.md) |
+| [Dancing Queen](https://cryptohack.org/challenges/aes/#header-dancing-queen) | [Đọc write-up](Dancing_Queen/write-up.md) |
+| [Oh SNAP](https://cryptohack.org/challenges/aes/#header-oh_snap) | [Đọc write-up](Oh_SNAP/write-up.md) |
+| [Pad Thai](https://cryptohack.org/challenges/aes/#header-pad_thai) | [Đọc write-up](Pad_Thai/write-up.md) |
+| [Rhetorical Oracle](https://cryptohack.org/challenges/aes/#header-rhetorical_oracle) | Chưa có write-up |
 | [The Good, The Pad, The Ugly](https://cryptohack.org/challenges/aes/#header-good_pad_ugly) | Chưa có write-up |
 | [Oracular Spectacular](https://cryptohack.org/challenges/aes/#header-oracular_spectacular) | Chưa có write-up |
+| [Rhetorical Oracle 2](https://cryptohack.org/challenges/aes/#header-rhetorical_oracle_2) | Chưa có write-up |
 | [Paper Plane](https://cryptohack.org/challenges/aes/#header-paper_plane) | Chưa có write-up |
 | [Forbidden Fruit](https://cryptohack.org/challenges/aes/#header-forbidden_fruit) | Chưa có write-up |
 | [Beatboxer](https://cryptohack.org/challenges/aes/#header-beatboxer) | Chưa có write-up |

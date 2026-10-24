@@ -5,6 +5,7 @@
 | [Authentification 1 (Breizh CTF)](https://cryptohack.org/challenges/ctf-archive/#header-authentification_1-breizh_ctf) | Chưa có write-up |
 | [Authentification 2 (Breizh CTF)](https://cryptohack.org/challenges/ctf-archive/#header-authentification_2-breizh_ctf) | Chưa có write-up |
 | [Do you have good eyes? (Breizh CTF)](https://cryptohack.org/challenges/ctf-archive/#header-do_you_have_good_eyes-breizh) | Chưa có write-up |
+| [Origami (NNS CTF 2025)](https://cryptohack.org/challenges/ctf-archive/#header-origami-nns_ctf_20252025) | Chưa có write-up |
 | [U-turn (Breizh CTF)](https://cryptohack.org/challenges/ctf-archive/#header-u-turn-breizh_ctf2025) | Chưa có write-up |
 | [Verilicious (Cyber Apocalypse 2025)](https://cryptohack.org/challenges/ctf-archive/#header-verilicious-cyber_apocalypse) | Chưa có write-up |
 | [Additional problems (CSC Belgium)](https://cryptohack.org/challenges/ctf-archive/#header-additional_problems-csc_belgi) | Chưa có write-up |
