@@ -135,13 +135,14 @@
     * Khi đó xác suất để tìm được message và lấy được flag trên lý thuyết là:
     * ![1792992719745](image/write-up/1792992719745.png)
     * `~19.37%`
-    * Nhưng thực tế, bài đang giới hạn ta chỉ có 12000 query. Xác suất trên chỉ thực sự đúng khi ta có lượt query vô hạn để thực hiện các phép quay lui và chạy nhánh dự bị. Khi chạy thực tế và treo máy từ đêm chủ nhật đến sáng thứ 2, mình đã thực hiện hơn 150 lần remote đến server nhưng vẫn chưa có lần nào chạy ra cờ, khi mình chỉnh lại code thành bản hoàn thiện như hiện tại và chạy lại, khoảng 50 lần chạy mới có 1 lần chạy đúng, xác suất thực tế chỉ có khoảng `2%`
+    * Nhưng thực tế, bài đang giới hạn ta chỉ có 12000 query. Xác suất trên chỉ thực sự đúng khi ta có lượt query vô hạn để thực hiện các phép quay lui và chạy nhánh dự bị. Khi chạy thực tế và treo máy từ đêm chủ nhật đến sáng thứ 2, mình đã thực hiện hơn 150 lần remote đến server nhưng vẫn chưa có lần nào chạy ra cờ, khi mình chỉnh lại code thành bản hoàn thiện như hiện tại và chạy lại, khoảng 50 lần chạy mới có 1 lần chạy đúng, để đảm bảo hơn, mình đã thử chạy localhost `2000 lần`, và xác suất thực tế chỉ có khoảng `1%`
+    * Các bạn xem logs khi chạy localhost tại [đây](./localhost/logslocalhost.txt)
     * Bởi vì xác suất chạy 1 lần ra cờ rất thấp, nên mình đã chỉnh lại code để có thể chạy nhiều lần remote đến server cùng một lúc bằng cách chạy đa tiến trình =)))), và 1 lần mình chạy 50 tiến trình cùng lúc và sau cỡ 10p là lấy được cờ =)))
   * ###### 3. Exploit chain
 
     * Quy trình:
       * Gọi các tiến trình con để chạy hàm main.
-      * Ở mỗi hàm main, chạy thuật toán và xử lý padding oracle attack trên mỗi phiên độc lập, xác suất để hàm main chạy ra cờ là khoảng `2%`
+      * Ở mỗi hàm main, chạy thuật toán và xử lý padding oracle attack trên mỗi phiên độc lập, xác suất để hàm main chạy ra cờ là khoảng `1%`
       * Ngồi chờ và niệm phật rằng bạn may mắn có thể giải ra được message và nhận cờ =)))))
     * Script: [Đọc](solve.py)
     * Logs: [Đọc](logs.txt)
@@ -208,7 +209,7 @@
     * Bằng cách luôn chọn payload có score cao nhất để kiểm tra, khi payload cao nhất hiện tại là payload sai, khi hỏi càng nhiều thì score của payload đó có xu hướng tiến về số âm, và 1 khi payload có score cao nhất được chọn là payload đúng, khi được kiểm tra sẽ có xu hướng tiến về phía dương và chạm ngưỡng kiểm tra là `score >= 23`
     * Và xác suất để hàm kiểm tra payload này chọn phải payload sai và xác suất để hàm chạy này giải đúng cả 32 bytes là:
     * ![1792994478020](image/write-up/1792994478020.png)
-    * Với cách kiểm tra payload mới này, tỷ lệ để 1 tiến trình giải ra cờ đã tăng từ  `2%`lên đến  `96%` =))))))) ~~`(WT?)`~~
+    * Với cách kiểm tra payload mới này, tỷ lệ để 1 tiến trình giải ra cờ đã tăng từ  `1%`lên đến  `96%` =))))))) ~~`(WT?)`~~
   * ###### 2. Exploit chain
 
     * Mình đã thay đổi hàm `find_block_message`thành thuật toán như trên như sau:
@@ -243,7 +244,7 @@
 * Đánh giá tổng quát bài này: [Đọc](<https://habr.com/ru/articles/862624/#:~:text=%D1%87%D1%82%D0%BE%20%D0%BE%D0%BD%D0%BE%20%D0%BF%D1%80%D0%B0%D0%B2%D0%B8%D0%BB%D1%8C%D0%BD%D0%BE%D0%B5.-,Oracular%20Spectacular,-%D0%95%D1%89%D1%91%20%D0%BE%D0%B4%D0%BD%D0%B0%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D0%B0>) (Các bạn nên dùng phiên dịch bởi vì bài viết bằng tiếng Nga)
 * Solution Neobeo
 
-##### 7. Tổng kết
+#### 7. Tổng kết
 
 * Sau chuỗi 3 bài `Pad thai`, `The Good, The Pad, The Ugly` và bài `Oracular Spectacular` này, mình đã học được rất nhiều thứ và sau đây mình sẽ tổng kết lại như sau:
 

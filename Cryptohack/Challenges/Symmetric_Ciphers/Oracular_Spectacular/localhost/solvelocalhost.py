@@ -35,22 +35,59 @@ def main(count_main):
 
     def find_block_message(index):
         nonlocal message
-        know_bytes = b''
-        for count in range(16):
-            pos = 15 - count
-            list_bytes = [c ^ prev_block[pos] ^ (count + 1) for c in HEX]
-            payloads = [b'\x00' * pos + bytes([i]) + xorn(know_bytes[::-1], count + 1) + block_ciphertext[index] for i in list_bytes]
+        def check_payload(payload):
+            total = 0
+            true_count = 0
+            for _ in range(7):
+                batch = (json_unpad(payload) + '\n') * 10
+                try:
+                    res = padding_attack(batch, 10)
+                except Exception:
+                    return None
+                true_count += res.count(True)
+                total += 10
+                rate = true_count / total
+                if total == 10 and rate >= 0.8:
+                    return False, rate
+                if total == 20 and rate >= 0.65:
+                    return False, rate
+                if total == 40 and rate >= 0.575:
+                    return False, rate
+            check = true_count <= 32
+            return (check, true_count / total)
+        
+        def dfs(curr_count, index, curr_know_bytes):
+            nonlocal message
+            if curr_count == 16:
+                message += curr_know_bytes
+                return True
+            pos = 15 - curr_count
+            list_bytes = [c ^ prev_block[pos] ^ (curr_count + 1) for c in HEX]
+            payloads = [b'\x00' * pos + bytes([i]) + xorn(curr_know_bytes[::-1], curr_count + 1) + block_ciphertext[index] for i in list_bytes]
+            checked = {}
+            for i in range(16):
+                try:
+                    check, rate = check_payload(payloads[i])
+                except Exception:
+                    return None
+                if check:
+                    print(f"[+] Block {index} - Bytes {curr_count} - i = {i} (rate = {rate})")
+                    next_know_bytes = curr_know_bytes + bytes([(curr_count + 1) ^ list_bytes[i]])
+                    if dfs(curr_count + 1, index, next_know_bytes):
+                        return True
+                    print(f"[+] i = {i} chọn sai")
+                elif rate <= 0.5:
+                    checked = checked | {rate:i}
 
-            score = [0] * 16
-            while (m := max(score)) < 23:
-                i = score.index(m)
-                batch = (json_unpad(payloads[i])  + '\n') * 10
-                res = padding_attack(batch, 10)
-                if res is None:
-                    return "Fail to find message"
-                score[i] += sum([(-1) ** check for check in res])
-            know_bytes += bytes([(count + 1) ^ list_bytes[score.index(max(score))]])
-        message += know_bytes
+            if checked:
+                minrate = min(checked.keys())
+                next_know_bytes = curr_know_bytes + bytes([(curr_count + 1) ^ list_bytes[checked[minrate]]])
+                print(f"[+] Chạy dự phòng: i = {checked[minrate]} (rate = {minrate})")
+                if dfs(curr_count + 1, index, next_know_bytes):
+                    return True
+            return None 
+
+        dfs(0, index, b'')
     try:
         reline()
         sendl(dumps({"option":"encrypt"}))
@@ -93,9 +130,10 @@ if __name__ == '__main__':
     start = time.time()
     flag = ""
     count = 0
+    count_flag = 0
     with open("logslocalhost.txt","w") as f:
         f.write("Bắt đầu logs:\n")
-    while True:
+    for _ in range(40):
         with ProcessPoolExecutor(max_workers=50) as f:
             result = list(f.map(main, range(50)))
         count += 50
@@ -103,15 +141,19 @@ if __name__ == '__main__':
             for res in result:
                 f.write(f"#------{res}------#\n")
                 print(f"#------{res}------#\n")
-        for res in result:
+                if 'crypto{' in res:
+                    count_flag += 1
+        '''for res in result:
             if 'crypto{' in res:
                 flag = res
                 break
         if flag != "":
-            break
+            break'''
     print(flag)
     print(f"Tổng số tiến trình: {count}")
     end = time.time()
     print(f"Tông thời gian chạy: {(end - start):.2f}")
     with open("logslocalhost.txt","a") as f:
+        f.write(f"Tổng số tiến trình: {count}")
+        f.write(f"Xác suất chạy đúng mỗi tiến trình là: {(count_flag / 2000):.2f}")
         f.write(f"Tông thời gian chạy: {(end - start):.2f}")

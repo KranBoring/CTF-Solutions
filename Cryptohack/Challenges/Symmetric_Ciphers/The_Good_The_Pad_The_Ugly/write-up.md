@@ -68,7 +68,7 @@
 * Quy trình:
 
   * Ta nhận ciphertext của server.
-  * Ta thực hiện quy trình tấn công vào kiểm tra Padding `k lần` để khôi phục lại các bytes message chỉ với 16 payload đã được tối ưu hóa
+  * Ta thực hiện quy trình tấn csông vào kiểm tra Padding `k lần` để khôi phục lại các bytes message chỉ với 16 payload đã được tối ưu hóa
   * Bởi vì message sau phục hồi chỉ mới được giải mã ECB, ta cần bước 1 bước xor để khôi phục message hoàn toàn.
   * Gửi message lên server
   * Nhận cờ

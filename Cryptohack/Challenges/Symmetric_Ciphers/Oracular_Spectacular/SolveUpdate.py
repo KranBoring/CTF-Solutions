@@ -111,5 +111,7 @@ if __name__ == '__main__':
     print(f"Tổng số tiến trình: {count}")
     end = time.time()
     print(f"Tông thời gian chạy: {(end - start):.2f}")
-    with open("logsUp.txt","a") as f:
+    with open("logslocalhost.txt","a") as f:
+        f.write(f"Tổng số tiến trình: {count}")
+        #f.write(f"Xác suất chạy đúng mỗi tiến trình là: {(count_flag / 2000):.2f}")
         f.write(f"Tông thời gian chạy: {(end - start):.2f}")
