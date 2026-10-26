@@ -25,8 +25,8 @@
 | [Oh SNAP](https://cryptohack.org/challenges/aes/#header-oh_snap) | [Đọc write-up](Oh_SNAP/write-up.md) |
 | [Pad Thai](https://cryptohack.org/challenges/aes/#header-pad_thai) | [Đọc write-up](Pad_Thai/write-up.md) |
 | [Rhetorical Oracle](https://cryptohack.org/challenges/aes/#header-rhetorical_oracle) | [Đọc write-up](Rhetorical_Oracle/write-up.md) |
-| [The Good, The Pad, The Ugly](https://cryptohack.org/challenges/aes/#header-good_pad_ugly) | Chưa có write-up |
-| [Oracular Spectacular](https://cryptohack.org/challenges/aes/#header-oracular_spectacular) | Chưa có write-up |
+| [The Good, The Pad, The Ugly](https://cryptohack.org/challenges/aes/#header-good_pad_ugly) | [Đọc write-up](The_Good_The_Pad_The_Ugly/write-up.md) |
+| [Oracular Spectacular](https://cryptohack.org/challenges/aes/#header-oracular_spectacular) | [Đọc write-up](Oracular_Spectacular/write-up.md) |
 | [Rhetorical Oracle 2](https://cryptohack.org/challenges/aes/#header-rhetorical_oracle_2) | Chưa có write-up |
 | [Paper Plane](https://cryptohack.org/challenges/aes/#header-paper_plane) | Chưa có write-up |
 | [Forbidden Fruit](https://cryptohack.org/challenges/aes/#header-forbidden_fruit) | Chưa có write-up |

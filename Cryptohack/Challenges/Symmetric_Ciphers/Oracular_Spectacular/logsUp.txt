@@ -1,0 +1,12 @@
+Bắt đầu logs:
+#------crypto{with_smart_enough_searching_you_can_learn_everything}------#
+#------crypto{with_smart_enough_searching_you_can_learn_everything}------#
+#------Fail to find message------#
+#------Fail to find message------#
+#------crypto{with_smart_enough_searching_you_can_learn_everything}------#
+#------crypto{with_smart_enough_searching_you_can_learn_everything}------#
+#------Fail to find message------#
+#------Fail to find message------#
+#------Fail to find message------#
+#------Fail to find message------#
+Tông thời gian chạy: 914.86
