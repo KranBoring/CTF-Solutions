@@ -52,15 +52,14 @@ P = [padded[i:i + 16] for i in range(0, len(padded), 16)]
 blocks_payload = []
 
 token = bytes.fromhex(loads(reline())['token'])
-C_1_2 = token[:32]
+C_1 = token[:16]
 C = urandom(16)
 blocks_payload.append(C)
 for index in range(len(P) - 1, -1, -1):
     I = find_state(C)
     C = xor(P[index], I)
     blocks_payload.append(C)
-last_payload = C_1_2 + b''.join(blocks_payload[::-1])
-print(last_payload)
+last_payload = C_1 + b''.join(blocks_payload[::-1])
 sendl(json_unpad(last_payload))
 flag = reline()
 print(flag)

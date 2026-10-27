@@ -14,21 +14,21 @@ def right_flag(index, val):
         return val[2:] == b"}" and all(char in value_check for char in val[:2])
     return all(char in value_check for char in val)
 
-def find_hamilito(start_index, start_value):
+def find_hamiliton(start_index, start_value):
     result = []
     def dfs(curr_index, curr_val, path):
-        next_val = xor(curr_val, cipher_blocks[curr_index])
-        if next_val == start_value:
+        next_value = xor(curr_val, cipher_blocks[curr_index])
+        if next_value == start_value:
             result.append(path)
             return
         for next_index in range(leng):
             if next_index not in path and next_index != curr_index:
-                if right_flag(next_index, next_val):
-                    dfs(next_index, next_val, path | {next_index: next_val})
+                if right_flag(next_index, next_value):
+                    dfs(next_index, next_value, path | {next_index: next_value})
     dfs(start_index, start_value, {start_index: start_value})
     return result
 
-cy0 = find_hamilito(0, b"W1{")
+cy0 = find_hamiliton(0, b"W1{")
 
 for c0 in cy0:
     print(b"".join([c0[i] for i in range(leng)]))

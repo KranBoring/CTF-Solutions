@@ -27,7 +27,7 @@
 | [Rhetorical Oracle](https://cryptohack.org/challenges/aes/#header-rhetorical_oracle) | [Đọc write-up](Rhetorical_Oracle/write-up.md) |
 | [The Good, The Pad, The Ugly](https://cryptohack.org/challenges/aes/#header-good_pad_ugly) | [Đọc write-up](The_Good_The_Pad_The_Ugly/write-up.md) |
 | [Oracular Spectacular](https://cryptohack.org/challenges/aes/#header-oracular_spectacular) | [Đọc write-up](Oracular_Spectacular/write-up.md) |
-| [Rhetorical Oracle 2](https://cryptohack.org/challenges/aes/#header-rhetorical_oracle_2) | Chưa có write-up |
+| [Rhetorical Oracle 2](https://cryptohack.org/challenges/aes/#header-rhetorical_oracle_2) | [Đọc write-up](Rhetorical_Oracle_2/write-up.md) |
 | [Paper Plane](https://cryptohack.org/challenges/aes/#header-paper_plane) | Chưa có write-up |
 | [Forbidden Fruit](https://cryptohack.org/challenges/aes/#header-forbidden_fruit) | Chưa có write-up |
 | [Beatboxer](https://cryptohack.org/challenges/aes/#header-beatboxer) | Chưa có write-up |
