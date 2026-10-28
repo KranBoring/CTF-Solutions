@@ -6,7 +6,7 @@
 | [Legendre Symbol](https://cryptohack.org/challenges/maths/#header-root1) | Đang nằm ở course [Modular Arithmetic](../../Course/Modular_Arithmetic/README.md) |
 | [Modular Square Root](https://cryptohack.org/challenges/maths/#header-tonelli-shanks) | Đang nằm ở course [Modular Arithmetic](../../Course/Modular_Arithmetic/README.md) |
 | [Chinese Remainder Theorem](https://cryptohack.org/challenges/maths/#header-crt1) | Đang nằm ở course [Modular Arithmetic](../../Course/Modular_Arithmetic/README.md) |
-| [Successive Powers](https://cryptohack.org/challenges/maths/#header-powers) | Chưa có write-up |
+| [Successive Powers](https://cryptohack.org/challenges/maths/#header-powers) | [Đọc write-up](Successive_Powers/write-up.md) |
 | [Common Ground](https://cryptohack.org/challenges/maths/#header-common_ground) | Chưa có write-up |
 | [Adrien's Signs](https://cryptohack.org/challenges/maths/#header-adrien) | Đang nằm ở course [Modular Arithmetic](../../Course/Modular_Arithmetic/README.md) |
 | [Modular Binomials](https://cryptohack.org/challenges/maths/#header-bionomials) | Đang nằm ở course [Modular Arithmetic](../../Course/Modular_Arithmetic/README.md) |

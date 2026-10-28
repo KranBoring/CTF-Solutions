@@ -16,14 +16,18 @@ class RC4:
 import requests
 from pwn import xor
 from concurrent.futures import ThreadPoolExecutor
+from requests.adapters import HTTPAdapter
 import time
 
 url = "https://aes.cryptohack.org/oh_snap/send_cmd/"
+s = requests.session()
+s.mount("https://",HTTPAdapter(pool_connections=256, pool_maxsize=256))
+
 
 def payload(tuple):
     last_iv, leng = tuple[0], tuple[1]
     payload = bytes([leng + 3, 0xff, last_iv])
-    res = bytes.fromhex(requests.get(f"{url}00/{payload.hex()}/").json()["error"].split(' ')[-1])[0]
+    res = bytes.fromhex(s.get(f"{url}00/{payload.hex()}/").json()["error"].split(' ')[-1])[0]
     return (last_iv, res)
 
 flag = b'crypto{'

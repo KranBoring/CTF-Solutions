@@ -84,3 +84,56 @@
 * ```
   crypto{CRIME_571ll_p4y5}
   ```
+
+#### 6. Ngoài lề (viết vào ngày 28/10/2026)
+
+* Khi chạy và đo thử thời gian chạy, để có thể giải được bài này theo code cũ, mình mất tận hơn `~5p`để giải được bài này :v
+* ```
+  crypto{
+  crypto{C
+  crypto{CR
+  crypto{CRI
+  crypto{CRIM
+  crypto{CRIME
+  crypto{CRIME_
+  crypto{CRIME_5
+  crypto{CRIME_57
+  crypto{CRIME_571
+  crypto{CRIME_571l
+  crypto{CRIME_571ll
+  crypto{CRIME_571ll_
+  crypto{CRIME_571ll_p
+  crypto{CRIME_571ll_p4
+  crypto{CRIME_571ll_p4y
+  crypto{CRIME_571ll_p4y5
+  crypto{CRIME_571ll_p4y5}
+  Flag: crypto{CRIME_571ll_p4y5}
+  Thời gian chạy: 321.9619085788727
+  ```
+* Phần lớn thời gian chạy của code nằm ở việc gửi request lên server và chờ server phản hồi. Việc ta gọi luôn 1 session đã tối ưu tốc độ ở việc chỉ cần bắt tay TLS đúng 1 lần, nhưng so với bài này, ta có thể làm nhanh hơn thế nữa =)))
+* Bằng cách gọi nhiều luồng cùng gửi request cùng 1 lúc, ta sẽ tối ưu luôn thời gian chết chờ phản hồi của server so với việc gửi request 1 cách tuần tự
+* Khi gọi 1 session, bể kết nối nó có thể chứa chỉ 10 kết nối session cùng 1 lúc, điều này dẫn đến các luồng tranh tài nguyên nhau để gửi request. Bằng cách mở rộng bể kết nối bằng với số lượng payload cần gửi. Sẽ không còn việc tranh nhanh session và gần như các payload sẽ gửi đi hàng loạt cùng 1 thời điểm luồng bắt đầu chạy.
+* Và script mới này sẽ giảm thời gian giải từ `~5p`chỉ còn `~7s` =)))))))))))))))))
+* Update Script: [Đọc](SolveUpdate.py)
+* ```
+  crypto{
+  crypto{C
+  crypto{CR
+  crypto{CRI
+  crypto{CRIM
+  crypto{CRIME
+  crypto{CRIME_
+  crypto{CRIME_5
+  crypto{CRIME_57
+  crypto{CRIME_571
+  crypto{CRIME_571l
+  crypto{CRIME_571ll
+  crypto{CRIME_571ll_
+  crypto{CRIME_571ll_p
+  crypto{CRIME_571ll_p4
+  crypto{CRIME_571ll_p4y
+  crypto{CRIME_571ll_p4y5
+  crypto{CRIME_571ll_p4y5}
+  Flag: crypto{CRIME_571ll_p4y5}
+  Thời gian chạy: 6.82495379447937
+  ```

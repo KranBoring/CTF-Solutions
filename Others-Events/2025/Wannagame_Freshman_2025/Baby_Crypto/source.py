@@ -1,3 +1,10 @@
+def cauhoi1(...):
+    ???
+def cauhoi2(...):
+    ???
+def cauhoi3(...):
+    ???
+
 enc = cauhoi1(message.encode())
 weird = cauhoi2(enc)          # không dùng tiếp
 key1, key2, key3 = [os.urandom(len(enc)) for _ in range(3)]

@@ -1,5 +1,6 @@
 import requests
 import string
+from time import time
 
 url = "https://aes.cryptohack.org/ctrime/encrypt/"
 s = requests.session()
@@ -36,6 +37,13 @@ def dfs(cur_flag):
             return result
     return None
 
-flag = "crypto{"
-flag = dfs(flag)
-print(f"Flag: {flag}")
+if __name__ == '__main__':
+
+    start = time()
+
+    flag = "crypto{"
+    flag = dfs(flag)
+    print(f"Flag: {flag}")
+
+    end = time()
+    print(f"Thời gian chạy: {end - start}")

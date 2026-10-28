@@ -1,5 +1,7 @@
 import requests
 import time
+from requests.adapters import HTTPAdapter
+from concurrent.futures import ThreadPoolExecutor
 
 start = time.time()
 
@@ -10,6 +12,7 @@ flag = "crypto{"
 len_flag = 26
 
 s = requests.session()
+s.mount('https://', HTTPAdapter(pool_connections=256, pool_maxsize=256))
 
 def big_payloads(round, know_flag):
     payloads = []
@@ -31,6 +34,10 @@ def flag_check(tests, ciphertext, count):
             return True
     return False
 
+def send_payload(payload):
+    data = bytes.fromhex(s.get(f"{url}{payload}/").json()["ciphertext"])
+    return [data[i :i + 32] for i in range(0, 28 * 32, 32)]
+
 for round in range(len(flag) + 1,len_flag):
     payload = (32 - round) * "00"
     ciphertext = bytes.fromhex(s.get(f"{url}{payload}/").json()["ciphertext"])
@@ -39,13 +46,20 @@ for round in range(len(flag) + 1,len_flag):
     new_payloads = big_payloads(round, flag)
 
     count = 0
-    for payload in new_payloads:
-        test = bytes.fromhex(s.get(f"{url}{payload}/").json()["ciphertext"])
-        test = [test[i :i + 32] for i in range(0, 28 * 32, 32)]
+    '''for payload in new_payloads:
+        test = send_payload(payload)
+        check = flag_check(test, ciphertext, count)
+        if check:
+            break
+        count += 28'''
+    with ThreadPoolExecutor(max_workers=256) as f:
+        test_payloads = list(f.map(send_payload, new_payloads))
+    for test in test_payloads:
         check = flag_check(test, ciphertext, count)
         if check:
             break
         count += 28
+    
 
 end = time.time()
 print(f"Thoi gian thuc thi: {end - start}")

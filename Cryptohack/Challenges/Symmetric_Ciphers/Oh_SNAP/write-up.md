@@ -141,4 +141,37 @@
   ```
 * Script chạy vỏn vẹn gần 1 phút là giải quyết được bài này.
 * Về tối ưu, mình đã tối ưu code cũ thành code mới những điểm như sau:
+
   * Thay vì để CPU xử lý code ở phần gửi request 1 cách tuần tự, tạo ra thời gian chết rất dài cho CPU. Mình đã đổi sang gọi các luồng con nhỏ hơn để gửi request, bằng cách này, trong lúc CPU đang chờ phản hồi từ server ở luồng đang thực thi, CPU sẽ chạy qua luồng mới để chạy lệnh gửi tiếp theo mà không cần phải nhận kết quả rồi mới gửi tiếp như code cũ. Từ cách chạy tuần tự, code mới đã đổi sang chạy đa luồng song song với nhau, không còn thời gian chết của CPU sau mỗi request nữa.
+* ##### Cập nhập SolveUpdate (viết vào ngày 28/10/2026)
+* Để đưa tốc độ giải lên cực hạn, mình đã điều chỉnh lại code để mở 1 session cho phép tiết kiệm thời gian bắt tay TCP, và mở rộng bể kết nối bằng với số payload. Với nâng cấp này, payloads sẽ được gửi đi 1 cách hàng loạt gần như ngay lập tức không có độ trễ và không tranh nhau tài nguyên session để gây nghẽn
+* ```
+  b'crypto{w'
+  b'crypto{w1'
+  b'crypto{w1R'
+  b'crypto{w1R3'
+  b'crypto{w1R3d'
+  b'crypto{w1R3d_'
+  b'crypto{w1R3d_e'
+  b'crypto{w1R3d_eq'
+  b'crypto{w1R3d_equ'
+  b'crypto{w1R3d_equ1'
+  b'crypto{w1R3d_equ1v'
+  b'crypto{w1R3d_equ1v4'
+  b'crypto{w1R3d_equ1v4l'
+  b'crypto{w1R3d_equ1v4l3'
+  b'crypto{w1R3d_equ1v4l3n'
+  b'crypto{w1R3d_equ1v4l3nt'
+  b'crypto{w1R3d_equ1v4l3nt_'
+  b'crypto{w1R3d_equ1v4l3nt_p'
+  b'crypto{w1R3d_equ1v4l3nt_pr'
+  b'crypto{w1R3d_equ1v4l3nt_pr1'
+  b'crypto{w1R3d_equ1v4l3nt_pr1v'
+  b'crypto{w1R3d_equ1v4l3nt_pr1v4'
+  b'crypto{w1R3d_equ1v4l3nt_pr1v4c'
+  b'crypto{w1R3d_equ1v4l3nt_pr1v4cy'
+  b'crypto{w1R3d_equ1v4l3nt_pr1v4cy?'
+  b'crypto{w1R3d_equ1v4l3nt_pr1v4cy?!'
+  b'crypto{w1R3d_equ1v4l3nt_pr1v4cy?!}'
+  Thoi gian chay:15.590068817138672
+  ```
