@@ -21,7 +21,7 @@
 * Dãy số này có ý nghĩa như sau:
 
 $$
-\left\{ \begin{array}{cl}
+\left{ \begin{array}{cl}
 x^n = 588 \pmod p \\
 x^{n+1} = 665 \pmod p \\
 \vdots \\
