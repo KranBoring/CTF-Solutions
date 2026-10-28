@@ -22,10 +22,10 @@
 
 $$
 \left\{ \begin{array}{cl}
-x^{n} = 588 \text{ mod p}\\
-x^{n+1} = 665 \text{ mod p}\\
-...\\
-x^{n+11} = 237\text{ mod p}
+x^n = 588 \pmod p \\
+x^{n+1} = 665 \pmod p \\
+\vdots \\
+x^{n+11} = 237 \pmod p
 \end{array} \right.
 $$
 
