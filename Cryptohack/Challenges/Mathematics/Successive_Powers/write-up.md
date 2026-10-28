@@ -21,12 +21,12 @@
 * Dãy số này có ý nghĩa như sau:
 
 $$
-\left{ \begin{array}{cl}
-x^n = 588 \pmod p \\
-x^{n+1} = 665 \pmod p \\
-\vdots \\
-x^{n+11} = 237 \pmod p
-\end{array} \right.
+\begin{cases}
+x^n \equiv 588 \pmod p \\
+x^{n+1} \equiv 665 \pmod p \\
+\quad \vdots \\
+x^{n+11} \equiv 237 \pmod p
+\end{cases}
 $$
 
 * Ta có $x^{n+1} = x^n \cdot x = a_0x = a_1 \text{ mod p}$
