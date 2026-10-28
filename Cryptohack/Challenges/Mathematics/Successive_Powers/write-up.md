@@ -19,14 +19,16 @@
 
 * Ta có dãy số $(588, 665, 216, 113, 642, 4, 836,114,851,492,819,237)$
 * Dãy số này có ý nghĩa như sau:
-* $$
-  \left\{ \begin{array}{cl}
-  x^{n} = 588 \text{ mod p}\\
-  x^{n+1} = 665 \text{ mod p}\\
-  ...\\
-  x^{n+11} = 237\text{ mod p}
-  \end{array} \right.
-  $$
+
+$$
+\left\{ \begin{array}{cl}
+x^{n} = 588 \text{ mod p}\\
+x^{n+1} = 665 \text{ mod p}\\
+...\\
+x^{n+11} = 237\text{ mod p}
+\end{array} \right.
+$$
+
 * Ta có $x^{n+1} = x^n \cdot x = a_0x = a_1 \text{ mod p}$
 * Và ta biết được rằng $113x = 642 \text{ mod p}$ và $114x = 851 \text{ mod p}$, nên ta dễ dàng suy ra $114x -113x = x = 851 - 642 = 209 \text{ mod p}$
 * Đã có được $x$ ta thế vào 1 biểu thức có sẵn là $113 \cdot 209 =23,617 =642 \text{ mod p} \to 642 + kp = 23,617 \to kp = 22,975$
