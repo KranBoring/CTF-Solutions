@@ -7,11 +7,11 @@
 | [Modular Square Root](https://cryptohack.org/challenges/maths/#header-tonelli-shanks) | Đang nằm ở course [Modular Arithmetic](../../Course/Modular_Arithmetic/README.md) |
 | [Chinese Remainder Theorem](https://cryptohack.org/challenges/maths/#header-crt1) | Đang nằm ở course [Modular Arithmetic](../../Course/Modular_Arithmetic/README.md) |
 | [Successive Powers](https://cryptohack.org/challenges/maths/#header-powers) | [Đọc write-up](Successive_Powers/write-up.md) |
-| [Common Ground](https://cryptohack.org/challenges/maths/#header-common_ground) | Chưa có write-up |
+| [Common Ground](https://cryptohack.org/challenges/maths/#header-common_ground) | [Đọc write-up](Common_Ground/write-up.md) |
 | [Adrien's Signs](https://cryptohack.org/challenges/maths/#header-adrien) | Đang nằm ở course [Modular Arithmetic](../../Course/Modular_Arithmetic/README.md) |
 | [Modular Binomials](https://cryptohack.org/challenges/maths/#header-bionomials) | Đang nằm ở course [Modular Arithmetic](../../Course/Modular_Arithmetic/README.md) |
-| [Broken RSA](https://cryptohack.org/challenges/maths/#header-broken-rsa) | Chưa có write-up |
-| [No Way Back Home](https://cryptohack.org/challenges/maths/#header-no-way-back-home) | Chưa có write-up |
+| [Broken RSA](https://cryptohack.org/challenges/maths/#header-broken-rsa) | [Đọc write-up](Broken_RSA/write-up.md) |
+| [No Way Back Home](https://cryptohack.org/challenges/maths/#header-no-way-back-home) | [Đọc write-up](No_Way_Back_Home/write-up.md) |
 | [Ellipse Curve Cryptography](https://cryptohack.org/challenges/maths/#header-ellipse) | Chưa có write-up |
 | [Roll your Own](https://cryptohack.org/challenges/maths/#header-roll_your_own) | Chưa có write-up |
 | [Unencryptable](https://cryptohack.org/challenges/maths/#header-unencryptable) | Chưa có write-up |
