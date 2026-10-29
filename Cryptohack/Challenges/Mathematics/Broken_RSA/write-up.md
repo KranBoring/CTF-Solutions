@@ -23,7 +23,7 @@
 * ![1793279749100](image/write-up/1793279749100.png)
 * Khi đó, ta dễ dàng tính được $\phi(n)$ nhưng vấn đề xuất hiện ở giá trị $e$
 * ![1793280321939](image/write-up/1793280321939.png)
-* Bởi vì $e = 16$ và $\phi(n)$ cũng là 1 số chẵn, nên $\gcd(e, \phi(n)) = 8 > 1$, nên không tồn tại nghịch đảo $d$ trên trường hữu hạn $\phi(n)$. Điều này dẫn đến có nhiều giá trị $m$ ($8$ nghiệm) khi mũ $e$ sẽ cho ra cùng 1 kết quả
+* Bởi vì $e = 16$ và $\phi(n)$ cũng là 1 số chẵn, nên $\gcd(e, \phi(n)) = 8 > 1$, nên không tồn tại nghịch đảo $d$ trên module $\phi(n)$. Điều này dẫn đến có nhiều giá trị $m$ ($8$ nghiệm) khi mũ $e$ sẽ cho ra cùng 1 kết quả
 * Ta đưa về đa thức trên trường hữu hạn $\mathbb{F}_n[m]$ có dạng $f(m) = m^e - c$ và tìm mọi nghiệm $m$ khả dĩ, với 8 nghiệm $m$ khác nhau, trong đó, chắc chắn sẽ có 1 nghiệm $m$ cho ra bản rõ gốc ban đầu flag
 * Script: [Đọc](solve.sage)
 * ```
