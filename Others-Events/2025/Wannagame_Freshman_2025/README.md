@@ -8,5 +8,5 @@
 | Sor_Sor_Sor | Chưa có write-up |
 | System_of_Equations | Chưa có write-up |
 | Vi-et | Chưa có write-up |
-| phiphai | Chưa có write-up |
+| phiphai | [Đọc write-up](phiphai/write-up.md) |
 | phiphai2 | Chưa có write-up |

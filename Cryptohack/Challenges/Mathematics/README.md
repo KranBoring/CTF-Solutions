@@ -14,7 +14,7 @@
 | [No Way Back Home](https://cryptohack.org/challenges/maths/#header-no-way-back-home) | [Đọc write-up](No_Way_Back_Home/write-up.md) |
 | [Ellipse Curve Cryptography](https://cryptohack.org/challenges/maths/#header-ellipse) | Chưa có write-up |
 | [Roll your Own](https://cryptohack.org/challenges/maths/#header-roll_your_own) | Chưa có write-up |
-| [Unencryptable](https://cryptohack.org/challenges/maths/#header-unencryptable) | Chưa có write-up |
+| [Unencryptable](https://cryptohack.org/challenges/maths/#header-unencryptable) | [Đọc write-up](Unencryptable/write-up.md) |
 | [Cofactor Cofantasy](https://cryptohack.org/challenges/maths/#header-cofactor) | Chưa có write-up |
 | [Real Eisenstein](https://cryptohack.org/challenges/maths/#header-eisenstein) | Chưa có write-up |
 | [Prime and Prejudice](https://cryptohack.org/challenges/maths/#header-prejudice) | Chưa có write-up |
