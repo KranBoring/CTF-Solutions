@@ -8,7 +8,7 @@
 * Đây là bài cuối cùng của Course, bài này cho thấy độ dài module p thực sự quan trọng như nào giống với RSA =)))
 * `Mục tiêu`: Giải mã ciphertext được Alice gửi thông qua giao thức Diffie Hellman
 * `Kỹ thuât`: Brute Force
-* `Lỗ hỗng`: Độ dài số nguyên tố p nhỏ 
+* `Lỗ hỗng`: Độ dài số nguyên tố p nhỏ
 
 #### 2. Nền tảng cốt lõi
 

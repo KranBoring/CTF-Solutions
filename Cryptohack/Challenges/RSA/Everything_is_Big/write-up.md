@@ -22,7 +22,7 @@
 * $N$ có độ lớn 2048 bits, $d$ có độ lớn 256 bits. Ta $\log_{2}$ cả 2 vế:
 * $\log_2d \lt \log_2\frac{1}{3}N^{1/4} \to 256 \lt \log_2\frac{1}{3} + \frac{1}{4}\log_2N \to 256 \lt -1.5849... + \frac{1}{4} \cdot 512 \to 256 \lt 510.415... \text{ (thỏa mãn)}$
 * Điều kiện thỏa mãn, ta thực hiện wiener attack để khôi phục khóa $d$, sau đó giải mã $ciphertext$
-* Script: [Đọc](solve.sage)
+* Script: [Đọc](solve.py)
 * ```
   crypto{s0m3th1ng5_c4n_b3_t00_b1g}
   ```

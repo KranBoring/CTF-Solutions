@@ -1,4 +1,4 @@
-import base64
+from base64 import b64decode
 
 def rotI(text, rot):
     result = []
@@ -15,7 +15,7 @@ def rotI(text, rot):
 with open("enc_flag","r") as f:
     flag = f.read()
 
-flag = base64.b64decode((base64.b64decode(flag).decode()).split('\'')[1]).decode()
+flag = b64decode((b64decode(flag).decode()).split('\'')[1]).decode()
 for i in range(26):
     if "academy{" in rotI(flag, i):
         print(rotI(flag, i))

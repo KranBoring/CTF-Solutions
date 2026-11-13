@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  app:
+    build:
+      context: ./app
+    ports:
+      - 1337:1337
+    # volumes:
+    #   - ./app:/app
+    #   - /app/node_modules

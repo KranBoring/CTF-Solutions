@@ -1,0 +1,49 @@
+THE SIGNET — case/format note, v1
+
+The fictional Republic of Meridia's canal-defence signals office recorded this
+signer SPKI SHA-256: 1c6b38a86c3ff8b1d295e02b884c457da537767b5fdf063cf6d7d733b683a6b3
+This fingerprint was copied from its pre-incident key register and is a trusted
+case fact, not an external certification of a real signer. Dispatch sequence
+numbers 0..5 are the uninterrupted issue order; the incident recorder confirmed
+that no signing operation was skipped.
+
+The entropy sampler stopped. Each consecutive signing operation consumed the
+next temporary scalar-register value. During the fault its update was the same
+additive stride modulo the curve order. The starting value and stride were not
+logged. The intercepted bundle contains six such operations and one sealed order.
+
+SignetBundle ::= SEQUENCE {
+  version INTEGER,                         -- exactly 1
+  signer SubjectPublicKeyInfo,             -- RFC 5480 EC SPKI
+  orders SEQUENCE OF SignedOrder,          -- exactly six, seq 0..5
+  seal SealedOrder
+}
+SignedOrder ::= SEQUENCE {
+  seq INTEGER,
+  message OCTET STRING,                    -- exact signed bytes
+  signature ECDSA-Sig-Value
+}
+ECDSA-Sig-Value ::= SEQUENCE { r INTEGER, s INTEGER }
+SealedOrder ::= SEQUENCE {
+  salt OCTET STRING,                       -- 16 bytes
+  nonce OCTET STRING,                      -- 12 bytes
+  ciphertext OCTET STRING,
+  tag OCTET STRING                         -- 16 bytes
+}
+
+DER only, with no trailing bytes. SPKI algorithm id-ecPublicKey is
+1.2.840.10045.2.1; its named curve secp256k1 is 1.3.132.0.10, with an
+uncompressed SEC 1 point. ECDSA uses SHA-256. For record i,
+z_i = int_be(SHA-256(message_i)) mod n, where n is the SEC 2 secp256k1
+group order. Hash only the exact message OCTET STRING payload, not text
+rendering or DER wrappers. All scalar arithmetic is modulo n. Signatures carry
+raw issuer s values: no low-s rewrite was applied.
+
+The sealed standing order uses IKM=I2OSP(d,32), unsigned big-endian. Derive
+key=HKDF-SHA-256(IKM, salt=seal.salt,
+info=ASCII("CSCTF26/TheSignet/v1/standing-order"), L=32). Decrypt with
+AES-256-GCM using seal.nonce (12 bytes), separate seal.ciphertext and full
+seal.tag (16 bytes), and empty AAD. The plaintext is UTF-8 and is the entire
+exact case-sensitive CSCTF{...} token to submit; do not normalize or extract
+a fragment. This application bundle is invented; DER/SPKI/ECDSA/HKDF/GCM are
+standard formats and primitives.

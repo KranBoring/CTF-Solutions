@@ -4,10 +4,6 @@ rockyou.txt
 *.tar.gz
 *.zip
 rbzfpwj.sh
-AGENTS.md
 skill-ctf-writeup-sync
-/rbzfpwj.sh
-/AGENTS.md
 /CheatSheet/
-/skill-ctf-writeup-sync/
-/CheatSheat/
+*.py[cod]

@@ -1,0 +1,39 @@
+<div class="container-md">
+  <div class="row">
+    <div class="col-sm-8 px-0">
+
+      {{#each posts}}
+        <div class="my-3 pb-5" id="blog-{{ id }}">
+          <h1 class="display-6">{{ title }}</h1>
+          <p class="lead">
+            Written by {{ author }} on {{ publishedAt }}
+          </p>
+          <p class="card-text">
+            {{#if (isPostViewable ../currentUser author private)}}
+            {{{ content }}}
+            {{else}}
+            🔒 <em>This blog entry is locked. Only {{ author }} can view this.</em>
+            {{/if}}
+          </p>
+        </div>
+      {{/each}}
+
+    </div>
+    <div class="col-sm-4">
+
+      <div class="card">
+        <div class="card-body">
+          <h6 class="card-title">Recent Posts</h6>
+          <p class="card-text">
+            <ol class="list-unstyled">
+              {{#each posts}}
+              <li><a href="#blog-{{ id }}">{{ title }}</a></li>
+              {{/each}}
+            </ol>
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -15,7 +15,7 @@
 * Trường hữu hạn
 * Hiện tượng đa nghiệm:Vì **$\gcd(e, n - 1) = g > 1$**, phép lũy thừa **$m \mapsto m^e \pmod n$** là hàm nhiều-về-một. Tồn tại tối đa **$g$** bản rõ cùng sinh ra một ciphertext **$c$**
 * Mối liên hệ với Căn của đơn vị **(Roots of Unity):** Nếu **$m_0$** là một nghiệm thỏa mãn **$m_0^e \equiv c \pmod n$**, mọi nghiệm khác đều có dạng **$m = m_0 \cdot \omega \pmod n$** với **$\omega^e \equiv 1 \pmod n$**
-* Ta đưa biểu thức $m^e = c \pmod n$ thành đa thức trên trường hữu hạn $\mathbb{F}_n[m]$ có dạng $f(m) = m^e - c $ và đi tìm mọi nghiệm $m$ khả dĩ và chọn ra $m$ phù hợp nhất
+* Ta đưa biểu thức $m^e = c \pmod n$ thành đa thức trên trường hữu hạn $\mathbb{F}_n[m]$ có dạng $f(m) = m^e - c$ và đi tìm mọi nghiệm $m$ khả dĩ và chọn ra $m$ phù hợp nhất
 
 #### 3. Exploit chain
 

@@ -9,10 +9,10 @@
 | [Deriving Symmetric Keys](https://cryptohack.org/challenges/diffie-hellman/#header-dh-starter-5) | Đang nằm ở course [Public-Key Cryptography](../../Course/Public-Key_Cryptography/README.md) |
 | [Parameter Injection](https://cryptohack.org/challenges/diffie-hellman/#header-parameter_injection) | Đang nằm ở course [Public-Key Cryptography](../../Course/Public-Key_Cryptography/README.md) |
 | [Export-grade](https://cryptohack.org/challenges/diffie-hellman/#header-export_grade) | Đang nằm ở course [Public-Key Cryptography](../../Course/Public-Key_Cryptography/README.md) |
-| [Static Client](https://cryptohack.org/challenges/diffie-hellman/#header-dh_static) | Chưa có write-up |
-| [Additive](https://cryptohack.org/challenges/diffie-hellman/#header-dh_additive) | Chưa có write-up |
-| [Static Client 2](https://cryptohack.org/challenges/diffie-hellman/#header-dh_static2) | Chưa có write-up |
-| [Script Kiddie](https://cryptohack.org/challenges/diffie-hellman/#header-scriptkiddie) | Chưa có write-up |
-| [The Matrix](https://cryptohack.org/challenges/diffie-hellman/#header-matrix) | Chưa có write-up |
+| [Static Client](https://cryptohack.org/challenges/diffie-hellman/#header-dh_static) | [Đọc write-up](Static_Client/write-up.md) |
+| [Additive](https://cryptohack.org/challenges/diffie-hellman/#header-dh_additive) | [Đọc write-up](Additive/write-up.md) |
+| [Static Client 2](https://cryptohack.org/challenges/diffie-hellman/#header-dh_static2) | [Đọc write-up](Static_Client_2/write-up.md) |
+| [Script Kiddie](https://cryptohack.org/challenges/diffie-hellman/#header-scriptkiddie) | [Đọc write-up](Script_Kiddie/write-up.md) |
+| [The Matrix](https://cryptohack.org/challenges/diffie-hellman/#header-matrix) | [Đọc write-up](The_Matrix/write-up.md) |
 | [The Matrix Reloaded](https://cryptohack.org/challenges/diffie-hellman/#header-matrix_reloaded) | Chưa có write-up |
 | [The Matrix Revolutions](https://cryptohack.org/challenges/diffie-hellman/#header-matrix_revolutions) | Chưa có write-up |

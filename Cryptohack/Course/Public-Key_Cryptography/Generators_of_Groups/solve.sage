@@ -7,3 +7,4 @@ for i in range(1 ,28151):
     if all([pow(i,int(power),p) != 1 for power in powers]):
         print(i)
         break
+

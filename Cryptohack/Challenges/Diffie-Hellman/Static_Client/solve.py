@@ -1,0 +1,6 @@
+from math import log2
+from decrypt import decrypt_flag
+S = 0x5756cff3bcfc3c343aa6830045e4243311f687514ba6329e18d5fdc0d3e1d7ba73042db2be7d5ecbd2d753840d3b980ca7b6cc13cc8f545cc0a07d4b3d53feef379e7505f51afffe6cfccfd9d4c08300f99e7bf167495de96673c3f2c165e932685d411b18700391e8d4c67e2896e5ebefe031f21bd48b5c91a8beef87678342eca3fd7323c48548de1d98d7c554f32899f3bc37a17a665f11d5e46785ba0349aeceabc0d2077dea59c7aa0bc4c867911fdd2d403b318a7167c22ed3f3b41999
+data = {"iv": "20692af3054ea5c4df4b1267570c868c", "encrypted": "c66ea0dfa63df59c65088268f06bdbada31e637de8d57fe1124b82e010c29ed6"}
+flag = decrypt_flag(S, data['iv'], data["encrypted"])
+print(flag)

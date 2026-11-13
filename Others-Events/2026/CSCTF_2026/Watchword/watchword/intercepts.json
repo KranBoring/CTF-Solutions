@@ -1,0 +1,24 @@
+{
+  "link": "SABRELINK field authentication unit",
+  "cipher": "AES-128-GCM, 96-bit nonce, empty AAD; tag is the 16-byte GCM tag",
+  "note": "All dispatches below were tagged under the SAME nonce (a firmware fault). The master order text is sealed with AES-128-CTR (IV=0) under the link's per-nonce tag mask E_K(J0). Recover the order; the flag is its text.",
+  "nonce_hex": "8f7ce996b767134353fe1145",
+  "intercepts": [
+    {
+      "dispatch_plaintext": "RELAY CHECK 0931",
+      "ciphertext_hex": "051cf3d41191dbb609374f8f730f0b5d",
+      "tag_hex": "667d34dba2febb36872ca5096adb86cd"
+    },
+    {
+      "dispatch_plaintext": "HOLD STATION 07",
+      "ciphertext_hex": "1f16f3d168e2ccbf183d4be163060f",
+      "tag_hex": "dbaa4d5bbc022bb9f9a7873f8c0ec5fe"
+    },
+    {
+      "dispatch_plaintext": "RESUME PATROL",
+      "ciphertext_hex": "051cecc005f4b8ae0d2056e00f",
+      "tag_hex": "da88d564995ba128364fdae29007888a"
+    }
+  ],
+  "sealed_master_order_ctr_hex": "e7dc7dd519b3c637d69f6d95443d9ed1f81d3bfdd5f6524268920e03d030d99c1a0a5ae635f51eb7613b5a689d5614cc13812fa9cb13958ced"
+}

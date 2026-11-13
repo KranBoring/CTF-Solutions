@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col-sm-4">
+
+      <div class="card">
+        <div class="card-header">Sign in please</div>
+        <div class="card-body text-success">
+          <form method="POST" action="/login">
+            <div class="input-group mb-3">
+              <input type="text" name="username" class="form-control" placeholder="Username">
+            </div>
+            <div class="input-group mb-3">
+              <input type="password" name="password" class="form-control" placeholder="Password">
+            </div>
+            <div class="d-grid gap-2 mb-1">
+              <button class="btn btn-dark" type="submit">Sign in</button>
+            </div>
+            <div class="d-grid gap-2 mb-4">
+              <button class="btn btn-secondary" type="button" onclick="alert('Register is closed. Please find the administrator to create an account.');">Register</button>
+            </div>
+            <p class="card-text text-center">
+              <small><a href="/reset-password" class="text-muted">Reset password</a></small>
+            </p>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
