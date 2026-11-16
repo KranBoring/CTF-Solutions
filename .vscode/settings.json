@@ -1,0 +1,4 @@
+{
+  "python.defaultInterpreterPath": "/home/kran-rpg/miniconda3/envs/sage/bin/python",
+  "python.terminal.activateEnvironment": true
+}

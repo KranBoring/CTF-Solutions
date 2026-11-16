@@ -13,7 +13,7 @@
 - [PicoCTF](./PicoCTF/README.md)
   - [Easy](./PicoCTF/Easy/README.md) (8/8)
   - [Medium](./PicoCTF/Medium/README.md) (42/45)
-  - [Hard](./PicoCTF/Hard/README.md) (0/30)
+  - [Hard](./PicoCTF/Hard/README.md) (1/30)
 - [Cyber-edu](./Cyber-edu/README.md)
   - Challenges
     - [Entry Level](./Cyber-edu/Challenges/Entry_Level/README.md) (1/1)
@@ -57,9 +57,9 @@
   - Challenges
     - [Introduction](./Cryptohack/Challenges/Introduction/README.md) (3/3)
     - [General](./Cryptohack/Challenges/General/README.md) (19/19)
-    - [Symmetric Ciphers](./Cryptohack/Challenges/Symmetric_Ciphers/README.md) (27/29)
+    - [Symmetric Ciphers](./Cryptohack/Challenges/Symmetric_Ciphers/README.md) (28/29)
     - [Mathematics](./Cryptohack/Challenges/Mathematics/README.md) (11/16)
-    - [RSA](./Cryptohack/Challenges/RSA/README.md) (22/29)
+    - [RSA](./Cryptohack/Challenges/RSA/README.md) (28/29)
     - [Diffie-Hellman](./Cryptohack/Challenges/Diffie-Hellman/README.md) (12/14)
     - [Elliptic Curves](./Cryptohack/Challenges/Elliptic_Curves/README.md) (6/23)
     - [Hash Functions](./Cryptohack/Challenges/Hash_Functions/README.md) (0/16)

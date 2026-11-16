@@ -17,8 +17,7 @@ def main() -> None:
     oracle.clear_banner()
     secret = next(iter(oracle.send_json(oracle.json(op="get_secret")).values()))
     flag_hex = next(iter(oracle.send_json(oracle.json(msg=secret)).values()))
-    flag = magical_decode(flag_hex[2:])
+    flag = magical_decode(flag_hex[2:], crib="crypto{")
     print(flag)
-
 if __name__ == "__main__":
     main()

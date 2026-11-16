@@ -8,7 +8,7 @@
 | [ChaCha Slide](https://learn.cylabacademy.org/library?page=5&category=2) | Chưa có write-up |
 | [flag_printer](https://learn.cylabacademy.org/library?page=5&category=2) | Chưa có write-up |
 | [SRA](https://learn.cylabacademy.org/library?page=5&category=2) | Chưa có write-up |
-| [PowerAnalysis: Warmup](https://learn.cylabacademy.org/library?page=5&category=2) | Chưa có write-up |
+| [PowerAnalysis: Warmup](https://learn.cylabacademy.org/library?page=5&category=2) | [Đọc write-up](PowerAnalysis_Warmup/write-up.md) |
 | [PowerAnalysis: Part 2](https://learn.cylabacademy.org/library?page=6&category=2) | Chưa có write-up |
 | [PowerAnalysis: Part 1](https://learn.cylabacademy.org/library?page=6&category=2) | Chưa có write-up |
 | [Very Smooth](https://learn.cylabacademy.org/library?page=6&category=2) | Chưa có write-up |

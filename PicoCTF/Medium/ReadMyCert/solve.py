@@ -1,7 +1,4 @@
-from Crypto.PublicKey import RSA
-import subprocess
+from CTF_Crypto_Attack.Util import parse_csr
 
-command = "openssl req -in readmycert.csr -noout -pubkey -out pubkey.pem"
-shell = subprocess.run(command)
-with open("pubkey.pem") as f:
-    data = RSA.importKey(f.read())
+info = parse_csr("readmycert.csr")
+print(info['subject']['commonName'])

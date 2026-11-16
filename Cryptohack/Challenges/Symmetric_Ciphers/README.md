@@ -29,5 +29,5 @@
 | [Oracular Spectacular](https://cryptohack.org/challenges/aes/#header-oracular_spectacular) | [Đọc write-up](Oracular_Spectacular/write-up.md) |
 | [Rhetorical Oracle 2](https://cryptohack.org/challenges/aes/#header-rhetorical_oracle_2) | [Đọc write-up](Rhetorical_Oracle_2/write-up.md) |
 | [Paper Plane](https://cryptohack.org/challenges/aes/#header-paper_plane) | [Đọc write-up](Paper_Plane/write-up.md) |
-| [Forbidden Fruit](https://cryptohack.org/challenges/aes/#header-forbidden_fruit) | Chưa có write-up |
+| [Forbidden Fruit](https://cryptohack.org/challenges/aes/#header-forbidden_fruit) | [Đọc write-up](Forbidden_Fruit/write-up.md) |
 | [Beatboxer](https://cryptohack.org/challenges/aes/#header-beatboxer) | Chưa có write-up |
