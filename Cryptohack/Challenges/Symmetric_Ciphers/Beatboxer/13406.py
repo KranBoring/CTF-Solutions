@@ -138,7 +138,7 @@ class AES:
 
         self._state = self._transpose([c for c in plaintext])
         self._encrypt_block()
-        ciphertext += bytes(bytearray(self._transpose(self._state)))
+        ciphertext += bytes(bytearray(self._transpose(self._state))) 
 
         return ciphertext
 

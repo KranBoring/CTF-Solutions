@@ -7,9 +7,10 @@ with open("output.txt") as f:
     c = int(f.readline().strip().split(' ')[-1],16)
 e = 65537
 
-R.<y> = PolynomialRing(ZZ)
+R = PolynomialRing(ZZ, name='y')
+y = R.gen()
 
-P = y^2 - x * y + n 
+P = y**2 - x * y + n 
 q,p = P.roots(multiplicities=False)
 T = (q - 1) * (p - 1)
 d = pow(e, -1, T)

@@ -1,6 +1,6 @@
 from pwn import *
 
-io = remote("xebec.cylabacademy.net",15300)
+io = remote("xebec.cylabacademy.net", 36338)
 
 SQUARE_SIZE = 6
 

@@ -9,7 +9,7 @@
 | [Not TRUE](https://learn.cylabacademy.org/library/711?page=2&category=2) | Chưa có write-up |
 | [cryptomaze](https://learn.cylabacademy.org/library/703?page=2&category=2) | [Đọc write-up](cryptomaze/write-up.md) |
 | [ClusterRSA](https://learn.cylabacademy.org/library/702?page=2&category=2) | [Đọc write-up](ClusterRSA/write-up.md) |
-| [Black Cobra Pepper](https://learn.cylabacademy.org/library/701?page=2&category=2) | Chưa có write-up |
+| [Black Cobra Pepper](https://learn.cylabacademy.org/library/701?page=2&category=2) | [Đọc write-up](Black_Cobra_Pepper/write-up.md) |
 | [Crack the Power](https://learn.cylabacademy.org/library?page=2&category=2) | [Đọc write-up](Crack_the_Power/write-up.md) |
 | [Guess My Cheese (Part 2)](https://learn.cylabacademy.org/library?page=2&category=2) | [Đọc write-up](Guess_My_Cheese_Part_2/write-up.md) |
 | [Guess My Cheese (Part 1)](https://learn.cylabacademy.org/library/473?page=2&category=2) | [Đọc write-up](Guess_My_Cheese_Part_1/write-up.md) |

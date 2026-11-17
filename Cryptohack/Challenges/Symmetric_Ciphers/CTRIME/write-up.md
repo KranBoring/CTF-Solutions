@@ -7,8 +7,8 @@
 * ![1792645908597](image/write-up/1792645908597.png)
 * Đây là bài sẽ cho chúng ta thấy, chỉ cần làm rò rỉ 1 chút thông tin về plaintext, hacker hoàn toàn có thể phá giải và đọc thông tin của chúng :v
 * `Mục tiêu`: Khôi phục plaintext flag từ rò rỉ
-* `Lỗ hỗng`: Rò rỉ độ dài khóa
-* `Kỹ thuật`: Backtracking, tận dụng độ dài khóa không đổi khi nén để tìm ra ký tự plaintext
+* `Lỗ hỗng`: Rò rỉ độ dài plaintext
+* `Kỹ thuật`: Backtracking, tận dụng độ dài plaintext không đổi khi nén để tìm ra ký tự secret
 
 #### 2. Nền tảng cốt lõi
 
