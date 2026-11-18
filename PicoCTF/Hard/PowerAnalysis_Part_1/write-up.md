@@ -16,18 +16,18 @@
 * **Mô hình tiêu thụ năng lượng (Hamming Weight Model)**:
   Trong các mạch tích hợp số công nghệ CMOS, mức tiêu thụ năng lượng khi nạp trạng thái vào thanh ghi hoặc bus dữ liệu tỉ lệ thuận với số lượng bit $1$ được kích hoạt. Năng lượng tiêu thụ thực tế $P$ tại thời điểm xử lý byte trung gian $V$ được xấp xỉ qua mô hình:
 
-  $$
-  `P \approx a \cdot \text{HW}(V) + b + \text{Noise}`
-  $$
+$$
+`P \approx a \cdot \text{HW}(V) + b + \text{Noise}`
+$$
 
   trong đó $\text{HW}(V)$ là trọng số Hamming (Hamming Weight - số bit 1 trong biểu diễn nhị phân của $V$).
 * **Hệ số tương quan Pearson (Pearson Correlation)**:
   Đây là 1 khái niệm mới và được ứng dụng rất nhiều trong tấn công SCA.
   Để đo lường mức độ tương quan tuyến tính giữa mô hình dự đoán lý thuyết $H$ và giá trị đo thực tế trên vết sóng $T$ tại điểm mẫu thời gian (sample) $j$:
 
-  $$
-  `r(H, T_j) = \frac{\sum_{i=1}^{N} (H_i - \bar{H})(T_{i, j} - \bar{T}_j)}{\sqrt{\sum_{i=1}^{N} (H_i - \bar{H})^2 \sum_{i=1}^{N} (T_{i, j} - \bar{T}_j)^2}}`
-  $$
+$$
+`r(H, T_j) = \frac{\sum_{i=1}^{N} (H_i - \bar{H})(T_{i, j} - \bar{T}_j)}{\sqrt{\sum_{i=1}^{N} (H_i - \bar{H})^2 \sum_{i=1}^{N} (T_{i, j} - \bar{T}_j)^2}}`
+$$
 
   Khi phỏng đoán đúng byte khóa $K_i$, giá trị $H_i = \text{HW}(\text{Sbox}[P_i \oplus K_i])$ sẽ khớp với thời điểm mạch phần cứng tính toán giá trị này, tạo nên một đỉnh tương quan cực đại ($r \gg 0$). Các phỏng đoán sai sẽ có tương quan tiệm cận 0 do tính phi tuyến của S-box.
 
