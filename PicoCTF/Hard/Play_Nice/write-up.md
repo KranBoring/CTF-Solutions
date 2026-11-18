@@ -33,7 +33,7 @@ $$
 (C_1, C_2) = (\text{matrix}[r_1][c_2], \text{matrix}[r_2][c_1])
 $$
 
-     Vì phép hoán vị này có tính chất tự nghịch đảo (involution), tức $f(f(P)) = P$, nên **công thức giải mã cho trường hợp hình chữ nhật giống hệt công thức mã hóa**.
+* Vì phép hoán vị này có tính chất tự nghịch đảo (involution), tức $f(f(P)) = P$, nên **công thức giải mã cho trường hợp hình chữ nhật giống hệt công thức mã hóa**.
 
 #### 3. Phân tích lỗ hổng
 
