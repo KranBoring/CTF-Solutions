@@ -21,7 +21,7 @@
 * **Chiến lược tấn công (Chosen-Plaintext Differential Attack):**
 
   1. **Chia để trị (Divide & Conquer):** Vì `AddRoundKey` và `SubBytes` ở vòng đầu hoạt động độc lập trên từng byte (chưa có khuếch tán giữa các byte), ta có thể khôi phục lần lượt từng byte khóa $K_i$ ($i = 0 \dots 15$) với không gian tìm kiếm chỉ là 256 giá trị.
-  2. **Đo vi sai để khử nhiễu từ 15 byte còn lại:** Để dò byte khóa thứ $i$, ta giữ cố định toàn bộ 15 byte khác và lấy một mốc chuẩn `leak_base` khi byte $i$ có giá trị `0x00`. Sau đó, lần lượt gửi các bản rõ thăm dò với byte $i$ thay đổi thành $p \in [1, 255]$ để thu về `leak`. Hiệu số $\Delta L = \text{leak} - \text{leak\_base}$ sẽ triệt tiêu hoàn toàn đóng góp của 15 byte cố định, chỉ phản ánh sự thay đổi bit LSB tại đúng byte thứ $i$:
+  2. **Đo vi sai để khử nhiễu từ 15 byte còn lại:** Để dò byte khóa thứ $i$, ta giữ cố định toàn bộ 15 byte khác và lấy một mốc chuẩn `leak_base` khi byte $i$ có giá trị `0x00`. Sau đó, lần lượt gửi các bản rõ thăm dò với byte $i$ thay đổi thành $p \in [1, 255]$ để thu về `leak`. Hiệu số $'\Delta L = \text{leak} - \text{leak\_base}'$ sẽ triệt tiêu hoàn toàn đóng góp của 15 byte cố định, chỉ phản ánh sự thay đổi bit LSB tại đúng byte thứ $i$:
 
 ```math
 \Delta L = (\text{Sbox}[p \oplus K_i] \ \& \ 1) - (\text{Sbox}[K_i] \ \& \ 1)
