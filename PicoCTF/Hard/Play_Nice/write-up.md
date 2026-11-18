@@ -29,9 +29,9 @@
   3. **Khác hàng, khác cột (Quy tắc hình chữ nhật - Rectangle Rule)**:
      Hai ký tự tạo thành hai góc đối diện của một hình chữ nhật trên ma trận. Mỗi ký tự sẽ được thay thế bằng ký tự nằm trên cùng hàng với nó nhưng ở cột của ký tự còn lại:
 
-     $$
-     (C_1, C_2) = (\text{matrix}[r_1][c_2], \text{matrix}[r_2][c_1])
-     $$
+$$
+(C_1, C_2) = (\text{matrix}[r_1][c_2], \text{matrix}[r_2][c_1])
+$$
 
      Vì phép hoán vị này có tính chất tự nghịch đảo (involution), tức $f(f(P)) = P$, nên **công thức giải mã cho trường hợp hình chữ nhật giống hệt công thức mã hóa**.
 
