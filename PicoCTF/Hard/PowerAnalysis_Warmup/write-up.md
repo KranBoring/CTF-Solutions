@@ -18,7 +18,7 @@
 
 * ![1794819712794](image/write-up/1794819712794.png)
 * **Bản chất rò rỉ:** Sau tầng `SubBytes` ở vòng 1 của AES, server lấy bit có trọng số thấp nhất (`& 0x01`) của cả 16 byte đầu ra rồi trả về tổng của chúng:
-  $L(P) = \sum_{j=0}^{15} (\text{Sbox}[P_j \oplus K_j] \ \& \ 1)$
+  $L(P) = \sum_{j=0}^{15} (\text{Sbox}[P_j \oplus K_j] \& 1)$
 * **Chiến lược tấn công (Chosen-Plaintext Differential Attack):**
 
   1. **Chia để trị (Divide & Conquer):** Vì `AddRoundKey` và `SubBytes` ở vòng đầu hoạt động độc lập trên từng byte (chưa có khuếch tán giữa các byte), ta có thể khôi phục lần lượt từng byte khóa $K_i$ ($i = 0 \dots 15$) với không gian tìm kiếm chỉ là 256 giá trị.
