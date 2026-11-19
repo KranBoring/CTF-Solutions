@@ -59,7 +59,7 @@ $$
 \text{Tag}_1 - \text{Tag}_2 \equiv g_1(r) - g_2(r) \pmod{2^{128}}
 $$
 
-* Vì $g_1(r), g_2(r) \in [0, 2^{130}-6]$, hiệu $g_1(r) - g_2(r)$ trên số nguyên chỉ lệch so với $(\text{Tag}_1 - \text{Tag}_2) \bmod 2^{128}$ một bội số nhỏ của $2^{128}$. Đưa phương trình về trường nguyên tố $\mathbb{F}_{2^{130}-5}$:
+* Vì $g_1(r), g_2(r) \in [0, 2^{130}-6]$, hiệu $g_1(r) - g_2(r)$ trên số nguyên chỉ lệch so với $`(\text{Tag}_1 - \text{Tag}_2) \bmod 2^{128}`$ một bội số nhỏ của $`2^{128}`$. Đưa phương trình về trường nguyên tố $`\mathbb{F}_{2^{130}-5}`$:
 
 $$
 g_1(r) - g_2(r) - \big((\text{Tag}_1 - \text{Tag}_2) \bmod 2^{128} + k \cdot 2^{128}\big) \equiv 0 \pmod{2^{130}-5}, \quad k \in \{-4, -3, \dots, 4\}
