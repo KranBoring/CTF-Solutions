@@ -21,6 +21,7 @@ P \approx a \cdot \text{HW}(V) + b + \text{Noise}
 $$
 
   trong đó $\text{HW}(V)$ là trọng số Hamming (Hamming Weight - số bit 1 trong biểu diễn nhị phân của $V$).
+
 * **Hệ số tương quan Pearson (Pearson Correlation)**:
   Đây là 1 khái niệm mới và được ứng dụng rất nhiều trong tấn công SCA.
   Để đo lường mức độ tương quan tuyến tính giữa mô hình dự đoán lý thuyết $H$ và giá trị đo thực tế trên vết sóng $T$ tại điểm mẫu thời gian (sample) $j$:

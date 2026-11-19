@@ -13,7 +13,7 @@
 - [PicoCTF](./PicoCTF/README.md)
   - [Easy](./PicoCTF/Easy/README.md) (8/8)
   - [Medium](./PicoCTF/Medium/README.md) (43/45)
-  - [Hard](./PicoCTF/Hard/README.md) (13/30)
+  - [Hard](./PicoCTF/Hard/README.md) (22/30)
 - [Cyber-edu](./Cyber-edu/README.md)
   - Challenges
     - [Entry Level](./Cyber-edu/Challenges/Entry_Level/README.md) (1/1)

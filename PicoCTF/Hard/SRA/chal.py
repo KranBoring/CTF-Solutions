@@ -7,17 +7,17 @@ q = getPrime(128)
 p = getPrime(128)
 n = q * p
 e = 65537
-d = inverse(e, (q - 1) * (e - 1))
+d = inverse(e, (q - 1) * (p - 1))
 
-c = pow(bytes_to_long(m.encode()), d, n)
+c = pow(bytes_to_long(m.encode()), e, n)
 
 print(f"{c = }")
 print(f"{d = }")
 
 print("vainglory?")
-vainglory = input("> ").strip()
+m_usr = input("> ").strip()
 
-if vainglory == pride:
+if m_usr == m:
     print("Conquered!")
     with open("/challenge/flag.txt") as f:
         print(f.read())
