@@ -37,21 +37,21 @@ $$
 #### 4. Ý tưởng khai thác
 
 * Đây là 1 bài cơ bản về việc áp dụng ma trận chuyển chuyển trạng thái trên công thức truy hồi tuyến tính `(bạn nào học xích markov hồi cấp 3 thì sẽ có dễ hiểu hơn phương pháp giải của mình)`
-* Ta đặt vector $S_i$ là trạng thái tại nhịp thứ $i$: $S_i = \begin{bmatrix} f(i) \\ f(i - 1)\\ f(i - 2)\\ f(i - 3)\\\end{bmatrix}$
+* Ta đặt vector $S_i$ là trạng thái tại nhịp thứ $i$: $`S_i = \begin{bmatrix} f(i) \\ f(i - 1)\\ f(i - 2)\\ f(i - 3)\\\end{bmatrix}`$
 * Ta lập ma trận chuyển trạng thái $M$ sao cho:
 
 $$
 M \cdot S_{i - 1} = S_{i}
 $$
 
-* $S_{i - 1} = \begin{bmatrix} f(i - 1) \\ f(i - 2)\\ f(i - 3)\\ f(i - 4)\\\end{bmatrix}$
+* $`S_{i - 1} = \begin{bmatrix} f(i - 1) \\ f(i - 2)\\ f(i - 3)\\ f(i - 4)\\\end{bmatrix}`$
 * Khi đó, ma trận $M$ sẽ có dạng:
 
 $$
-M = \begin{bmatrix} 21 & 301 & -9549 & 55692 \\ 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0\\ 0 & 0 & 1 & 0\\\end{bmatrix}
+`M = \begin{bmatrix} 21 & 301 & -9549 & 55692 \\ 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0\\ 0 & 0 & 1 & 0\\\end{bmatrix}`
 $$
 
-* Vector trạng thái ban đầu $S_3 = \begin{bmatrix} f(3) \\ f(2)\\ f(1)\\ f(0) \\\end{bmatrix} = \begin{bmatrix} 4 \\ 3 \\ 2 \\ 1 \end{bmatrix}$
+* Vector trạng thái ban đầu $`S_3 = \begin{bmatrix} f(3) \\ f(2)\\ f(1)\\ f(0) \\\end{bmatrix} = \begin{bmatrix} 4 \\ 3 \\ 2 \\ 1 \end{bmatrix}`$
 * Khi đó: $S_i = M^{i - 3} \cdot S_3$
 
 > [!TIP]
@@ -60,7 +60,7 @@ $$
 #### 5. Exploit chain
 
 * Quy trình:
-  * Lập vector cơ sở $S_{base} = S_3 = \begin{bmatrix} 4 \\ 3 \\ 2 \\ 1 \end{bmatrix}$
+  * Lập vector cơ sở $`S_{base} = S_3 = \begin{bmatrix} 4 \\ 3 \\ 2 \\ 1 \end{bmatrix}`$
   * Lập ma trận chuyển trạng thái $M$
   * Tính vector $S_i = M^{i - 3} \cdot S_3$
   * Chạy chương trình để giải mã cờ
