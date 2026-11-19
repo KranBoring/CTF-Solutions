@@ -24,16 +24,16 @@
   2. **Mã hóa dữ liệu:** Chạy ChaCha20 từ $\text{Counter} = 1, 2, \dots$ để sinh dòng khóa `Keystream` và thực hiện $C = P \oplus \text{Keystream}$.
   3. **Đóng gói dữ liệu đầu vào Poly1305:** Nối các thành phần theo đúng thứ tự:
 
-     $$
-     \text{Data} = \text{AAD} \parallel \text{pad}_{16}(\text{AAD}) \parallel C \parallel \text{pad}_{16}(C) \parallel \text{len}_{64,\text{LE}}(\text{AAD}) \parallel \text{len}_{64,\text{LE}}(C)
-     $$
+$$
+\text{Data} = \text{AAD} \parallel \text{pad}_{16}(\text{AAD}) \parallel C \parallel \text{pad}_{16}(C) \parallel \text{len}_{64,\text{LE}}(\text{AAD}) \parallel \text{len}_{64,\text{LE}}(C)
+$$
 
      Cắt $\text{Data}$ thành từng khối 16 bytes, đọc theo *little-endian* rồi cộng thêm $2^{128}$ (`1 << 128`) vào mỗi khối để tạo thành dãy hệ số nguyên $c_1, c_2, \dots, c_n$.
   4. **Tính thẻ xác thực:** Đánh giá đa thức trên trường nguyên tố $\mathbb{F}_{2^{130}-5}$ rồi cộng mặt nạ $s$ theo modulo $2^{128}$:
 
-     $$
-     \text{Tag} = \Big(\big((c_1 r^n + c_2 r^{n-1} + \dots + c_n r) \bmod (2^{130}-5)\big) + s\Big) \bmod 2^{128}
-     $$
+$$
+\text{Tag} = \Big(\big((c_1 r^n + c_2 r^{n-1} + \dots + c_n r) \bmod (2^{130}-5)\big) + s\Big) \bmod 2^{128}
+$$
 
 #### 3. Phân tích lỗ hỗng
 
