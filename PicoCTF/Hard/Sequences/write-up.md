@@ -48,7 +48,7 @@ $$
 * Khi đó, ma trận $M$ sẽ có dạng:
 
 $$
-`M = \begin{bmatrix} 21 & 301 & -9549 & 55692 \\ 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0\\ 0 & 0 & 1 & 0\\\end{bmatrix}`
+`M = \begin{bmatrix} 21 & 301 & -9549 & 55692 \\ 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0\\ 0 & 0 & 1 & 0\\ \end{bmatrix}`
 $$
 
 * Vector trạng thái ban đầu $`S_3 = \begin{bmatrix} f(3) \\ f(2)\\ f(1)\\ f(0) \\\end{bmatrix} = \begin{bmatrix} 4 \\ 3 \\ 2 \\ 1 \end{bmatrix}`$
