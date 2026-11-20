@@ -36,7 +36,7 @@ $$
 \text{salt} \parallel \text{old\\\_data} \parallel \text{padding} \parallel \text{append\\\_data}
 $$
 
-* ![1795145744531](image/write-up/1795145744531.png)
+* ![1795145744531](image/write-up/1795145744531.png)![1795165755623](image/write-up/1795165755623.png)
 * Khi gửi payload dạng ký tự thoát ASCII (`[\x80\x00..., 1]`), server giải mã qua `.decode('unicode_escape')` và `.encode('latin-1')` để khôi phục nguyên vẹn các byte padding nhị phân cho hàm băm; đồng thời hàm `parse_vector` chỉ giữ lại các ký tự trong whitelist `'0123456789,[]'` trước khi gọi `ast.literal_eval()`, giúp loại bỏ hoàn toàn các byte padding khỏi danh sách số nguyên đem đi tính tích vô hướng.
 
 #### 4. Ý tưởng khai thác / Exploit Chain
