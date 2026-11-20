@@ -1,6 +1,6 @@
 # Secure Dot Product
 
-#### Category: Cryptography - Difficulty: Hard - Ngày viết: 11/19/2026
+#### Category: Cryptography - Difficulty: Hard - Ngày viết: 11/20/2026
 
 #### 1. Overview
 
