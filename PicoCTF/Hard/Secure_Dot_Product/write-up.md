@@ -13,7 +13,7 @@
 
 * Cần có mã nguồn hỗ trợ length extension attack trên sha512, hiểu cách hoạt động, lỗ hỗng và cách khai thác length extension trên các hàm băm họ sha
 * Đọc hiểu luồng python của server
-* Cơ chế truyền byte nhị phân qua kênh văn bản (`unicode_escape` $ \leftrightarrow$ `latin-1`):
+* Cơ chế truyền byte nhị phân qua kênh văn bản trong bài này:
 
   * **Vấn đề khi gửi dữ liệu thô:** Khối padding của SHA-512 chứa các byte nằm ngoài bảng mã ASCII như `\x80` (`128`), `\x00` (`0`), hoặc vô tình trùng byte xuống dòng `\x0a` (`10`). Nếu gửi thẳng các byte này qua socket, hàm `input()` phía server (mặc định giải mã theo `utf-8` và ngắt dòng tại `\x0a`) sẽ văng lỗi `UnicodeDecodeError` hoặc cắt ngang payload.
   * **Chiều gửi — Đóng gói thành chuỗi thoát (Escape sequence):** Ở client, `str(new_vector)[2:-1]` biến mỗi byte không in được thành cụm **4 ký tự ASCII rời rạc** (ví dụ 1 byte `0x80` trở thành 4 ký tự `'\\'`, `'x'`, `'8'`, `'0'`). Toàn bộ chuỗi gửi đi lúc này chỉ gồm ký tự bàn phím thông thường nên đi qua `input()` an toàn.
@@ -27,13 +27,13 @@
 * Mã xác thực được tính bằng cách ghép thẳng `salt` ngẫu nhiên dài 256 bytes vào trước chuỗi biểu diễn vector (đã cắt bỏ hai dấu ngoặc vuông `[` và `]`):
 
 $$
-\text{Hash} = \text{SHA512}(\text{salt} \parallel \text{vector\_encoding})
+`\text{Hash} = \text{SHA512}(\text{salt} \parallel \text{vector\_encoding})`
 $$
 
 * Vì sử dụng SHA-512 thô theo cấu trúc Merkle–Damgård thay vì HMAC, ta có thể thực hiện **Hash Length Extension Attack** từ một `trusted_vector` có sẵn để tạo chữ ký hợp lệ cho dữ liệu mở rộng có cấu trúc đầu vào băm là:
 
 $$
-\text{salt} \parallel \text{old\_data} \parallel \text{padding} \parallel \text{append\_data}
+`\text{salt} \parallel \text{old\_data} \parallel \text{padding} \parallel \text{append\_data}`
 $$
 
 * ![1795145744531](image/write-up/1795145744531.png)
