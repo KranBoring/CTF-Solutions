@@ -2,7 +2,7 @@
 
 | Challenge | Write-up |
 | --- | --- |
-| [Secure Dot Product](https://learn.cylabacademy.org/library/728?page=5&category=2) | Chưa có write-up |
+| [Secure Dot Product](https://learn.cylabacademy.org/library/728?page=5&category=2) | [Đọc write-up](Secure_Dot_Product/write-up.md) |
 | [MSS_ADVANCE Revenge](https://learn.cylabacademy.org/library?page=5&category=2) | Chưa có write-up |
 | [Ricochet](https://learn.cylabacademy.org/library?page=5&category=2) | Chưa có write-up |
 | [ChaCha Slide](https://learn.cylabacademy.org/library?page=5&category=2) | [Đọc write-up](ChaCha_Slide/write-up.md) |
