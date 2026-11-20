@@ -27,13 +27,13 @@
 * Mã xác thực được tính bằng cách ghép thẳng `salt` ngẫu nhiên dài 256 bytes vào trước chuỗi biểu diễn vector (đã cắt bỏ hai dấu ngoặc vuông `[` và `]`):
 
 $$
-`\text{Hash} = \text{SHA512}(\text{salt} \parallel \text{vector\_encoding})`
+\text{Hash} = \text{SHA512}(\text{salt} \parallel \text{vector\\\_encoding})
 $$
 
 * Vì sử dụng SHA-512 thô theo cấu trúc Merkle–Damgård thay vì HMAC, ta có thể thực hiện **Hash Length Extension Attack** từ một `trusted_vector` có sẵn để tạo chữ ký hợp lệ cho dữ liệu mở rộng có cấu trúc đầu vào băm là:
 
 $$
-`\text{salt} \parallel \text{old\_data} \parallel \text{padding} \parallel \text{append\_data}`
+\text{salt} \parallel \text{old\\\_data} \parallel \text{padding} \parallel \text{append\\\_data}
 $$
 
 * ![1795145744531](image/write-up/1795145744531.png)
